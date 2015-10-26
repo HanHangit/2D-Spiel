@@ -20,10 +20,11 @@ namespace Test
                 window.Clear(new Color(0,128,0,0));
                 window.Display();
                 window.DispatchEvents();
-                RectangleShape rechteck = new RectangleShape();
+                RectangleShape rechteck = new RectangleShape(new Vector2f(320, 320));
+                window.Draw(rechteck);
                 rechteck.Position = new Vector2f(12, 12);
-                rechteck.Size = new Vector2f(320, 320);
-                rechteck.FillColor = new Color(0, 0, 255,0);              
+                rechteck.FillColor = new Color(0, 0, 255);
+                              
             }
         }
     }
