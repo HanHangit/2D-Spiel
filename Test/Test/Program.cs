@@ -38,47 +38,80 @@ namespace Test
             while (window.IsOpen())
             {
                 window.Clear(new Color(0,0,0,0));
+
+                linie = new Vector2f(kreis.Position.X - rechteck.Position.X, kreis.Position.Y - rechteck.Position.Y);
+                liniex = System.Convert.ToDouble(linie.X);
+                liniey = System.Convert.ToDouble(linie.Y);
+                abstand = System.Convert.ToSingle(Math.Sqrt(Math.Pow(liniex, 2) + Math.Pow(liniey, 2)));
+
                 kreis.Position = new Vector2f(a, b);
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && kreis.Position.X > kreis.Radius)
                 {
-                    a -= 0.1f;
-                    kreis.Rotation -= 0.1f;
+                    if(abstand>100 || kreis.Position.X <= rechteck.Position.X)
+                    {
+                        a -= 0.1f;
+                        kreis.Rotation -= 0.1f;
+                    }
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && kreis.Position.X < window.Size.X - kreis.Radius)
                 {
-                    a += 0.1f;
-                    kreis.Rotation += 0.1f;
+                    if(abstand>100 || kreis.Position.X >= rechteck.Position.X)
+                    {
+                        a += 0.1f;
+                        kreis.Rotation += 0.1f;
+                    }
+                    
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && kreis.Position.Y < window.Size.Y - kreis.Radius)
                 {
-                    b += 0.1f;
-                    kreis.Rotation += 0.1f;
+                    if(abstand>100 || kreis.Position.Y >= rechteck.Position.Y)
+                    {
+                        b += 0.1f;
+                        kreis.Rotation += 0.1f;
+                    }
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && kreis.Position.Y > kreis.Radius)
                 {
-                    b -= 0.1f;
-                    kreis.Rotation -= 0.1f;
+                    if(abstand>100 || kreis.Position.Y <= rechteck.Position.Y)
+                    {
+                        b -= 0.1f;
+                        kreis.Rotation -= 0.1f;
+                    }
                 }
 
+                linie = new Vector2f(kreis.Position.X - rechteck.Position.X, kreis.Position.Y - rechteck.Position.Y);
+                liniex = System.Convert.ToDouble(linie.X);
+                liniey = System.Convert.ToDouble(linie.Y);
+                abstand = System.Convert.ToSingle(Math.Sqrt(Math.Pow(liniex, 2) + Math.Pow(liniey, 2)));
 
                 rechteck.Position = new Vector2f(c, d);
                 if (Keyboard.IsKeyPressed(Keyboard.Key.A) && rechteck.Position.X > rechteck.Radius)
                 {
-                    c -= 0.1f;
-                    rechteck.Rotation -= 0.1f;
+                    if(abstand>100 || rechteck.Position.X <= kreis.Position.X)
+                    {
+                        c -= 0.1f;
+                        rechteck.Rotation -= 0.1f;
+                    }
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.D) && rechteck.Position.X < window.Size.X - rechteck.Radius)
                 {
-                    c += 0.1f;
-                    rechteck.Rotation += 0.1f;
+                    if(abstand>100 || rechteck.Position.X >= kreis.Position.X)
+                    {
+                        c += 0.1f;
+                        rechteck.Rotation += 0.1f;
+                    }
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.S) && rechteck.Position.Y < window.Size.Y - rechteck.Radius)
                 {
-                    d += 0.1f;
-                    rechteck.Rotation += 0.1f;
+                    if(abstand>100 || rechteck.Position.Y >= kreis.Position.Y)
+                    {
+                        d += 0.1f;
+                        rechteck.Rotation += 0.1f;
+                    }
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.W) && rechteck.Position.Y > rechteck.Radius)
                 {
+                    if(abstand>100 || rechteck.Position.Y<=kreis.Position.Y)
                     d -= 0.1f;
                     rechteck.Rotation -= 0.1f;
                 }
