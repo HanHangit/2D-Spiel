@@ -12,3 +12,14 @@ c:\users\hanhan\documents\visual studio 2015\Projects\Test\Test\bin\Debug\sfmlne
 c:\users\hanhan\documents\visual studio 2015\Projects\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 c:\users\hanhan\documents\visual studio 2015\Projects\Test\Test\obj\Debug\Test.exe
 c:\users\hanhan\documents\visual studio 2015\Projects\Test\Test\obj\Debug\Test.pdb
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\Test.exe.config
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\obj\Debug\Test.exe
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\obj\Debug\Test.pdb
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\csfml-audio-2.dll
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\csfml-graphics-2.dll
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\csfml-window-2.dll
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\libsndfile-1.dll
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\openal32.dll
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\Test.exe
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\Test.pdb
