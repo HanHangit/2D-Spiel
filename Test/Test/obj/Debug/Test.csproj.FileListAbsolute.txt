@@ -34,3 +34,14 @@ C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\openal32.dll
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Test.exe
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Test.pdb
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.exe.config
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\obj\Debug\Test.exe
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\obj\Debug\Test.pdb
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\csfml-audio-2.dll
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\csfml-graphics-2.dll
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\csfml-window-2.dll
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\libsndfile-1.dll
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\openal32.dll
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.exe
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.pdb
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
