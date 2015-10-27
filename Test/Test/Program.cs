@@ -15,21 +15,30 @@ namespace Test
         {
             RenderWindow window = new RenderWindow(new VideoMode(800, 600), "The Bug Bang Theory");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-                RectangleShape rechteck = new RectangleShape(new Vector2f(320, 320));
-                rechteck.Position = new Vector2f(50, 12);
-                rechteck.FillColor = new Color(0, 0, 255);
 
-            CircleShape kreis = new CircleShape(50,8);
+
+            CircleShape rechteck = new CircleShape(50,3);
+            rechteck.Position = new Vector2f(50, 12);
+            rechteck.Origin = new Vector2f(rechteck.Radius, rechteck.Radius);
+            rechteck.FillColor = new Color(0, 0, 255);
+
+            CircleShape kreis = new CircleShape(50,6);
             kreis.Position = new Vector2f(200, 200);
             kreis.Origin = new Vector2f(kreis.Radius,kreis.Radius);
             kreis.FillColor = new Color(255, 0, 0);
-            float a, c;
-            a = c = 250f;
+            float a, b,c,d;
+            a = b = 250f;
+            c = d = 150f;
+            Vector2f linie = new Vector2f(kreis.Position.X - rechteck.Position.X, kreis.Position.Y - rechteck.Position.Y);
+            double liniex, liniey;
+            liniex = System.Convert.ToDouble(linie.X);
+            liniey = System.Convert.ToDouble(linie.Y);
+            float abstand = System.Convert.ToSingle(Math.Sqrt(Math.Pow(liniex, 2) + Math.Pow(liniey, 2)));
                 
             while (window.IsOpen())
             {
-                window.Clear(new Color(0,128,0,0));
-                kreis.Position = new Vector2f(a, c);
+                window.Clear(new Color(0,0,0,0));
+                kreis.Position = new Vector2f(a, b);
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && kreis.Position.X > kreis.Radius)
                 {
                     a -= 0.1f;
@@ -42,13 +51,36 @@ namespace Test
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && kreis.Position.Y < window.Size.Y - kreis.Radius)
                 {
-                    c += 0.1f;
+                    b += 0.1f;
                     kreis.Rotation += 0.1f;
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && kreis.Position.Y > kreis.Radius)
                 {
-                    c -= 0.1f;
+                    b -= 0.1f;
                     kreis.Rotation -= 0.1f;
+                }
+
+
+                rechteck.Position = new Vector2f(c, d);
+                if (Keyboard.IsKeyPressed(Keyboard.Key.A) && rechteck.Position.X > rechteck.Radius)
+                {
+                    c -= 0.1f;
+                    rechteck.Rotation -= 0.1f;
+                }
+                if (Keyboard.IsKeyPressed(Keyboard.Key.D) && rechteck.Position.X < window.Size.X - rechteck.Radius)
+                {
+                    c += 0.1f;
+                    rechteck.Rotation += 0.1f;
+                }
+                if (Keyboard.IsKeyPressed(Keyboard.Key.S) && rechteck.Position.Y < window.Size.Y - rechteck.Radius)
+                {
+                    d += 0.1f;
+                    rechteck.Rotation += 0.1f;
+                }
+                if (Keyboard.IsKeyPressed(Keyboard.Key.W) && rechteck.Position.Y > rechteck.Radius)
+                {
+                    d -= 0.1f;
+                    rechteck.Rotation -= 0.1f;
                 }
 
 
