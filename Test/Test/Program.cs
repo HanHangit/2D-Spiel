@@ -13,7 +13,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LOL");
+            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
 
 
