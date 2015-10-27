@@ -30,16 +30,27 @@ namespace Test
             {
                 window.Clear(new Color(0,128,0,0));
                 kreis.Position = new Vector2f(a, c);
-                if(Keyboard.IsKeyPressed(Keyboard.Key.Left) && kreis.Position.X > kreis.Radius)
-                a -= 0.1f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && kreis.Position.X > kreis.Radius)
+                {
+                    a -= 0.1f;
+                    kreis.Rotation -= 0.1f;
+                }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && kreis.Position.X < window.Size.X - kreis.Radius)
-                a += 0.1f;
+                {
+                    a += 0.1f;
+                    kreis.Rotation += 0.1f;
+                }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && kreis.Position.Y < window.Size.Y - kreis.Radius)
-                c += 0.1f;
+                {
+                    c += 0.1f;
+                    kreis.Rotation += 0.1f;
+                }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && kreis.Position.Y > kreis.Radius)
-                c -= 0.1f;
+                {
+                    c -= 0.1f;
+                    kreis.Rotation -= 0.1f;
+                }
 
-                kreis.Rotation = kreis.Position.X;
 
                 window.Draw(rechteck);
                 window.Draw(kreis);
