@@ -19,7 +19,7 @@ namespace Test
                 rechteck.Position = new Vector2f(50, 12);
                 rechteck.FillColor = new Color(0, 0, 255);
 
-            CircleShape kreis = new CircleShape(50);
+            CircleShape kreis = new CircleShape(50,8);
             kreis.Position = new Vector2f(200, 200);
             kreis.Origin = new Vector2f(kreis.Radius,kreis.Radius);
             kreis.FillColor = new Color(255, 0, 0);
@@ -38,6 +38,8 @@ namespace Test
                 c += 0.1f;
                 if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && kreis.Position.Y > kreis.Radius)
                 c -= 0.1f;
+
+                kreis.Rotation = kreis.Position.X;
 
                 window.Draw(rechteck);
                 window.Draw(kreis);
