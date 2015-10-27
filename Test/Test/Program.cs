@@ -21,6 +21,7 @@ namespace Test
 
             CircleShape kreis = new CircleShape(50);
             kreis.Position = new Vector2f(200, 200);
+            kreis.Origin = new Vector2f(kreis.Radius,kreis.Radius);
             kreis.FillColor = new Color(255, 0, 0);
             float a, c;
             a = c = 250f;
@@ -29,14 +30,14 @@ namespace Test
             {
                 window.Clear(new Color(0,128,0,0));
                 kreis.Position = new Vector2f(a, c);
-                if(Keyboard.IsKeyPressed(Keyboard.Key.Left))
-                a -= 0.04f;
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
-                a += 0.04f;
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                c += 0.04f;
-                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
-                c -= 0.04f;
+                if(Keyboard.IsKeyPressed(Keyboard.Key.Left) && kreis.Position.X > kreis.Radius)
+                a -= 0.1f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && kreis.Position.X < window.Size.X - kreis.Radius)
+                a += 0.1f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && kreis.Position.Y < window.Size.Y - kreis.Radius)
+                c += 0.1f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && kreis.Position.Y > kreis.Radius)
+                c -= 0.1f;
 
                 window.Draw(rechteck);
                 window.Draw(kreis);
