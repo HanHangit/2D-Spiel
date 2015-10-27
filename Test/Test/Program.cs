@@ -30,10 +30,14 @@ namespace Test
                 window.Clear(new Color(0,128,0,0));
                 kreis.Position = new Vector2f(a, c);
                 if(Keyboard.IsKeyPressed(Keyboard.Key.Left))
-                a += 0.01f;
-                if(Keyboard.IsKeyPressed(Keyboard.Key.Down))
-                c += 0.01f;
-                
+                a -= 0.04f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
+                a += 0.04f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                c += 0.04f;
+                if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
+                c -= 0.04f;
+
                 window.Draw(rechteck);
                 window.Draw(kreis);
                
