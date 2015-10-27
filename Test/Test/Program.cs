@@ -22,12 +22,17 @@ namespace Test
             CircleShape kreis = new CircleShape(50);
             kreis.Position = new Vector2f(200, 200);
             kreis.FillColor = new Color(255, 0, 0);
-
+            float a, c;
+            a = c = 250f;
                 
             while (window.IsOpen())
             {
                 window.Clear(new Color(0,128,0,0));
-                
+                kreis.Position = new Vector2f(a, c);
+                if(Keyboard.IsKeyPressed(Keyboard.Key.Left))
+                a += 0.01f;
+                if(Keyboard.IsKeyPressed(Keyboard.Key.Down))
+                c += 0.01f;
                 
                 window.Draw(rechteck);
                 window.Draw(kreis);
