@@ -12,5 +12,6 @@ public class Class1
 	public Class1()
 	{
         int i = 10;
+        int a = 30;
 	}
 }
