@@ -124,8 +124,10 @@ namespace Test
                 window.Draw(rechteck);
                 window.Draw(kreis);
                 player.Draw(window);
+                player.Move(kreis.Position, player.position());
                 window.Display();
                 window.DispatchEvents();
+               
 
             }
         }
