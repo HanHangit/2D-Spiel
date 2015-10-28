@@ -15,7 +15,7 @@ namespace Test
         {
             RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-
+            int i = 10;
 
             CircleShape rechteck = new CircleShape(50,3);
             rechteck.Position = new Vector2f(50, 12);
