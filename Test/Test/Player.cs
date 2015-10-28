@@ -43,8 +43,12 @@ namespace Test
 
         public void Move(Vector2f kreis, Vector2f cookie)
         {
-
+            if(collision(kreis,cookie))
             sprite.Position -= (direction(kreis,cookie) / abstand(direction(kreis,cookie))) / 15f;
+        }
+
+        public bool collision(Vector2f a, Vector2f b)
+        {
         }
     }
 }
