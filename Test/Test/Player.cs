@@ -49,7 +49,10 @@ namespace Test
 
         public bool collision(Vector2f a, Vector2f b)
         {
-            return true;
+            if (abstand(direction(a, b)) >= 70)
+                return true;
+            else
+                return false;
         }
     }
 }
