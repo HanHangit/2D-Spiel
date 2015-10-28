@@ -111,9 +111,12 @@ namespace Test
                 }
                 if (Keyboard.IsKeyPressed(Keyboard.Key.W) && rechteck.Position.Y > rechteck.Radius)
                 {
-                    if(abstand>100 || rechteck.Position.Y<=kreis.Position.Y)
-                    d -= 0.1f;
-                    rechteck.Rotation -= 0.1f;
+                    if(abstand>100 || rechteck.Position.Y <= kreis.Position.Y)
+                    {
+                        d -= 0.1f;
+                        rechteck.Rotation -= 0.1f;
+                    }
+                    
                 }
 
 
