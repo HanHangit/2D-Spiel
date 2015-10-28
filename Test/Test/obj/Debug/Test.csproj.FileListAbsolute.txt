@@ -46,3 +46,4 @@ C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.exe
 C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.pdb
 C:\Users\Akira\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie2.png
+C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie.gif

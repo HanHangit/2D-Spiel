@@ -16,7 +16,7 @@ namespace Test
 
         public Player()
         {
-            textur = new Texture("Cookie2.png");
+            textur = new Texture("Cookie.gif");
             sprite = new Sprite(textur);
             sprite.Origin = new Vector2f (textur.Size.X / 2, textur.Size.Y / 2);
         }
@@ -49,6 +49,7 @@ namespace Test
 
         public bool collision(Vector2f a, Vector2f b)
         {
+            return true;
         }
     }
 }
