@@ -13,6 +13,7 @@ namespace Test
     {
         Texture textur;
         Sprite sprite;
+        float a = 0.1f; //Bewegungsgeschwindigkeit
 
         public Player()
         {
@@ -23,8 +24,7 @@ namespace Test
 
         public Vector2f position()
         {
-            return sprite.Position;
-            
+            return sprite.Position;          
         }
         public void Draw(RenderWindow window)
         {
@@ -41,18 +41,42 @@ namespace Test
             return System.Convert.ToSingle(Math.Sqrt(Math.Pow(dir.X, 2) + Math.Pow(dir.Y, 2)));
         }
 
-        public void Move(Vector2f kreis, Vector2f cookie)
+        public bool collision()
         {
-            if(collision(kreis,cookie))
-            sprite.Position -= (direction(kreis,cookie) / abstand(direction(kreis,cookie))) / 15f;
+            return true;
         }
 
-        public bool collision(Vector2f a, Vector2f b)
+        public void move(Vector2u window)
         {
-            if (abstand(direction(a, b)) >= 70)
-                return true;
-            else
-                return false;
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && sprite.Position.X > sprite.Origin.X)
+            {
+                if (collision())
+                {
+                    sprite.Position += new Vector2f(-a, 0);
+                }
+            }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && sprite.Position.X < window.X - sprite.Origin.X)
+            {
+                if (collision())
+                {
+                    sprite.Position += new Vector2f(a, 0);
+                }
+
+            }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Down) && sprite.Position.Y < window.Y - sprite.Origin.Y)
+            {
+                if (collision())
+                {
+                    sprite.Position += new Vector2f(0, a);
+                }
+            }
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Up) && sprite.Position.Y > sprite.Origin.Y)
+            {
+                if (collision())
+                {
+                    sprite.Position += new Vector2f(0, -a);
+                }
+            }
         }
     }
 }

@@ -47,3 +47,5 @@ C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Test.pdb
 C:\Users\Akira\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie.gif
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie.gif
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\geist.gif
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.gif
