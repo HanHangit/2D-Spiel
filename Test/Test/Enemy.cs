@@ -23,6 +23,11 @@ namespace Test
             sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
         }
 
+        public Vector2f move(Vector2f punkt1, Vector2f punkt2, float geschwindigkeit)
+        {
+            return (direction(punkt1, punkt2) / abstand(direction(punkt1, punkt2))) / geschwindigkeit;
+        }
+
         public Vector2f position()
         {
             return sprite.Position;
@@ -33,10 +38,10 @@ namespace Test
             sprite.Position = pos;
         }
 
-        public void verfolgen(Vector2f kreis, Vector2f cookie)
+        public void verfolgen(Vector2f objekt1, Vector2f objekt2,float geschwindigkeit)
         {
-            if (collision(kreis, cookie))
-                sprite.Position -= (direction(kreis, cookie) / abstand(direction(kreis, cookie))) / 15f;
+            if (collision(objekt1, objekt2))
+                sprite.Position += move(objekt1,objekt2,geschwindigkeit);
         }
 
         public float abstand(Vector2f dir)
@@ -60,7 +65,7 @@ namespace Test
 
         public Vector2f direction(Vector2f a, Vector2f b)
         {
-            return a - b;
+            return b - a;
         }
 
         public void draw(RenderWindow window)
