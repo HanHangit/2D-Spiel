@@ -33,11 +33,13 @@ namespace Test
                 
                 window.Clear(new Color(0,0,0,0));
                 geist1.draw(window);
-                geist1.verfolgen(geist1.position(), player.position(),10f);
+                geist1.verfolgen(geist1.position(), player.position(),5f);
                 geist2.draw(window);
+                geist2.verfolgen(geist2.position(), geist1.position(), 5f);
                 geist3.draw(window);
+                geist3.verfolgen(geist3.position(), geist2.position(), 5f);
                 tofu.draw(window);
-                tofu.verfolgen(tofu.position(), player.position(),15f);
+                tofu.verfolgen(tofu.position(), geist3.position(),20f);
                 player.Draw(window);
                 player.move(window.Size);
                 window.Display();
