@@ -13,16 +13,20 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Player player  = new Player();
-            Enemy geist1 = new Enemy("Geist");
-            Enemy tofu = new Enemy("Tofu");
-            Enemy geist2 = new Enemy("Geist");
-            Enemy geist3 = new Enemy("Geist");
-            tofu.setposition(new Vector2f(500, 500));
+            
+            int anzahlgeist = 5;
+            Enemy[] geist = new Enemy[5];
+            for(int i = 0; i < anzahlgeist; ++i)
+            geist[i] = new Enemy("Geist");
 
-            geist1.setposition(new Vector2f(200, 200));
-            geist2.setposition(new Vector2f(300, 300));
-            geist3.setposition(new Vector2f(400, 400));
+           
+            Player player  = new Player();
+
+                
+            Enemy tofu = new Enemy("Tofu");
+            tofu.setposition(new Vector2f(500, 500));
+            geist[2].setposition(new Vector2f(300, 300));
+            geist[3].setposition(new Vector2f(400, 400));
 
             RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
@@ -32,14 +36,13 @@ namespace Test
 
                 
                 window.Clear(new Color(0,0,0,0));
-                geist1.draw(window);
-                geist1.verfolgen(geist1.position(), player.position(),5f);
-                geist2.draw(window);
-                geist2.verfolgen(geist2.position(), geist1.position(), 5f);
-                geist3.draw(window);
-                geist3.verfolgen(geist3.position(), geist2.position(), 5f);
+                for (int i = 0; i < anzahlgeist; ++i)
+                    geist[i].draw(window);
+                geist[1].verfolgen(geist[1].position(), player.position(),13f);
+                geist[2].verfolgen(geist[2].position(), geist[1].position(), 14f);
+                geist[3].verfolgen(geist[3].position(), geist[2].position(), 15f);
                 tofu.draw(window);
-                tofu.verfolgen(tofu.position(), geist3.position(),20f);
+                tofu.verfolgen(tofu.position(), geist[3].position(),20f);
                 player.Draw(window);
                 player.move(window.Size);
                 window.Display();
