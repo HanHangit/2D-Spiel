@@ -13,7 +13,7 @@ namespace Test
     {
         Texture textur;
         Sprite sprite;
-        float a = 0.1f; //Bewegungsgeschwindigkeit
+        float a = 0.5f; //Bewegungsgeschwindigkeit
 
         public Player()
         {
