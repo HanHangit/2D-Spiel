@@ -16,9 +16,9 @@ namespace Test
         public Enemy(String auswahl)
         {
             if(auswahl == "Geist")
-                textur = new Texture("Geist.gif");
+                textur = new Texture("geist.png");
             if (auswahl == "Tofu")
-                textur = new Texture("Tofu.gif");
+                textur = new Texture("tofu.png");
             sprite = new Sprite(textur);
             sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
         }
