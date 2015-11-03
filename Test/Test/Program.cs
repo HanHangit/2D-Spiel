@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SFML;
 using SFML.Window;
 using SFML.Graphics;
+using System.Diagnostics;
 
 namespace Test
 {
@@ -31,9 +32,15 @@ namespace Test
 
             RenderWindow window = new RenderWindow(new VideoMode(1600, 900), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-                
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            TimeSpan time = new TimeSpan();
+            int dt = 0;
+            
             while (window.IsOpen())
             {
+
+                
 
                 
                 window.Clear(Color.Magenta);
@@ -54,8 +61,19 @@ namespace Test
                 //hinher.draw(window);
                 window.Display();
                 window.DispatchEvents();
-               
+                dt += 1;
 
+
+                if (dt >= 60)
+                {
+                    time = timer.Elapsed;
+                    Console.WriteLine(time.Milliseconds);
+                    
+                    timer.Restart();
+                    dt = 0;
+                }
+
+                
             }
         }
     }

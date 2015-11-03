@@ -69,3 +69,6 @@ C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssem
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\cookie.png
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\geist.png
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\cookie.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\geist.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.png
