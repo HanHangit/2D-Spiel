@@ -66,3 +66,4 @@ C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.gif
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Test.exe
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Test.pdb
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\cookie.png

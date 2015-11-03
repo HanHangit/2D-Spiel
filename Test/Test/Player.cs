@@ -17,7 +17,7 @@ namespace Test
 
         public Player()
         {
-            textur = new Texture("Cookie.gif");
+            textur = new Texture("cookie.png");
             sprite = new Sprite(textur);
             sprite.Origin = new Vector2f (textur.Size.X / 2, textur.Size.Y / 2);
         }
@@ -46,8 +46,13 @@ namespace Test
             return true;
         }
 
+ 
+
         public void move(Vector2u window)
         {
+
+           
+
             if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && sprite.Position.X > sprite.Origin.X)
             {
                 if (collision())

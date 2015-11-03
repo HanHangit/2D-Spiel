@@ -14,7 +14,7 @@ namespace Test
         static void Main(string[] args)
         {
             
-            int anzahlgeist = 10;
+            int anzahlgeist = 50;
             Enemy[] geist = new Enemy[anzahlgeist];
             for(int i = 0; i < anzahlgeist; ++i)
             geist[i] = new Enemy("Geist");
@@ -29,14 +29,14 @@ namespace Test
             Enemy tofu = new Enemy("Tofu");
             tofu.setposition(new Vector2f(500, 500));
 
-            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
+            RenderWindow window = new RenderWindow(new VideoMode(1600, 900), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
                 
             while (window.IsOpen())
             {
 
                 
-                window.Clear(new Color(0,0,0,0));
+                window.Clear(Color.Magenta);
                 for (int i = 0; i < anzahlgeist; ++i)
                 {
                     geist[i].draw(window);
