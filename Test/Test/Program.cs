@@ -36,7 +36,7 @@ namespace Test
             {
 
                 
-                window.Clear(Color.Magenta);
+                window.Clear(Color.Cyan);
                 for (int i = 0; i < anzahlgeist; ++i)
                 {
                     geist[i].draw(window);
