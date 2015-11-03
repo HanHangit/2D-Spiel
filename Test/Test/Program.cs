@@ -26,7 +26,7 @@ namespace Test
             Enemy tofu = new Enemy("Tofu");
             tofu.setposition(new Vector2f(500, 500));
 
-            RenderWindow window = new RenderWindow(new VideoMode(1200, 800), "LoL");
+            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
                 
             while (window.IsOpen())
