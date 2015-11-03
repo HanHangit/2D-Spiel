@@ -19,6 +19,9 @@ namespace Test
             for(int i = 0; i < anzahlgeist; ++i)
             geist[i] = new Enemy("Geist");
 
+            //Enemy hinher = new Enemy("Geist");
+            //hinher.setposition(new Vector2f(500,500));
+
            
             Player player  = new Player();
 
@@ -47,6 +50,8 @@ namespace Test
                 tofu.verfolgen(tofu.position(), geist[anzahlgeist - 1].position(),2f);
                 player.Draw(window);
                 player.move(window.Size);
+                //hinher.pendeln(new Vector2f(500, 500), new Vector2f(700, 500), 2f);
+                //hinher.draw(window);
                 window.Display();
                 window.DispatchEvents();
                

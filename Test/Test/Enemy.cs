@@ -72,5 +72,22 @@ namespace Test
         {
             window.Draw(sprite);
         }
+
+        /*public Vector2f pendeln(Vector2f start, Vector2f ziel, float geschwindigkeit)
+        {
+            while (true)
+            {
+                do
+                {
+                    this.move(start, ziel, geschwindigkeit);
+                }while (this.position().X<ziel.X) ;
+
+                do
+                {
+                    this.move(ziel, start, geschwindigkeit);
+                } while (this.position().X > start.X);
+            }
+        }
+        */
     }
 }

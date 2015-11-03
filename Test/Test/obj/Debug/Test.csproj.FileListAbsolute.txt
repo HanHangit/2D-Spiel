@@ -49,3 +49,6 @@ C:\Users\Akira\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie.gif
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Cookie.gif
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\geist.gif
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.gif
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\geist.gif
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\tofu.gif
+C:\Users\Felix\Pictures\2D-Spiel\Test\Test\bin\Debug\Cookie.gif
