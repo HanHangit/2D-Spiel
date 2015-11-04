@@ -15,7 +15,7 @@ namespace Test
         static void Main(string[] args)
         {
             
-            int anzahlgeist = 50;
+            int anzahlgeist = 15;
             Enemy[] geist = new Enemy[anzahlgeist];
             for(int i = 0; i < anzahlgeist; ++i)
             geist[i] = new Enemy("Geist");
@@ -26,23 +26,19 @@ namespace Test
            
             Player player  = new Player("Tofu");
 
-                
-            Enemy tofu = new Enemy("Geist");
-            tofu.setposition(new Vector2f(500, 500));
-
             RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
 
+
+            //Timer
             Stopwatch timer = new Stopwatch();
             Stopwatch frametimegeist = new Stopwatch();
             Stopwatch frametimeplayer = new Stopwatch();
             TimeSpan time = new TimeSpan();
-            int dt = 0;
-
-
             timer.Start();
             frametimegeist.Start();
             frametimeplayer.Start();
+            window.SetFramerateLimit(200);
 
 
             while (window.IsOpen())
@@ -52,20 +48,17 @@ namespace Test
                 {
                     geist[i].draw(window);
                 }
-                geist[0].verfolgen(geist[0].position(), player.position(),2f);
+                geist[0].verfolgen(geist[0].position(), player.position(),0.2f * time.Milliseconds);
                 for (int i = 1; i < anzahlgeist; ++i)
                 {
-                    geist[i].verfolgen(geist[i].position(), geist[i - 1].position(), 2f);
+                    geist[i].verfolgen(geist[i].position(), geist[i - 1].position(), 0.2f * time.Milliseconds);
                 }
-                tofu.draw(window);
-                tofu.verfolgen(tofu.position(), geist[anzahlgeist - 1].position(),2f);
                 player.Draw(window);
-                player.move(window.Size);
+                player.move(window.Size, 0.3f * time.Milliseconds);
                 //hinher.pendeln(new Vector2f(500, 500), new Vector2f(700, 500), 2f);
                 //hinher.draw(window);
                 window.Display();
                 window.DispatchEvents();
-                dt += 1;
 
                 if (frametimegeist.Elapsed.Milliseconds >= 500)
                 {
@@ -82,15 +75,9 @@ namespace Test
                     frametimeplayer.Restart();
                 }
 
-
-                if (dt >= 60)
-                {
-                    time = timer.Elapsed;
-                    Console.WriteLine(time.Milliseconds);
-                    
-                    timer.Restart();
-                    dt = 0;
-                }
+                
+                time = timer.Elapsed;
+                timer.Restart();
 
                 
             }

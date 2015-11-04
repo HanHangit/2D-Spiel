@@ -25,7 +25,7 @@ namespace Test
 
         public Vector2f move(Vector2f punkt1, Vector2f punkt2, float geschwindigkeit)
         {
-            return (direction(punkt1, punkt2) / abstand(direction(punkt1, punkt2))) / geschwindigkeit;
+            return (direction(punkt1, punkt2) / abstand(direction(punkt1, punkt2))) * geschwindigkeit;
         }
 
         public Vector2f position()

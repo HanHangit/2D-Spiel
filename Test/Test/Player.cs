@@ -13,7 +13,6 @@ namespace Test
     {
         Texture textur;
         Sprite sprite;
-        float a = 0.5f; //Bewegungsgeschwindigkeit
 
         public Player(String auswahl)
         {
@@ -82,7 +81,7 @@ namespace Test
 
 
 
-        public void move(Vector2u window)
+        public void move(Vector2u window, float a)
         {
 
            
