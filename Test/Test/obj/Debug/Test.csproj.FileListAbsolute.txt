@@ -72,3 +72,6 @@ C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\cookie.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\geist.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\tofu.png
+C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\burgeromnomnomn.png
+C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\invis.png
+C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Speed.png
