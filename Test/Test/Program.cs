@@ -24,10 +24,10 @@ namespace Test
             //hinher.setposition(new Vector2f(500,500));
 
            
-            Player player  = new Player();
+            Player player  = new Player("Cookie");
 
                 
-            Enemy tofu = new Enemy("Tofu");
+            Enemy tofu = new Enemy("Geist");
             tofu.setposition(new Vector2f(500, 500));
 
             RenderWindow window = new RenderWindow(new VideoMode(1000, 800), "LoL");
@@ -48,9 +48,6 @@ namespace Test
             while (window.IsOpen())
             {
                 window.Clear(Color.Cyan);
-
-                
-                window.Clear(Color.Black);
                 for (int i = 0; i < anzahlgeist; ++i)
                 {
                     geist[i].draw(window);

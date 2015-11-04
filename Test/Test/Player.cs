@@ -15,9 +15,12 @@ namespace Test
         Sprite sprite;
         float a = 0.5f; //Bewegungsgeschwindigkeit
 
-        public Player()
+        public Player(String auswahl)
         {
+            if(auswahl == "Cookie")
             textur = new Texture("cookie.png");
+            if (auswahl == "Tofu")
+                textur = new Texture("tofu.png");
             
             sprite = new Sprite(textur);
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
@@ -49,6 +52,7 @@ namespace Test
 
         public void animation()
         {
+
             if (sprite.TextureRect.Left > 150)
                 sprite.TextureRect = new IntRect(0, 0, 56, 57);
             else if (sprite.TextureRect.Left < 5)
@@ -57,6 +61,7 @@ namespace Test
                 sprite.TextureRect = new IntRect(117, 0, 56, 57);
             else
                 sprite.TextureRect = new IntRect(176, 0, 56, 57);
+            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
 
         }
