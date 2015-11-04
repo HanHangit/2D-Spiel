@@ -73,6 +73,15 @@ namespace Test
             window.Draw(sprite);
         }
 
+        public void animation()
+        {
+            
+            if (sprite.TextureRect.Left > 5)
+                sprite.TextureRect = new IntRect(2, 2, 48, 48);
+            else
+                sprite.TextureRect = new IntRect(49, 2, 96, 48);
+        } 
+
         /*public Vector2f pendeln(Vector2f start, Vector2f ziel, float geschwindigkeit)
         {
             while (true)
