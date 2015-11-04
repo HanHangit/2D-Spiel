@@ -30,7 +30,7 @@ namespace Test
             Enemy tofu = new Enemy("Geist");
             tofu.setposition(new Vector2f(500, 500));
 
-            RenderWindow window = new RenderWindow(new VideoMode(1000, 800), "LoL");
+            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
 
             Stopwatch timer = new Stopwatch();

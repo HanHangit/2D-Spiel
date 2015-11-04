@@ -2,3 +2,5 @@ Hallo Welt
 Hallo Peter
 Hallo Erde
 Hallo Roboter
+Hallo Google
+Hallo NSA
