@@ -40,6 +40,8 @@ namespace Test
             time = new TimeSpan(10000);
             window.SetFramerateLimit(120);
 
+            //public static Map map { get; private set; };
+
 
             timer.Start();
 
@@ -49,7 +51,6 @@ namespace Test
                 window.Clear(Color.Cyan);
 
                 
-                window.Clear(Color.Magenta);
                 for (int i = 0; i < anzahlgeist; ++i)
                 {
                     geist[i].draw(window);
