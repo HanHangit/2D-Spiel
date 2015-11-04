@@ -47,15 +47,10 @@ namespace Test
 
             while (window.IsOpen())
             {
-
-                
-<<<<<<< HEAD
                 window.Clear(Color.Cyan);
-=======
 
                 
                 window.Clear(Color.Magenta);
->>>>>>> 08bc8b1def049c66add7cc28ce9d4a129ec0abc2
                 for (int i = 0; i < anzahlgeist; ++i)
                 {
                     geist[i].draw(window);
