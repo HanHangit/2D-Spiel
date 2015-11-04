@@ -18,8 +18,9 @@ namespace Test
         public Player()
         {
             textur = new Texture("cookie.png");
+            
             sprite = new Sprite(textur);
-            sprite.Origin = new Vector2f (textur.Size.X / 2, textur.Size.Y / 2);
+            sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
         }
 
         public Vector2f position()
@@ -46,7 +47,21 @@ namespace Test
             return true;
         }
 
- 
+        public void animation()
+        {
+            if (sprite.TextureRect.Left > 150)
+                sprite.TextureRect = new IntRect(0, 0, 56, 57);
+            else if (sprite.TextureRect.Left < 5)
+                sprite.TextureRect = new IntRect(59, 0, 56, 57);
+            else if (sprite.TextureRect.Left < 60)
+                sprite.TextureRect = new IntRect(117, 0, 56, 57);
+            else
+                sprite.TextureRect = new IntRect(176, 0, 56, 57);
+
+
+        }
+
+
 
         public void move(Vector2u window)
         {
