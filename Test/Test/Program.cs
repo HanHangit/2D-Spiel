@@ -34,15 +34,14 @@ namespace Test
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
 
             Stopwatch timer = new Stopwatch();
-            Stopwatch frametimegeist = new Stopwatch();
-            Stopwatch frametimeplayer = new Stopwatch();
+            TimeSpan geisttime = new TimeSpan();
+            TimeSpan playertime = new TimeSpan(); 
             TimeSpan time = new TimeSpan();
-            int dt = 0;
+            time = new TimeSpan(10000);
+            window.SetFramerateLimit(120);
 
 
             timer.Start();
-            frametimegeist.Start();
-            frametimeplayer.Start();
 
 
             while (window.IsOpen())
@@ -55,45 +54,41 @@ namespace Test
                 {
                     geist[i].draw(window);
                 }
-                geist[0].verfolgen(geist[0].position(), player.position(),2f);
+                geist[0].verfolgen(geist[0].position(), player.position(),0.1f * time.Milliseconds);
                 for (int i = 1; i < anzahlgeist; ++i)
                 {
-                    geist[i].verfolgen(geist[i].position(), geist[i - 1].position(), 2f);
+                    geist[i].verfolgen(geist[i].position(), geist[i - 1].position(), 0.1f * time.Milliseconds);
                 }
                 tofu.draw(window);
-                tofu.verfolgen(tofu.position(), geist[anzahlgeist - 1].position(),2f);
+                tofu.verfolgen(tofu.position(), geist[anzahlgeist - 1].position(),0.1f * time.Milliseconds);
                 player.Draw(window);
-                player.move(window.Size);
+                player.move(window.Size, 0.2f * time.Milliseconds);
                 //hinher.pendeln(new Vector2f(500, 500), new Vector2f(700, 500), 2f);
                 //hinher.draw(window);
                 window.Display();
                 window.DispatchEvents();
-                dt += 1;
 
-                if (frametimegeist.Elapsed.Milliseconds >= 500)
+                geisttime += time;
+                if (geisttime.Milliseconds > 400)
                 {
                     for (int i = 0; i < anzahlgeist; ++i)
                     {
                         geist[i].animation();
                     }
-                    frametimegeist.Restart();
+                    geisttime = new TimeSpan(0);
                 }
 
-                if (frametimeplayer.Elapsed.Milliseconds >= 100) 
+                playertime += time;
+                if (playertime.Milliseconds > 100)
                 {
                     player.animation();
-                    frametimeplayer.Restart();
+                    playertime = new TimeSpan(0);
                 }
 
 
-                if (dt >= 60)
-                {
-                    time = timer.Elapsed;
-                    Console.WriteLine(time.Milliseconds);
-                    
+
+                    time = timer.Elapsed;                    
                     timer.Restart();
-                    dt = 0;
-                }
 
                 
             }

@@ -13,7 +13,6 @@ namespace Test
     {
         Texture textur;
         Sprite sprite;
-        float a = 0.5f; //Bewegungsgeschwindigkeit
 
         public Player()
         {
@@ -57,13 +56,14 @@ namespace Test
                 sprite.TextureRect = new IntRect(117, 0, 56, 57);
             else
                 sprite.TextureRect = new IntRect(176, 0, 56, 57);
+            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
 
         }
 
 
 
-        public void move(Vector2u window)
+        public void move(Vector2u window, float a)
         {
 
            
