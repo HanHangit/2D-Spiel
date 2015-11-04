@@ -18,7 +18,7 @@ namespace Test
         public Player(String auswahl)
         {
             if(auswahl == "Cookie")
-            textur = new Texture("cookie.png");
+                textur = new Texture("cookie.png");
             if (auswahl == "Tofu")
                 textur = new Texture("tofu.png");
             
@@ -52,15 +52,29 @@ namespace Test
 
         public void animation()
         {
+            if (textur.Size.Y == 58)
+            {
+                if (sprite.TextureRect.Left > 150)
+                    sprite.TextureRect = new IntRect(0, 0, 56, 57);
+                else if (sprite.TextureRect.Left < 5)
+                    sprite.TextureRect = new IntRect(59, 0, 56, 57);
+                else if (sprite.TextureRect.Left < 60)
+                    sprite.TextureRect = new IntRect(117, 0, 56, 57);
+                else
+                    sprite.TextureRect = new IntRect(176, 0, 56, 57);
+            }
+            if(textur.Size.Y == 80)
+            {
+                if (sprite.TextureRect.Left > 150)
+                    sprite.TextureRect = new IntRect(4, 0, 48, 78);
+                else if (sprite.TextureRect.Left < 5)
+                    sprite.TextureRect = new IntRect(52, 0, 48, 78);
+                else if (sprite.TextureRect.Left < 60)
+                    sprite.TextureRect = new IntRect(104, 0, 48, 78);
+                else
+                    sprite.TextureRect = new IntRect(153, 0, 48, 78);
+            }
 
-            if (sprite.TextureRect.Left > 150)
-                sprite.TextureRect = new IntRect(0, 0, 56, 57);
-            else if (sprite.TextureRect.Left < 5)
-                sprite.TextureRect = new IntRect(59, 0, 56, 57);
-            else if (sprite.TextureRect.Left < 60)
-                sprite.TextureRect = new IntRect(117, 0, 56, 57);
-            else
-                sprite.TextureRect = new IntRect(176, 0, 56, 57);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
 

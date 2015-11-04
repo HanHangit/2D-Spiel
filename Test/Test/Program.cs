@@ -24,7 +24,7 @@ namespace Test
             //hinher.setposition(new Vector2f(500,500));
 
            
-            Player player  = new Player("Cookie");
+            Player player  = new Player("Tofu");
 
                 
             Enemy tofu = new Enemy("Geist");
