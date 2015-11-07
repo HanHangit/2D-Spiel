@@ -15,7 +15,7 @@ namespace Test
         static void Main(string[] args)
         {
             
-            int anzahlgeist = 50;
+            int anzahlgeist = 10;
             Enemy[] geist = new Enemy[anzahlgeist];
             for(int i = 0; i < anzahlgeist; ++i)
             geist[i] = new Enemy("Geist");
@@ -24,7 +24,7 @@ namespace Test
             //hinher.setposition(new Vector2f(500,500));
 
            
-            Player player  = new Player("Tofu");
+            Player player  = new Player("Cookie");
 
                 
             Enemy tofu = new Enemy("Geist");
