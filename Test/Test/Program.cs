@@ -24,7 +24,7 @@ namespace Test
             //hinher.setposition(new Vector2f(500,500));
 
            
-            Player player  = new Player("Tofu");
+            Player player  = new Player("Cookie");
 
             RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
