@@ -13,13 +13,13 @@ namespace Test
     {
         Texture textur;
         Sprite sprite;
+        RectangleShape hitbox;
         public Enemy(String auswahl)
         {
             if(auswahl == "Geist")
                 textur = new Texture("geist.png");
-            if (auswahl == "Tofu")
-                textur = new Texture("tofu.png");
             sprite = new Sprite(textur);
+            hitbox = new RectangleShape(new Vector2f(50,50));
             sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
         }
 
@@ -49,18 +49,23 @@ namespace Test
             return System.Convert.ToSingle(Math.Sqrt(Math.Pow(dir.X, 2) + Math.Pow(dir.Y, 2)));
         }
 
+        public float abstandrand(float x, float y)
+        {
+            
+            return abstand(new Vector2f(x,y));
+        }
 
         public bool collision(Vector2f a, Vector2f b)
         {
-            if (abstand(direction(a, b)) >= toleranz())
+            if (abstand(direction(a, b)) >= (abstand(direction(a, b)) - abstandrand(sprite.TextureRect.Width, sprite.TextureRect.Height)))
                 return true;
             else
                 return false;
         }
 
-        public float toleranz()
+        public float toleranz(Vector2f a, Vector2f b)
         {
-            return 60;
+            return 50;
         }
 
         public Vector2f direction(Vector2f a, Vector2f b)
