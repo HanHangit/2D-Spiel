@@ -78,3 +78,6 @@ C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Speed.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\burgeromnomnomn.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\invis.png
 C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Speed.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Block.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map.bmp

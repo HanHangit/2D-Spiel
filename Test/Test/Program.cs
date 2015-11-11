@@ -13,8 +13,8 @@ namespace Test
     class Program
     {
         public static Player player { get; private set; }
-        //Timer
-        //public static Map map { get; private set; }
+        public static Map map { get; private set; }
+        public static Map collmap { get; private set; }
 
 
 
@@ -25,19 +25,18 @@ namespace Test
             for (int i = 0; i < anzahlgeist; ++i)
                 geist[i] = new Enemy("Geist");
 
-            
+            map = new Map(new System.Drawing.Bitmap("Collision-Map.bmp"));
+
             player = new Player("Cookie", new Vector2f(300, 300));
         }
 
         static void Main(string[] args)
         {
-            RenderWindow window = new RenderWindow(new VideoMode(1200, 800), "LoL");
+            RenderWindow window = new RenderWindow(new VideoMode(900, 900), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-            
             initialize();
             Stopwatch timer = new Stopwatch();
             TimeSpan time = new TimeSpan();
-
             timer.Start();
             time = new TimeSpan(0, 0, 1);
             while (window.IsOpen())
@@ -57,7 +56,7 @@ namespace Test
         {
             window.Clear(new Color(50, 120, 190));
 
-            //map.Draw(window);
+            map.Draw(window);
             player.Draw(window);
             
 

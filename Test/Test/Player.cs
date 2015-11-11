@@ -22,7 +22,7 @@ namespace Test
 
             MovementSpeed = 0.2f;
             GravitationAbsolut = 0f;
-            GravitationSpeed = 0.001f;
+            GravitationSpeed = 0.004f;
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
@@ -58,7 +58,7 @@ namespace Test
                 }
             }
 
-            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
+            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 8, 0);
 
 
         }
@@ -67,7 +67,7 @@ namespace Test
         {
             if (jumptrue == false)
             {
-                GravitationAbsolut = -0.5f;
+                GravitationAbsolut = -2f;
                 jumptrue = true;
             }
         }
@@ -92,7 +92,7 @@ namespace Test
 
         public void Gravitation()
         {
-            if(GravitationAbsolut <= 0.4f)
+            if(GravitationAbsolut <= 2f)
             GravitationAbsolut += GravitationSpeed;
             if (collmap() || GravitationAbsolut <= 0)
             {
@@ -104,10 +104,7 @@ namespace Test
 
         public bool collmap()
         {
-            if (Position.Y < 400)
-                return true;
-            else
-                return false;
+            return Program.map.IsWalkablegrav(this);
         }
     }
 }
