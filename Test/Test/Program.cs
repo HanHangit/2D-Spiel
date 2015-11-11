@@ -12,88 +12,62 @@ namespace Test
 {
     class Program
     {
+        public static Player player { get; private set; }
+        //Timer
+        //public static Map map { get; private set; }
+
+
+
+        public static void initialize()
+        {
+            int anzahlgeist = 15;
+            Enemy[] geist = new Enemy[anzahlgeist];
+            for (int i = 0; i < anzahlgeist; ++i)
+                geist[i] = new Enemy("Geist");
+
+            
+            player = new Player("Cookie", new Vector2f(300, 300));
+        }
+
         static void Main(string[] args)
         {
-            
-            int anzahlgeist = 10;
-            Enemy[] geist = new Enemy[anzahlgeist];
-            for(int i = 0; i < anzahlgeist; ++i)
-            geist[i] = new Enemy("Geist");
-
-            //Enemy hinher = new Enemy("Geist");
-            //hinher.setposition(new Vector2f(500,500));
-
-           
-            Player player  = new Player("Cookie");
-
-                
-            Enemy tofu = new Enemy("Geist");
-            tofu.setposition(new Vector2f(500, 500));
-
-            RenderWindow window = new RenderWindow(new VideoMode(800, 600), "LoL");
+            RenderWindow window = new RenderWindow(new VideoMode(1200, 800), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-
+            
+            initialize();
             Stopwatch timer = new Stopwatch();
-            Stopwatch frametimegeist = new Stopwatch();
-            Stopwatch frametimeplayer = new Stopwatch();
             TimeSpan time = new TimeSpan();
-            int dt = 0;
-
 
             timer.Start();
-            frametimegeist.Start();
-            frametimeplayer.Start();
-
-
+            time = new TimeSpan(0, 0, 1);
             while (window.IsOpen())
             {
                 window.Clear(Color.Cyan);
-                for (int i = 0; i < anzahlgeist; ++i)
-                {
-                    geist[i].draw(window);
-                }
-                geist[0].verfolgen(geist[0].position(), player.position(),2f);
-                for (int i = 1; i < anzahlgeist; ++i)
-                {
-                    geist[i].verfolgen(geist[i].position(), geist[i - 1].position(), 2f);
-                }
-                tofu.draw(window);
-                tofu.verfolgen(tofu.position(), geist[anzahlgeist - 1].position(),2f);
-                player.Draw(window);
-                player.move(window.Size);
-                //hinher.pendeln(new Vector2f(500, 500), new Vector2f(700, 500), 2f);
-                //hinher.draw(window);
-                window.Display();
+                Update(time);
+                Draw(window);
                 window.DispatchEvents();
-                dt += 1;
+                time = new TimeSpan(timer.ElapsedTicks);
+                timer.Restart();
 
-                if (frametimegeist.Elapsed.Milliseconds >= 500)
-                {
-                    for (int i = 0; i < anzahlgeist; ++i)
-                    {
-                        geist[i].animation();
-                    }
-                    frametimegeist.Restart();
-                }
-
-                if (frametimeplayer.Elapsed.Milliseconds >= 100) 
-                {
-                    player.animation();
-                    frametimeplayer.Restart();
-                }
-
-
-                if (dt >= 60)
-                {
-                    time = timer.Elapsed;
-                    Console.WriteLine(time.Milliseconds);
-                    
-                    timer.Restart();
-                    dt = 0;
-                }
-
-                
             }
+
+
+        }
+        static void Draw(RenderWindow window)
+        {
+            window.Clear(new Color(50, 120, 190));
+
+            //map.Draw(window);
+            player.Draw(window);
+            
+
+            window.Display();
+        }
+        static void Update(TimeSpan time)
+        {
+            player.Update();
+            player.animation(time);
+            
         }
     }
 }
