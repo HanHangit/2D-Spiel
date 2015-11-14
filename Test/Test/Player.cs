@@ -22,7 +22,7 @@ namespace Test
 
             MovementSpeed = 0.2f;
             GravitationAbsolut = 0f;
-            GravitationSpeed = 0.004f;
+            GravitationSpeed = 0.008f;
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
@@ -99,7 +99,10 @@ namespace Test
                 sprite.Position += new Vector2f(0, GravitationAbsolut);
             }
             else
+            {
                 jumptrue = false;
+                GravitationAbsolut = -0.01f;
+            }
         }
 
         public bool collmap()

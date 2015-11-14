@@ -9,17 +9,15 @@ using SFML.Graphics;
 
 namespace Test
 {
-    class Enemy
+    class Enemy : GameObject
     {
-        Texture textur;
-        Sprite sprite;
-        RectangleShape hitbox;
         public Enemy(String auswahl)
         {
             if(auswahl == "Geist")
                 textur = new Texture("geist.png");
+            if (auswahl == "Zombie")
+                textur = new Texture("Zombie.png");
             sprite = new Sprite(textur);
-            hitbox = new RectangleShape(new Vector2f(50,50));
             sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
         }
 
@@ -36,6 +34,11 @@ namespace Test
         public void setposition(Vector2f pos)
         {
             sprite.Position = pos;
+        }
+
+        public override void Update()
+        {
+            throw new NotImplementedException();
         }
 
         public void verfolgen(Vector2f objekt1, Vector2f objekt2,float geschwindigkeit)
