@@ -9,11 +9,15 @@ using SFML.Graphics;
 
 namespace Test
 {
-    class Enemy : GameObject
+    class Enemy: GameObject
     {
         public Enemy(String auswahl)
+       
         {
-            if(auswahl == "Geist")
+            Enemy[] geist = new Enemy[anzahlgeist];
+            for (int i = 0; i < anzahlgeist; ++i)
+                geist[i] = new Enemy("Geist");
+            if (auswahl == "Geist")
                 textur = new Texture("geist.png");
             if (auswahl == "Zombie")
                 textur = new Texture("Zombie.png");

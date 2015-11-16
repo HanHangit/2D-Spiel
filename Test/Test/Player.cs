@@ -20,9 +20,9 @@ namespace Test
             if (auswahl == "Tofu")
                 textur = new Texture("tofu.png");
 
-            MovementSpeed = 0.2f;
+            MovementSpeed = 0.4f;
             GravitationAbsolut = 0f;
-            GravitationSpeed = 0.008f;
+            GravitationSpeed = 0.003f;
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
@@ -67,7 +67,7 @@ namespace Test
         {
             if (jumptrue == false)
             {
-                GravitationAbsolut = -2f;
+                GravitationAbsolut = -1f;
                 jumptrue = true;
             }
         }

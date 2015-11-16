@@ -15,19 +15,18 @@ namespace Test
         public static Player player { get; private set; }
         public static Map map { get; private set; }
         public static Map collmap { get; private set; }
-
+        public static int anzahlgeist = 10;
+        public static 
 
 
         public static void initialize()
         {
-            int anzahlgeist = 15;
-            Enemy[] geist = new Enemy[anzahlgeist];
-            for (int i = 0; i < anzahlgeist; ++i)
-                geist[i] = new Enemy("Geist");
+           
+           
 
             map = new Map(new System.Drawing.Bitmap("Collision-Map.bmp"));
 
-            player = new Player("Cookie", new Vector2f(300, 300));
+            player = new Player("Tofu", new Vector2f(300, 300));
         }
 
         static void Main(string[] args)
@@ -66,6 +65,10 @@ namespace Test
         {
             player.Update();
             player.animation(time);
+            for (int i = 0; i < anzahlgeist; i++)
+            {
+               
+            }
             
         }
     }

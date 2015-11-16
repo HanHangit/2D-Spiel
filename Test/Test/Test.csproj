@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Enemy.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Geist.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Powerups.cs" />
