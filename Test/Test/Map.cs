@@ -50,12 +50,12 @@ namespace Test
 
         public bool IsWalkablegrav(GameObject gObj)
         {
-            int x = (int)(gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize);
+            int x = (int)(gObj.Position.X  / TileSize + gObj.MovingDirection.X / TileSize);
             int y = (int)(gObj.Position.Y / TileSize + gObj.MovingDirection.Y / TileSize);
 
-            int sx = (int)(gObj.Position.X / TileSize + gObj.Size.X / TileSize + gObj.MovingDirection.X / TileSize);
-            int sy = (int)(gObj.Position.Y / TileSize + gObj.Size.Y / TileSize + gObj.MovingDirection.Y / TileSize);
-
+            int sx = (int)(gObj.Position.X / TileSize + gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
+            int sy = (int)(gObj.Position.Y / TileSize + gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize);
+          
             return tiles[x, sy].Walkable && tiles[sx, sy].Walkable;
         }
 

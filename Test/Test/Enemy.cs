@@ -9,22 +9,32 @@ using SFML.Graphics;
 
 namespace Test
 {
-    class Enemy: GameObject
+    class Enemy
     {
-        public Enemy(String auswahl)
-       
+        Geist[] geist;
+        Zombie[] zombie;
+        public Enemy()
         {
-            Enemy[] geist = new Enemy[anzahlgeist];
+            int anzahlgeist = 15;
+            geist = new Geist[anzahlgeist];
             for (int i = 0; i < anzahlgeist; ++i)
-                geist[i] = new Enemy("Geist");
-            if (auswahl == "Geist")
-                textur = new Texture("geist.png");
-            if (auswahl == "Zombie")
-                textur = new Texture("Zombie.png");
-            sprite = new Sprite(textur);
-            sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            {
+                geist[i] = new Geist();
+            }
         }
 
+        public void Draw(RenderWindow window)
+        {
+            foreach (Geist t in geist)
+                t.Draw(window);
+        }
+
+        public void Update(GameTime gTime)
+        {
+            foreach (Geist t in geist)
+                t.Update(gTime);
+        }
+        /*
         public Vector2f move(Vector2f punkt1, Vector2f punkt2, float geschwindigkeit)
         {
             return (direction(punkt1, punkt2) / abstand(direction(punkt1, punkt2))) * geschwindigkeit;
@@ -85,17 +95,7 @@ namespace Test
             window.Draw(sprite);
         }
 
-        public void animation()
-        {
-
-            if (sprite.TextureRect.Left > 5)
-                sprite.TextureRect = new IntRect(2, 2, 48, 48);
-            else
-                sprite.TextureRect = new IntRect(49, 2, 48, 48);
-            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
-        }
-
-        /*public Vector2f pendeln(Vector2f start, Vector2f ziel, float geschwindigkeit)
+        public Vector2f pendeln(Vector2f start, Vector2f ziel, float geschwindigkeit)
         {
             while (true)
             {

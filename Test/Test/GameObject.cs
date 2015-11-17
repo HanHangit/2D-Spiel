@@ -10,11 +10,13 @@ namespace Test
 {
     abstract class GameObject
     {
-        protected Sprite sprite;
+        public Sprite sprite;
         protected Texture textur;
         protected String auswahl;
         public Vector2f MovingDirection { get; protected set; }
+        protected float baseMovementSpeed;
         protected float MovementSpeed;
+        protected float baseGravitationSpeed;
         public float GravitationSpeed;
         public float GravitationAbsolut;
         public bool jumptrue;
@@ -40,7 +42,7 @@ namespace Test
                 sprite.Position += direction * MovementSpeed;
         }
 
-        public abstract void Update();
+        public abstract void Update(GameTime gTime);
         public void Draw(RenderWindow win)
         {
             win.Draw(sprite);

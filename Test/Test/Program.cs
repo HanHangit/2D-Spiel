@@ -15,18 +15,17 @@ namespace Test
         public static Player player { get; private set; }
         public static Map map { get; private set; }
         public static Map collmap { get; private set; }
+        public static Enemy enemy { get; private set; }
         public static int anzahlgeist = 10;
-        public static 
+        static GameTime gTime;
 
 
         public static void initialize()
-        {
-           
-           
-
+        {           
             map = new Map(new System.Drawing.Bitmap("Collision-Map.bmp"));
-
             player = new Player("Tofu", new Vector2f(300, 300));
+            enemy = new Enemy();
+            gTime = new GameTime();
         }
 
         static void Main(string[] args)
@@ -41,11 +40,9 @@ namespace Test
             while (window.IsOpen())
             {
                 window.Clear(Color.Cyan);
-                Update(time);
+                Update();
                 Draw(window);
                 window.DispatchEvents();
-                time = new TimeSpan(timer.ElapsedTicks);
-                timer.Restart();
 
             }
 
@@ -57,19 +54,16 @@ namespace Test
 
             map.Draw(window);
             player.Draw(window);
-            
+            enemy.Draw(window);
 
             window.Display();
         }
-        static void Update(TimeSpan time)
+        static void Update()
         {
-            player.Update();
-            player.animation(time);
-            for (int i = 0; i < anzahlgeist; i++)
-            {
-               
-            }
-            
+            gTime.Update();
+            player.Update(gTime);
+            player.animation(gTime);
+            enemy.Update(gTime);      
         }
     }
 }

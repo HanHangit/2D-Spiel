@@ -20,17 +20,17 @@ namespace Test
             if (auswahl == "Tofu")
                 textur = new Texture("tofu.png");
 
-            MovementSpeed = 0.4f;
+            baseMovementSpeed = 0.4f;
             GravitationAbsolut = 0f;
-            GravitationSpeed = 0.003f;
+            baseGravitationSpeed = 0.003f;
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
         }
 
-        public void animation(TimeSpan clock)
+        public void animation(GameTime gTime)
         {
-            time += clock;
+            time += gTime.Ellapsed;
             if (time.Milliseconds >= 50)
             {
                 time = new TimeSpan(0);
@@ -58,7 +58,7 @@ namespace Test
                 }
             }
 
-            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 8, 0);
+            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
 
         }
@@ -67,7 +67,7 @@ namespace Test
         {
             if (jumptrue == false)
             {
-                GravitationAbsolut = -1f;
+                GravitationAbsolut = -2f;
                 jumptrue = true;
             }
         }
@@ -83,8 +83,10 @@ namespace Test
                 MovingDirection = new Vector2f(0, MovingDirection.Y);
         }
 
-        public override void Update()
+        public override void Update(GameTime gTime)
         {
+            GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
+            MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
             KeyboardInput();
             Move();
             Gravitation();
