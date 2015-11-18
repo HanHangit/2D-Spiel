@@ -1,3 +1,4 @@
 Test/Test/bin/
 
-Test/Test/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/Test/Test/obj
+/Test/Test/bin
