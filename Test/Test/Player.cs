@@ -11,7 +11,7 @@ namespace Test
 {
     class Player : GameObject
     {
-
+        public View view;
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
@@ -20,6 +20,7 @@ namespace Test
             if (auswahl == "Tofu")
                 textur = new Texture("tofu.png");
 
+
             baseMovementSpeed = 0.25f;
             GravitationAbsolut = 0f;
             baseGravitationSpeed = 0.03f;
@@ -27,6 +28,7 @@ namespace Test
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
+            view = new View(new Vector2f(0,0),new Vector2f(800,600));
         }
 
         public void animation(GameTime gTime)
@@ -117,6 +119,12 @@ namespace Test
         public bool collmap()
         {
            return Program.map.IsWalkablegrav(this);
+        }
+
+        public void setview(RenderWindow window)
+        {
+            view.Center = Position;
+            window.SetView(view);
         }
     }
 }
