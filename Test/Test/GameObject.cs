@@ -14,7 +14,7 @@ namespace Test
         protected Texture textur;
         protected String auswahl;
         public Vector2f MovingDirection { get; protected set; }
-        protected float baseMovementSpeed;
+        public float baseMovementSpeed;
         protected float MovementSpeed;
         protected float baseGravitationSpeed;
         public float GravitationSpeed;

@@ -16,6 +16,7 @@ namespace Test
         public static Map map { get; private set; }
         public static Map collmap { get; private set; }
         public static Enemy enemy { get; private set; }
+        public static Powerups powerups { get; private set; }
         public static int anzahlgeist = 10;
         static GameTime gTime;
         static Sprite sprite;
@@ -29,6 +30,7 @@ namespace Test
             gTime = new GameTime();
             text = new Texture("Collision-Map2.bmp");
             sprite = new Sprite(text);
+            powerups = new Powerups();
             
         }
 
@@ -60,6 +62,7 @@ namespace Test
             map.Draw(window);
             player.Draw(window);
             enemy.Draw(window);
+            powerups.Draw(window);
             window.Display();
         }
         static void Update()
@@ -67,7 +70,8 @@ namespace Test
             gTime.Update();
             player.Update(gTime);
             player.animation(gTime);
-            enemy.Update(gTime);      
+            enemy.Update(gTime);
+            powerups.Update(gTime); 
         }
     }
 }
