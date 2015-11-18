@@ -24,8 +24,12 @@ namespace Test
 
         public void Update()
         {
-            Ellapsed = watch.Elapsed - Total;
+            if (watch.ElapsedMilliseconds == 0)
+                Ellapsed = TimeSpan.FromMilliseconds(1);
+            else
+                Ellapsed = watch.Elapsed - Total;
             Total = watch.Elapsed;
+            Console.WriteLine(Ellapsed.Milliseconds);
         }
     }
 }

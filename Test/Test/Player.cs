@@ -20,9 +20,10 @@ namespace Test
             if (auswahl == "Tofu")
                 textur = new Texture("tofu.png");
 
-            baseMovementSpeed = 0.4f;
+            baseMovementSpeed = 0.25f;
             GravitationAbsolut = 0f;
-            baseGravitationSpeed = 0.003f;
+            baseGravitationSpeed = 0.03f;
+            baseGravitationAbsolut = -10f;
             sprite = new Sprite(textur);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
@@ -63,53 +64,59 @@ namespace Test
 
         }
 
-        void Sprung()
+        void Sprung(GameTime gTime)
         {
             if (jumptrue == false)
             {
-                GravitationAbsolut = -2f;
+                GravitationAbsolut = baseGravitationAbsolut;
+                //GravitationAbsolut = -1f;
                 jumptrue = true;
             }
         }
-        void KeyboardInput()
+        void KeyboardInput(GameTime gTime)
         {
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
-                Sprung();
+                Sprung(gTime);
             if (Keyboard.IsKeyPressed(Keyboard.Key.Left))
-                MovingDirection = new Vector2f(-1, MovingDirection.Y);
+                MovingDirection = new Vector2f(-2, 0);
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
-                MovingDirection = new Vector2f(1, MovingDirection.Y);
+                MovingDirection = new Vector2f(2, 0);
             else
-                MovingDirection = new Vector2f(0, MovingDirection.Y);
+                MovingDirection = new Vector2f(0, 0);
         }
 
         public override void Update(GameTime gTime)
         {
             GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
             MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
-            KeyboardInput();
-            Move();
-            Gravitation();
+            KeyboardInput(gTime);
+            if(Program.map.IsWalkable(this))
+                Move();
+            Gravitation(gTime);
         }
 
-        public void Gravitation()
+        public void Gravitation(GameTime gTime)
         {
-            if(GravitationAbsolut <= 2f)
-            GravitationAbsolut += GravitationSpeed;
-            if (collmap() || GravitationAbsolut <= 0)
+            int x = 2;
+            if(GravitationAbsolut <= 10f)
+                GravitationAbsolut += GravitationSpeed;
+            MovementSpeed =  GravitationAbsolut;
+            MovingDirection = new Vector2f(0, x);
+            if (collmap() || GravitationAbsolut < 0)
             {
-                sprite.Position += new Vector2f(0, GravitationAbsolut);
+                Move();
+                //sprite.Position += new Vector2f(0, GravitationAbsolut);
             }
             else
             {
                 jumptrue = false;
-                GravitationAbsolut = -0.01f;
+                GravitationAbsolut = 0f;
             }
         }
 
         public bool collmap()
         {
-            return Program.map.IsWalkablegrav(this);
+           return Program.map.IsWalkablegrav(this);
         }
     }
 }

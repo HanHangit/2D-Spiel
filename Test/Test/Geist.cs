@@ -48,5 +48,10 @@ namespace Test
         {
             return false;
         }
+
+        public void setPosition(Vector2f position)
+        {
+            sprite.Position = position;
+        }
     }
 }

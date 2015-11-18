@@ -84,3 +84,4 @@ C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map.bmp
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Block.png
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map.bmp
 C:\Users\Dzhuliya\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map.png
+C:\Users\HanHan\Documents\2D-Spiel\Test\Test\bin\Debug\Collision-Map2.bmp

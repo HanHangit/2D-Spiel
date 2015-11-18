@@ -18,12 +18,14 @@ namespace Test
         protected float MovementSpeed;
         protected float baseGravitationSpeed;
         public float GravitationSpeed;
+        public float baseGravitationAbsolut;
         public float GravitationAbsolut;
         public bool jumptrue;
         public Vector2f wind;
         public Vector2f Position { get { return sprite.Position; } }
         public Vector2f Size { get { return new Vector2f(sprite.TextureRect.Width * sprite.Scale.X, sprite.TextureRect.Height * sprite.Scale.Y); } }
         public TimeSpan time;
+        public bool isMoving;
 
         protected void Move()
         {
@@ -38,7 +40,8 @@ namespace Test
                 direction = direction / length;
 
             //adding a percentage of the direction to the position. guess what comes now^^ Math \(^^)/
-            
+            //isMoving = Program.map.IsWalkable(this);
+            //if(isMoving)
                 sprite.Position += direction * MovementSpeed;
         }
 
