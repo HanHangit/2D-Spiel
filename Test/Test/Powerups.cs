@@ -16,9 +16,9 @@ namespace Test
         public Powerups()
         {
             speed = new Speed[3];
-                speed[0] = new Speed(new Vector2f(600, 400));
-                speed[1] = new Speed(new Vector2f(300, 100));
-                speed[2] = new Speed(new Vector2f(200, 200));
+                speed[0] = new Speed(new Vector2f(600, 800));
+                speed[1] = new Speed(new Vector2f(300, 700));
+                speed[2] = new Speed(new Vector2f(200, 600));
 
 
         }

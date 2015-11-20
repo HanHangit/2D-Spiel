@@ -16,9 +16,15 @@ namespace Test
         {
             auswahl = bild;
             if (auswahl == "Cookie")
+            {
                 textur = new Texture("cookie.png");
+                textur1 = new Texture("cookie2.png");
+            }
             if (auswahl == "Tofu")
+            {
                 textur = new Texture("tofu.png");
+                textur1 = new Texture("tofu2.png");
+            }
 
 
             baseMovementSpeed = 0.25f;
@@ -34,8 +40,16 @@ namespace Test
         public void animation(GameTime gTime)
         {
             time += gTime.Ellapsed;
-            if (time.Milliseconds >= 50)
+            if (time.Milliseconds >= 50 && isMoving)
             {
+                if(isMovingright)
+                {
+                    sprite.Texture = textur;
+                }
+                else if(isMovingleft)
+                {
+                    sprite.Texture = textur1;
+                }
                 time = new TimeSpan(0);
                 if (auswahl == "Cookie")
                 {
@@ -77,14 +91,29 @@ namespace Test
         }
         void KeyboardInput(GameTime gTime)
         {
+            isMoving = true;
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up))
                 Sprung(gTime);
             if (Keyboard.IsKeyPressed(Keyboard.Key.Left))
-                MovingDirection = new Vector2f(-2, 0);
+            {
+                MovingDirection = new Vector2f(-10, 0);
+                isMovingright = false;
+                isMovingleft = true;
+
+            }
             else if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
-                MovingDirection = new Vector2f(2, 0);
+            {
+                MovingDirection = new Vector2f(10, 0);
+                isMovingright = true;
+                isMovingleft = false;
+            }
             else
+            {
                 MovingDirection = new Vector2f(0, 0);
+                isMoving = false;
+                isMovingleft = false;
+                isMovingright = false;
+            }
         }
 
         public override void Update(GameTime gTime)

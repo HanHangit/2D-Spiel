@@ -12,6 +12,7 @@ namespace Test
     {
         public Sprite sprite;
         protected Texture textur;
+        protected Texture textur1;
         protected String auswahl;
         public Vector2f MovingDirection { get; protected set; }
         public float baseMovementSpeed;
@@ -26,6 +27,8 @@ namespace Test
         public Vector2f Size { get { return new Vector2f(sprite.TextureRect.Width * sprite.Scale.X, sprite.TextureRect.Height * sprite.Scale.Y); } }
         public TimeSpan time;
         public bool isMoving;
+        public bool isMovingright;
+        public bool isMovingleft;
 
         protected void Move()
         {

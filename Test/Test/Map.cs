@@ -50,7 +50,7 @@ namespace Test
 
             try
             {
-                return tiles[x, y].Walkable && tiles[sx, y].Walkable;
+                return tiles[x, 150].Walkable && tiles[sx, 150].Walkable;
             }
             catch (IndexOutOfRangeException)
             {

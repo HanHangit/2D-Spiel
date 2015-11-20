@@ -15,23 +15,30 @@ namespace Test
         Zombie[] zombie;
         public Enemy()
         {
-            int anzahlgeist = 15;
+            int anzahlgeist = 5;
             geist = new Geist[anzahlgeist];
+            zombie = new Zombie[2];
             for (int i = 0; i < anzahlgeist; ++i)
             {
                 geist[i] = new Geist();
             }
+            zombie[0] = new Zombie(new Vector2f(800,200));
+            zombie[1] = new Zombie(new Vector2f(300,100));
         }
 
         public void Draw(RenderWindow window)
         {
             foreach (Geist t in geist)
                 t.Draw(window);
+            foreach (Zombie t in zombie)
+                t.Draw(window);
         }
 
         public void Update(GameTime gTime)
         {
             foreach (Geist t in geist)
+                t.Update(gTime);
+            foreach (Zombie t in zombie)
                 t.Update(gTime);
         }
         /*
