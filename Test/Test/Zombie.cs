@@ -17,7 +17,9 @@ namespace Test
             textur = new Texture("zombie.png");
             sprite = new Sprite(textur);
             MovementSpeed = 0.4f;
-            sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            MovingDirection = new Vector2f(1, 0);
+            sprite.TextureRect = new IntRect(0, 0, 39, 68);
+            sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             setPosition(pos);
         }
 
@@ -58,14 +60,20 @@ namespace Test
         private void setPosition(Vector2f pos)
         {
             sprite.Position = pos;
+            while (Program.map.IsWalkablegrav(this))
+            {
+                sprite.Position += new Vector2f(0, 0.05f);
+            }
         }
 
         private void moving()
         {
-            while(Program.map.IsWalkablegrav(this))
+
+            if (Program.map.IsWalkablegrav(this))
             {
-                sprite.Position += new Vector2f(0,0.05f);
+                MovingDirection *= -1;
             }
+            Move();
         }
     }
 }

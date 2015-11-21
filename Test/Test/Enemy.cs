@@ -22,8 +22,8 @@ namespace Test
             {
                 geist[i] = new Geist();
             }
-            zombie[0] = new Zombie(new Vector2f(800,200));
-            zombie[1] = new Zombie(new Vector2f(300,100));
+            zombie[0] = new Zombie(new Vector2f(200,200));
+            zombie[1] = new Zombie(new Vector2f(900,100));
         }
 
         public void Draw(RenderWindow window)

@@ -60,10 +60,10 @@ namespace Test
 
         public bool IsWalkablegrav(GameObject gObj)
         {
-            int x = (int)((gObj.Position.X - gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X / TileSize);
+            int x = (int)((gObj.Position.X + gObj.MovingDirection.X / TileSize));
             int y = (int)((gObj.Position.Y - gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y / TileSize - 3);
 
-            int sx = (int)(gObj.Position.X / TileSize + gObj.sprite.TextureRect.Width / 2 + gObj.MovingDirection.X / TileSize);
+            int sx = (int)(gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize);
             int sy = (int)(gObj.Position.Y / TileSize + gObj.sprite.TextureRect.Height / 2 + gObj.MovingDirection.Y / TileSize -3);
             try
             {
