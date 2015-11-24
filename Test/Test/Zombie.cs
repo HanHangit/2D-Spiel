@@ -11,7 +11,7 @@ namespace Test
 {
     class Zombie : GameObject
     {
-
+        public bool a;
         public Zombie(Vector2f pos)
         {
             textur = new Texture("zombie.png");
@@ -27,6 +27,10 @@ namespace Test
         {
             animation(gTime);
             moving();
+            if (a)
+                activate();
+            else
+                deactivate(gTime);
         }
 
         public void animation(GameTime gTime)
@@ -74,6 +78,37 @@ namespace Test
                 MovingDirection *= -1;
             }
             Move();
+        }
+
+
+        private void activate()
+        {
+
+            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
+            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
+            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
+            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
+
+            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy)
+            {
+                a = false;
+                special = new TimeSpan(0, 0, 5);
+                Program.player.baseMovementSpeed /= 2;
+                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50);
+            }
+        }
+
+        private void deactivate(GameTime gTime)
+        {
+            special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
+            Console.WriteLine(special.Ticks);
+            if (special.Ticks < 2)
+            {
+                a = true;
+                special = new TimeSpan(0);
+                Program.player.baseMovementSpeed *= 2;
+                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 100);
+            }
         }
     }
 }

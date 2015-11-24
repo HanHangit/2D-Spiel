@@ -26,6 +26,7 @@ namespace Test
         public Vector2f Position { get { return sprite.Position; } }
         public Vector2f Size { get { return new Vector2f(sprite.TextureRect.Width * sprite.Scale.X, sprite.TextureRect.Height * sprite.Scale.Y); } }
         public TimeSpan time;
+        public TimeSpan special;
         public bool isMoving;
         public bool isMovingright;
         public bool isMovingleft;

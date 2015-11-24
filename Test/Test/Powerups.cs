@@ -17,8 +17,8 @@ namespace Test
         {
             speed = new Speed[3];
                 speed[0] = new Speed(new Vector2f(600, 800));
-                speed[1] = new Speed(new Vector2f(300, 700));
-                speed[2] = new Speed(new Vector2f(200, 600));
+                speed[1] = new Speed(new Vector2f(1000, 700));
+                speed[2] = new Speed(new Vector2f(1200, 600));
 
 
         }
@@ -27,7 +27,7 @@ namespace Test
         {
             foreach(Speed t in speed)
             {
-                if(t.a)
+                if(t.a || t.special.Ticks != 0)
                     t.Update(gTime);
             }
         }

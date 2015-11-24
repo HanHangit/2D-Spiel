@@ -18,7 +18,8 @@ namespace Test
             textur = new Texture("Speed.png");
             sprite = new Sprite(textur);
             setposition(position);
-            a = true;    
+            a = true;
+            special = new TimeSpan(0);
         }
 
         public void animation(GameTime gTime)
@@ -37,8 +38,12 @@ namespace Test
 
         public override void Update(GameTime gTime)
         {
+            
             animation(gTime);
-            activate();
+            if (special.Ticks == 0)
+                activate();
+            else
+                deactivate(gTime);
         }
 
         private void setposition(Vector2f position)
@@ -57,7 +62,19 @@ namespace Test
             if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy )
             {
                 a = false;
+                special = new TimeSpan(0,0,5);
                 Program.player.baseMovementSpeed *= 2;
+            }
+        }
+
+        private void deactivate(GameTime gTime)
+        {
+            special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
+            Console.WriteLine(special.Ticks);
+            if (special.Ticks < 2)
+            {
+                special = new TimeSpan(0);
+                Program.player.baseMovementSpeed /= 2;
             }
         }
     }
