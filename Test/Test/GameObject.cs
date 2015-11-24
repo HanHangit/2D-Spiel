@@ -11,18 +11,13 @@ namespace Test
     abstract class GameObject
     {
         public Sprite sprite;
-        protected Texture textur;
-        protected Texture textur1;
-        protected String auswahl;
+        protected Texture textur; //Textur für nach rechts gehen
+        protected Texture textur1; //Textur für nach links gehen
+        protected String auswahl; 
         public Vector2f MovingDirection { get; protected set; }
-        public float baseMovementSpeed;
+        public float baseMovementSpeed; 
         protected float MovementSpeed;
-        protected float baseGravitationSpeed;
-        public float GravitationSpeed;
-        public float baseGravitationAbsolut;
-        public float GravitationAbsolut;
-        public bool jumptrue;
-        public Vector2f wind;
+        public Vector2f wind; //Window - Fenster
         public Vector2f Position { get { return sprite.Position; } }
         public Vector2f Size { get { return new Vector2f(sprite.TextureRect.Width * sprite.Scale.X, sprite.TextureRect.Height * sprite.Scale.Y); } }
         public TimeSpan time;

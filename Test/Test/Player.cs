@@ -11,14 +11,19 @@ namespace Test
 {
     class Player : GameObject
     {
+        public bool jumptrue;
+        protected float baseGravitationSpeed;
+        public float GravitationSpeed;
+        public float baseGravitationAbsolut;
+        public float GravitationAbsolut;
         public View view;
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
             if (auswahl == "Cookie")
             {
-                textur = new Texture("cookie.png");
-                textur1 = new Texture("cookie2.png");
+                textur = new Texture("cookie.png"); //Textur nach rechts
+                textur1 = new Texture("cookie2.png"); //Textur nach links
             }
             if (auswahl == "Tofu")
             {
@@ -80,7 +85,7 @@ namespace Test
 
         }
 
-        void Sprung(GameTime gTime)
+        void Sprung(GameTime gTime) 
         {
             if (jumptrue == false)
             {

@@ -13,7 +13,7 @@ namespace Test
         public TimeSpan Total { get; private set; }
         public TimeSpan Ellapsed { get; private set; }
 
-        public GameTime()
+        public GameTime() //siehe Vorlesung
         {
             watch = new Stopwatch();
             Total = new TimeSpan();

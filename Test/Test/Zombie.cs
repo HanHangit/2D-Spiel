@@ -11,9 +11,11 @@ namespace Test
 {
     class Zombie : GameObject
     {
-        public bool a;
+        public bool a; //Ob das Objekt Aktiv ist oder nicht! :D
+        private Color col; //Speichert die Farbe zwischen.
         public Zombie(Vector2f pos)
         {
+            a = true;
             textur = new Texture("zombie.png");
             sprite = new Sprite(textur);
             MovementSpeed = 0.4f;
@@ -21,27 +23,29 @@ namespace Test
             sprite.TextureRect = new IntRect(0, 0, 39, 68);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             setPosition(pos);
+            col = sprite.Color;
         }
 
         public override void Update(GameTime gTime)
         {
             animation(gTime);
             moving();
-            if (a)
-                activate();
+            if (a)  
+                activate(); //Checkt die Collision mit dem Player.
             else
-                deactivate(gTime);
+                deactivate(gTime); //Testet ob die Aktion(Verlangsamung...) abgelaufen ist.
         }
 
         public void animation(GameTime gTime)
         {
             time += gTime.Ellapsed;
-            if (time.Milliseconds >= 300)
+            if (time.Milliseconds >= 300) //Animationsgeschwindigkeit
             {
                 /*
                 if (isMovingright)
                 {
                     sprite.Texture = textur;
+                    
                 }
                 else if (isMovingleft)
                 {
@@ -64,7 +68,7 @@ namespace Test
         private void setPosition(Vector2f pos)
         {
             sprite.Position = pos;
-            while (Program.map.IsWalkablegrav(this))
+            while (Program.map.IsWalkablegrav(this)) //Objekt wird solange nach unten bewegt bis ein schwarzer BOden erreicht ist.
             {
                 sprite.Position += new Vector2f(0, 0.05f);
             }
@@ -73,10 +77,11 @@ namespace Test
         private void moving()
         {
 
-            if (Program.map.IsWalkablegrav(this))
+            if (Program.map.IsWalkablegrav(this) || !Program.map.IsWalkable(this))
             {
                 MovingDirection *= -1;
             }
+            
             Move();
         }
 
@@ -89,12 +94,13 @@ namespace Test
             float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
             float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
 
-            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy)
+            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
             {
-                a = false;
-                special = new TimeSpan(0, 0, 5);
-                Program.player.baseMovementSpeed /= 2;
-                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50);
+                a = false; //Objekt wird deaktiviert
+                special = new TimeSpan(0, 0, 5); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
+                //Program.player.baseMovementSpeed *= -1;
+                Program.player.baseMovementSpeed /= 2; 
+                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
             }
         }
 
@@ -102,12 +108,13 @@ namespace Test
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
             Console.WriteLine(special.Ticks);
-            if (special.Ticks < 2)
+            if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
             {
                 a = true;
                 special = new TimeSpan(0);
+                //Program.player.baseMovementSpeed *= -1;
                 Program.player.baseMovementSpeed *= 2;
-                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 100);
+                sprite.Color = col; //Farbe wird zurückgesetzt.
             }
         }
     }

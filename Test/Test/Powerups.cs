@@ -15,8 +15,8 @@ namespace Test
         Speed[] speed;
         public Powerups()
         {
-            speed = new Speed[3];
-                speed[0] = new Speed(new Vector2f(600, 800));
+            speed = new Speed[3]; //Anzahl der Speed Objekte
+                speed[0] = new Speed(new Vector2f(600, 800)); //Speed wird erstellt und Position gesetzt.
                 speed[1] = new Speed(new Vector2f(1000, 700));
                 speed[2] = new Speed(new Vector2f(1200, 600));
 
@@ -27,7 +27,7 @@ namespace Test
         {
             foreach(Speed t in speed)
             {
-                if(t.a || t.special.Ticks != 0)
+                if(t.a || t.special.Ticks != 0) //Entweder wenn Objekt speed aktiviert oder wenn der TImer noch aktiv ist
                     t.Update(gTime);
             }
         }
@@ -36,7 +36,7 @@ namespace Test
         {
             foreach(Speed t in speed)
             {
-                if (t.a)
+                if (t.a) //Wenn nicht mehr aktiv -> Wird nicht mehr gezeichnet.
                     t.Draw(window);
             }
         }

@@ -17,17 +17,25 @@ namespace Test
         {
             int anzahlgeist = 5;
             geist = new Geist[anzahlgeist];
-            zombie = new Zombie[2];
+            zombie = new Zombie[9];
             for (int i = 0; i < anzahlgeist; ++i)
             {
                 geist[i] = new Geist();
             }
             zombie[0] = new Zombie(new Vector2f(200,200));
             zombie[1] = new Zombie(new Vector2f(900,100));
+            zombie[2] = new Zombie(new Vector2f(1100, 100));
+            zombie[3] = new Zombie(new Vector2f(1200, 100));
+            zombie[4] = new Zombie(new Vector2f(1300, 100));
+            zombie[5] = new Zombie(new Vector2f(1500, 100));
+            zombie[6] = new Zombie(new Vector2f(1700, 100));
+            zombie[7] = new Zombie(new Vector2f(1600, 100));
+            zombie[8] = new Zombie(new Vector2f(1800, 100));
         }
 
         public void Draw(RenderWindow window)
         {
+            //Alle Gegner Objekt KLassen werden gezeichnet.
             foreach (Geist t in geist)
                 t.Draw(window);
             foreach (Zombie t in zombie)
@@ -36,6 +44,7 @@ namespace Test
 
         public void Update(GameTime gTime)
         {
+            //Alle Gegner Objekt Klassen kriegen update.
             foreach (Geist t in geist)
                 t.Update(gTime);
             foreach (Zombie t in zombie)

@@ -18,7 +18,7 @@ namespace Test
         static string white = System.Drawing.Color.FromArgb(255, 255, 255).Name;
         static string black = System.Drawing.Color.FromArgb(0, 0, 0).Name;
         
-        public Map(Bitmap mask)
+        public Map(Bitmap mask) //Vorlesung bla bla bla
         {
             tiles = new Tile[mask.Width, mask.Height];
             for (int i = 0; i < tiles.GetLength(0); ++i)
@@ -40,7 +40,7 @@ namespace Test
             }
         }
 
-        public bool IsWalkable(GameObject gObj)
+        public bool IsWalkable(GameObject gObj) //COllision mit Wand[Rechts,Links]
         {
             int x = (int)(gObj.Position.X - gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
             int y = (int)(gObj.Position.Y - gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
@@ -58,7 +58,7 @@ namespace Test
             }
         }
 
-        public bool IsWalkablegrav(GameObject gObj)
+        public bool IsWalkablegrav(GameObject gObj) //COllision nur mit Untergrund
         {
             int x = (int)((gObj.Position.X + gObj.MovingDirection.X / TileSize));
             int y = (int)((gObj.Position.Y - gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y / TileSize - 3);

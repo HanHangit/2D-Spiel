@@ -25,8 +25,9 @@ namespace Test
 
         public static void initialize()
         {           
-            map = new Map(new System.Drawing.Bitmap("Collision-Map1.bmp"));
-            player = new Player("Cookie", new Vector2f(300, 300));
+            //Objekte der Klassen werden initialisiert.
+            map = new Map(new System.Drawing.Bitmap("Collision-Map1.bmp")); 
+            player = new Player("Cookie", new Vector2f(300, 800));
             enemy = new Enemy();
             gTime = new GameTime();
             text = new Texture("Collision-Map1.bmp");

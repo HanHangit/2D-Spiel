@@ -12,7 +12,7 @@ namespace Test
 {
     class Speed : GameObject
     {
-        public bool a;
+        public bool a; //Siehe Zombie.cs
         public Speed(Vector2f position)
         {
             textur = new Texture("Speed.png");
