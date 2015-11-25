@@ -14,7 +14,7 @@ namespace Test
         protected Texture textur; //Textur für nach rechts gehen
         protected Texture textur1; //Textur für nach links gehen
         protected String auswahl; 
-        public Vector2f MovingDirection { get; protected set; }
+        public Vector2f MovingDirection { get; set; }
         public float baseMovementSpeed; 
         protected float MovementSpeed;
         public Vector2f wind; //Window - Fenster

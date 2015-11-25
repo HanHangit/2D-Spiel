@@ -17,6 +17,7 @@ namespace Test
         public float baseGravitationAbsolut;
         public float GravitationAbsolut;
         public View view;
+        public float bewegungumdrehen;
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
@@ -32,7 +33,7 @@ namespace Test
             }
 
 
-            baseMovementSpeed = 0.25f;
+            baseMovementSpeed = 0.5f;
             GravitationAbsolut = 0f;
             baseGravitationSpeed = 0.03f;
             baseGravitationAbsolut = -10f;
@@ -40,6 +41,7 @@ namespace Test
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textur.Size.X / 4, textur.Size.Y / 2);
             view = new View(new Vector2f(0,0),new Vector2f(800,600));
+            bewegungumdrehen = 1;
         }
 
         public void animation(GameTime gTime)
@@ -119,6 +121,8 @@ namespace Test
                 isMovingleft = false;
                 isMovingright = false;
             }
+
+            MovingDirection *= bewegungumdrehen;
         }
 
         public override void Update(GameTime gTime)
@@ -133,7 +137,7 @@ namespace Test
 
         public void Gravitation(GameTime gTime)
         {
-            int x = 2;
+            int x = 10;
             if(GravitationAbsolut <= 10f)
                 GravitationAbsolut += GravitationSpeed;
             MovementSpeed =  GravitationAbsolut;

@@ -16,12 +16,9 @@ namespace Test
         public Enemy()
         {
             int anzahlgeist = 5;
-            geist = new Geist[anzahlgeist];
+            geist = new Geist[1];
             zombie = new Zombie[9];
-            for (int i = 0; i < anzahlgeist; ++i)
-            {
-                geist[i] = new Geist();
-            }
+            geist[0] = new Geist();
             zombie[0] = new Zombie(new Vector2f(200,200));
             zombie[1] = new Zombie(new Vector2f(900,100));
             zombie[2] = new Zombie(new Vector2f(1100, 100));

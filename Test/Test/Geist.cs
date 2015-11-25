@@ -11,17 +11,25 @@ namespace Test
 {
     class Geist : GameObject
     {
+        public bool a;
+        private Color col;
          public Geist ()
         {
             textur = new Texture("geist.png");
             sprite = new Sprite(textur);
-            MovementSpeed = 0.3f;
+            MovementSpeed = 0.6f;
             sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            col = sprite.Color;
+            a = true;
          }
         public override void Update(GameTime gTime)
         {
             verfolgen();
             animation(gTime);
+            if (a)
+                activate();
+            else
+                deactivate(gTime);
         }
 
         public void animation(GameTime gTime)
@@ -53,5 +61,40 @@ namespace Test
         {
             sprite.Position = position;
         }
+
+        private void activate()
+        {
+
+            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
+            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
+            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
+            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
+
+            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
+            {
+                a = false; //Objekt wird deaktiviert
+                special = new TimeSpan(0, 0, 5); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
+                //Program.player.baseMovementSpeed *= -1;
+                Program.player.bewegungumdrehen *= -1;
+
+                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
+            }
+        }
+
+        private void deactivate(GameTime gTime)
+        {
+            special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
+            Console.WriteLine(special.Ticks);
+            if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
+            {
+                a = true;
+                special = new TimeSpan(0);
+                //Program.player.baseMovementSpeed *= -1;
+                Program.player.bewegungumdrehen *= -1;
+                sprite.Color = col; //Farbe wird zurückgesetzt.
+            }
+        }
+
+
     }
 }
