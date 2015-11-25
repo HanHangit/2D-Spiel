@@ -157,7 +157,25 @@ namespace Test
 
         public void setview(RenderWindow window)
         {
-            view.Center = Position;
+            Vector2f camPos = Position;
+            if (camPos.X < 400)
+            {
+                camPos.X = 400;
+            }
+            else if (camPos.X > 2600)
+            {
+                camPos.X = 2600;
+            }
+
+            if (camPos.Y < 300)
+            {
+                camPos.Y = 300;
+            }
+            else if (camPos.Y>700)
+            {
+                camPos.Y = 700;
+            }
+            view.Center = camPos;
             window.SetView(view);
         }
     }
