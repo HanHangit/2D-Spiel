@@ -12,13 +12,14 @@ namespace Test
 {
     class Speed : GameObject
     {
-        public bool a; //Siehe Zombie.cs
+        private TimeSpan dauer;
         public Speed(Vector2f position)
         {
             textur = new Texture("Speed.png");
             sprite = new Sprite(textur);
             setposition(position);
             a = true;
+            dauer = new TimeSpan(0, 0, 5);
             special = new TimeSpan(0);
         }
 
@@ -50,19 +51,12 @@ namespace Test
         {
             sprite.Position = position;   
         }
-
         private void activate()
         {
-
-            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
-            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
-            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
-            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
-
-            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy )
+            if (collplayer())
             {
                 a = false;
-                special = new TimeSpan(0,0,5);
+                special = new TimeSpan(0, 0, 5);
                 Program.player.baseMovementSpeed *= 2;
             }
         }
@@ -70,7 +64,7 @@ namespace Test
         private void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            Console.WriteLine(special.Ticks);
+            Console.WriteLine(special.Seconds);
             if (special.Ticks < 2)
             {
                 special = new TimeSpan(0);

@@ -11,6 +11,8 @@ namespace Test
 {
     class Enemy
     {
+        
+        //List<Geist> geist; Liste!!!!!!
         Geist[] geist;
         Zombie[] zombie;
         public Enemy()

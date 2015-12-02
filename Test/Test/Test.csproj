@@ -93,6 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Speed.cs" />
     <Compile Include="Tile.cs" />
+    <Compile Include="Unsterblich.cs" />
     <Compile Include="Zombie.cs" />
   </ItemGroup>
   <ItemGroup>

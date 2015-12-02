@@ -10,10 +10,13 @@ namespace Test
 {
     abstract class GameObject
     {
+        
         public Sprite sprite;
         protected Texture textur; //Textur für nach rechts gehen
         protected Texture textur1; //Textur für nach links gehen
-        protected String auswahl; 
+        protected String auswahl;
+        public bool a;
+        protected Color col;
         public Vector2f MovingDirection { get; set; }
         public float baseMovementSpeed; 
         protected float MovementSpeed;
@@ -43,6 +46,23 @@ namespace Test
             //if(isMoving)
                 sprite.Position += direction * MovementSpeed;
         }
+
+        protected bool collplayer()
+        {
+
+            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
+            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
+            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
+            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
+
+            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
+            {
+                    return true;
+
+            }
+            return false;
+        }
+
 
         public abstract void Update(GameTime gTime);
         public void Draw(RenderWindow win)

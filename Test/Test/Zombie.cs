@@ -11,11 +11,11 @@ namespace Test
 {
     class Zombie : GameObject
     {
-        public bool a; //Ob das Objekt Aktiv ist oder nicht! :D
-        private Color col; //Speichert die Farbe zwischen.
+        private TimeSpan dauer;
         public Zombie(Vector2f pos)
         {
             a = true;
+            dauer = new TimeSpan(0, 0, 5);
             textur = new Texture("zombie.png");
             sprite = new Sprite(textur);
             MovementSpeed = 0.4f;
@@ -84,30 +84,22 @@ namespace Test
             
             Move();
         }
-
-
-        private void activate()
+        protected void activate()
         {
-
-            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
-            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
-            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
-            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
-
-            if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
+            if (collplayer() && Program.player.sterblich) //Collision
             {
-                a = false; //Objekt wird deaktiviert
-                special = new TimeSpan(0, 0, 5); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
-                //Program.player.baseMovementSpeed *= -1;
-                Program.player.baseMovementSpeed /= 2;
-                sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
+                    Program.player.baseMovementSpeed /= 2;
+                    a = false; //Objekt wird deaktiviert
+                    special = new TimeSpan(0, 0, dauer.Seconds); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
+                    //Program.player.baseMovementSpeed *= -1;
+                    sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
             }
         }
 
-        private void deactivate(GameTime gTime)
+        protected void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            Console.WriteLine(special.Ticks);
+            Console.WriteLine(special.Seconds);
             if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
             {
                 a = true;

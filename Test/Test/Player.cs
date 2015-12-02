@@ -12,6 +12,7 @@ namespace Test
     class Player : GameObject
     {
         public bool jumptrue;
+        public bool sterblich = true;
         protected float baseGravitationSpeed;
         public float GravitationSpeed;
         public float baseGravitationAbsolut;
@@ -137,7 +138,7 @@ namespace Test
 
         public void Gravitation(GameTime gTime)
         {
-            int x = 10;
+            int x = 1;
             if(GravitationAbsolut <= 10f)
                 GravitationAbsolut += GravitationSpeed;
             MovementSpeed =  GravitationAbsolut;

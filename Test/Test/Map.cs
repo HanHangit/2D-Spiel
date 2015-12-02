@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using SFML.Window;
 using SFML.Graphics;
+using System.IO;
 
 namespace Test
 {
@@ -20,6 +21,7 @@ namespace Test
         
         public Map(Bitmap mask) //Vorlesung bla bla bla
         {
+            //Mapstring(mask);
             tiles = new Tile[mask.Width, mask.Height];
             for (int i = 0; i < tiles.GetLength(0); ++i)
             {
@@ -39,6 +41,42 @@ namespace Test
                 }
             }
         }
+
+        public void Mapstring(Bitmap mask) //Vorlesung bla bla bla
+        {
+            StreamWriter text;
+            text = new StreamWriter("C:/Users/" + Environment.UserName + "/Desktop/IslandData.txt");
+            String[,] tiles = new String[mask.Width, mask.Height];
+            String[,] tilesgrav = new String[mask.Width, mask.Height];
+            for (int i = 0; i < tiles.GetLength(0); ++i)
+            {
+                for (int j = 0; j < tiles.GetLength(1); ++j)
+                {
+                    if (mask.GetPixel(i, j).Name.Equals(black))
+                    {
+                        if ((i < 30 || i > mask.Width - 30 || j < 30 || j > mask.Height - 30))
+                        {
+                            tiles[i, j] = tilesgrav[i, j] = "false";
+                        }
+                        else
+                        {
+                            tiles[i, j] = "true";
+                            tilesgrav[i, j] = "false";
+                        }
+                    }
+                    else
+                    {
+                        tiles[i, j] = tilesgrav[i, j] = "true";
+                    }
+                }
+            }
+            //System.IO.File.Create("Collision.txt");
+            //System.IO.File.Create("Collisiongrav.txt");
+            //System.IO.File.WriteAllText("Collision.txt", );
+            //System.IO.File.WriteAllText("Collisiongrav.txt", tilesgrav.ToString());
+        }
+
+
 
         public bool IsWalkable(GameObject gObj) //COllision mit Wand[Rechts,Links]
         {
