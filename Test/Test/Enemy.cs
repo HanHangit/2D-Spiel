@@ -12,41 +12,39 @@ namespace Test
     class Enemy
     {
         
-        //List<Geist> geist; Liste!!!!!!
-        Geist[] geist;
-        Zombie[] zombie;
+        List<Geist> geister; //Liste!!!!!!
+        List<Zombie> zombies;
         public Enemy()
         {
-            int anzahlgeist = 5;
-            geist = new Geist[1];
-            zombie = new Zombie[9];
-            geist[0] = new Geist();
-            zombie[0] = new Zombie(new Vector2f(200,200));
-            zombie[1] = new Zombie(new Vector2f(900,100));
-            zombie[2] = new Zombie(new Vector2f(1100, 100));
-            zombie[3] = new Zombie(new Vector2f(1200, 100));
-            zombie[4] = new Zombie(new Vector2f(1300, 100));
-            zombie[5] = new Zombie(new Vector2f(1500, 100));
-            zombie[6] = new Zombie(new Vector2f(1700, 100));
-            zombie[7] = new Zombie(new Vector2f(1600, 100));
-            zombie[8] = new Zombie(new Vector2f(1800, 100));
+            geister = new List<Geist>();
+            geister.Add(new Geist());
+            zombies = new List<Zombie>();
+            zombies.Add(new Zombie(new Vector2f(200, 200)));
+            zombies.Add(new Zombie(new Vector2f(500, 200)));
+            zombies.Add(new Zombie(new Vector2f(800, 200)));
+            zombies.Add(new Zombie(new Vector2f(1000, 200)));
+            zombies.Add(new Zombie(new Vector2f(1200, 200)));
+            zombies.Add(new Zombie(new Vector2f(1300, 200)));
+            zombies.Add(new Zombie(new Vector2f(1378, 200)));
+            zombies.Add(new Zombie(new Vector2f(1570, 200)));
+            zombies.Add(new Zombie(new Vector2f(400, 200)));
         }
 
         public void Draw(RenderWindow window)
         {
             //Alle Gegner Objekt KLassen werden gezeichnet.
-            foreach (Geist t in geist)
+            foreach (Geist t in geister)
                 t.Draw(window);
-            foreach (Zombie t in zombie)
+            foreach (Zombie t in zombies)
                 t.Draw(window);
         }
 
         public void Update(GameTime gTime)
         {
             //Alle Gegner Objekt Klassen kriegen update.
-            foreach (Geist t in geist)
+            foreach (Geist t in geister)
                 t.Update(gTime);
-            foreach (Zombie t in zombie)
+            foreach (Zombie t in zombies)
                 t.Update(gTime);
         }
         /*

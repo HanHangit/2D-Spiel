@@ -12,7 +12,6 @@ namespace Test
 {
     class Unsterblich : GameObject
     {
-        public bool a;
         public Unsterblich(Vector2f position)
         {
             textur = new Texture("invis.png");
