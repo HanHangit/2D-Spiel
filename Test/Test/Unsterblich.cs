@@ -53,11 +53,11 @@ namespace Test
 
         private void activate()
         {
-            if (collplayer() && Program.player.sterblich)
+            if (collplayer() && Map01.player.sterblich)
             { 
                 a = false;
                     special = new TimeSpan(0, 0, 10);
-                    Program.player.sterblich = false;
+                    Map01.player.sterblich = false;
                 
             }
         }
@@ -69,7 +69,7 @@ namespace Test
             if (special.Ticks < 2)
             {
                 special = new TimeSpan(0);
-                Program.player.sterblich = true;
+                Map01.player.sterblich = true;
             }
         }
     }

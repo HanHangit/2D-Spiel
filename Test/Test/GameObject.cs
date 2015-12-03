@@ -50,10 +50,10 @@ namespace Test
         protected bool collplayer()
         {
             int k = 18;
-            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width + k;
-            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height + k;
-            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width - k;
-            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height - k;
+            float x = Map01.player.Position.X - Map01.player.sprite.TextureRect.Width + k;
+            float y = Map01.player.Position.Y - Map01.player.sprite.TextureRect.Height + k;
+            float sx = Map01.player.Position.X + Map01.player.sprite.TextureRect.Width - k;
+            float sy = Map01.player.Position.Y + Map01.player.sprite.TextureRect.Height - k;
 
             if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
             {
@@ -68,6 +68,11 @@ namespace Test
         public void Draw(RenderWindow win)
         {
             win.Draw(sprite);
+        }
+
+        public static implicit operator GameObject(Game v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

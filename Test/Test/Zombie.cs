@@ -68,7 +68,7 @@ namespace Test
         private void setPosition(Vector2f pos)
         {
             sprite.Position = pos;
-            while (Program.map.IsWalkablegrav(this)) //Objekt wird solange nach unten bewegt bis ein schwarzer BOden erreicht ist.
+            while (Map01.map.IsWalkablegrav(this)) //Objekt wird solange nach unten bewegt bis ein schwarzer BOden erreicht ist.
             {
                 sprite.Position += new Vector2f(0, 0.05f);
             }
@@ -77,7 +77,7 @@ namespace Test
         private void moving()
         {
 
-            if (Program.map.IsWalkablegrav(this) || !Program.map.IsWalkable(this))
+            if (Map01.map.IsWalkablegrav(this) || !Map01.map.IsWalkable(this))
             {
                 MovingDirection *= -1;
             }
@@ -86,12 +86,12 @@ namespace Test
         }
         protected void activate()
         {
-            if (collplayer() && Program.player.sterblich) //Collision
+            if (collplayer() && Map01.player.sterblich) //Collision
             {
-                    Program.player.baseMovementSpeed /= 2;
+                    Map01.player.baseMovementSpeed /= 2;
                     a = false; //Objekt wird deaktiviert
                     special = new TimeSpan(0, 0, dauer.Seconds); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
-                    //Program.player.baseMovementSpeed *= -1;
+                    //Map1.player.baseMovementSpeed *= -1;
                     sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
             }
         }
@@ -104,8 +104,8 @@ namespace Test
             {
                 a = true;
                 special = new TimeSpan(0);
-                //Program.player. *= -1;
-                Program.player.baseMovementSpeed *= 2;
+                //Map1.player. *= -1;
+                Map01.player.baseMovementSpeed *= 2;
                 sprite.Color = col; //Farbe wird zurückgesetzt.
             }
         }

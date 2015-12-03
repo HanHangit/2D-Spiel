@@ -57,7 +57,7 @@ namespace Test
             {
                 a = false;
                 special = new TimeSpan(0, 0, 5);
-                Program.player.baseMovementSpeed *= 2;
+                Map01.player.baseMovementSpeed *= 2;
             }
         }
 
@@ -68,7 +68,7 @@ namespace Test
             if (special.Ticks < 2)
             {
                 special = new TimeSpan(0);
-                Program.player.baseMovementSpeed /= 2;
+                Map01.player.baseMovementSpeed /= 2;
             }
         }
     }

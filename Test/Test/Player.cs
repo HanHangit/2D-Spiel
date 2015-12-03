@@ -131,7 +131,7 @@ namespace Test
             GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
             MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
             KeyboardInput(gTime);
-            if(Program.map.IsWalkable(this))
+            if(Map01.map.IsWalkable(this))
                 Move();
             Gravitation(gTime);
         }
@@ -157,13 +157,13 @@ namespace Test
 
         public bool collmap()
         {
-           return Program.map.IsWalkablegrav(this);
+           return Map01.map.IsWalkablegrav(this);
         }
 
         public void setview(RenderWindow window)
         {
             Vector2f camPos = Position;
-            Vector2f map = Program.map.map;
+            Vector2f map = Map01.map.map;
             //Console.WriteLine(map.Y);
             //Console.WriteLine(map.X);
             //Console.WriteLine(window.Size.X);

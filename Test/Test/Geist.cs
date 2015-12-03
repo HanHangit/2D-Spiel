@@ -50,7 +50,7 @@ namespace Test
         {
             if (aktion == 0)
                 verfolgen();
-            else if (aktion == 1)
+            if (aktion == 1)
                 bewegung();
             animation(gTime);
             if (a)
@@ -75,7 +75,7 @@ namespace Test
 
         public void verfolgen()
         {
-            MovingDirection = Program.player.Position - Position;
+            MovingDirection = Map01.player.Position - Position;
             Move();
         }
 
@@ -102,12 +102,12 @@ namespace Test
         private void activate()
         {
 
-            if (collplayer() && Program.player.sterblich)
+            if (collplayer() && Map01.player.sterblich)
             {
                 a = false; //Objekt wird deaktiviert
                 special = new TimeSpan(0, 0, 5); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
                 MovementSpeed = 0;
-                Program.player.bewegungumdrehen *= -1;
+                Map01.player.bewegungumdrehen *= -1;
                 sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
             }
 
@@ -123,9 +123,9 @@ namespace Test
             {
                 a = true;
                 special = new TimeSpan(0);
-                //Program.player.baseMovementSpeed *= -1;
+                //Map1.player.baseMovementSpeed *= -1;
                 MovementSpeed = 0.6f;
-                Program.player.bewegungumdrehen *= -1;
+                 Map01.player.bewegungumdrehen *= -1;
                 sprite.Color = col; //Farbe wird zurückgesetzt.
             }
         }

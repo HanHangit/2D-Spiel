@@ -9,12 +9,12 @@ using SFML.Graphics;
 
 namespace Test
 {
-    class Enemy
+    class Enemy01
     {
         
         List<Geist> geister; //Liste!!!!!!
         List<Zombie> zombies;
-        public Enemy()
+        public Enemy01()
         {
             geister = new List<Geist>();
             geister.Add(new Geist());

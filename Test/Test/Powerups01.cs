@@ -10,11 +10,11 @@ using System.Diagnostics;
 
 namespace Test
 {
-    class Powerups
+    class Powerups01
     {
         List<Speed> speed;
         List<Unsterblich> invis;
-        public Powerups()
+        public Powerups01()
         {
             speed = new List<Speed>(); //Anzahl der Speed Objekte
             invis = new List<Unsterblich>();
