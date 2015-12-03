@@ -17,7 +17,6 @@ namespace Test
         public static Map collmap { get; private set; }
         public static Enemy enemy { get; private set; }
         public static Powerups powerups { get; private set; }
-        public static int anzahlgeist = 10;
         static GameTime gTime;
         static Sprite sprite;
         static Texture text;
@@ -26,12 +25,13 @@ namespace Test
         public static void initialize()
         {           
             //Objekte der Klassen werden initialisiert.
-            map = new Map(new System.Drawing.Bitmap("Collision-Map1.bmp"));
-            player = new Player("Tofu", new Vector2f(300, 300));
+            map = new Map(new System.Drawing.Bitmap("Collision-Bitmap.bmp"));
+            player = new Player("Cookie", new Vector2f(800, 100));
             enemy = new Enemy();
             gTime = new GameTime();
-            text = new Texture("Collision-Map1.bmp");
+            text = new Texture("Collision-Bitmap.bmp");
             sprite = new Sprite(text);
+            sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups();
 
         }

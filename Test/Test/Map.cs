@@ -13,14 +13,15 @@ namespace Test
     class Map
     {
         Tile[,] tiles;
-        public float TileSize { get { return 1; } }
-        
+        public float TileSize { get { return 50; } }
 
+        public Vector2f map;
         static string white = System.Drawing.Color.FromArgb(255, 255, 255).Name;
         static string black = System.Drawing.Color.FromArgb(0, 0, 0).Name;
         
         public Map(Bitmap mask) //Vorlesung bla bla bla
         {
+            map = new Vector2f(mask.Width * TileSize, mask.Height * TileSize);
             //Mapstring(mask);
             tiles = new Tile[mask.Width, mask.Height];
             for (int i = 0; i < tiles.GetLength(0); ++i)
@@ -29,7 +30,7 @@ namespace Test
                 {
                     if (mask.GetPixel(i, j).Name.Equals(black))
                     {
-                        if((i < 30 || i > mask.Width - 30 || j < 30 || j > mask.Height - 30))
+                        if((i < 2 || i > mask.Width - 2 || j < 2 || j > mask.Height - 2))
                             tiles[i, j] = new Tile(SFML.Graphics.Color.Black, new Vector2f(i, j) * TileSize, false, false, new Vector2f(TileSize, TileSize));
                         else
                             tiles[i, j] = new Tile(SFML.Graphics.Color.Black, new Vector2f(i, j) * TileSize, false, true, new Vector2f(TileSize, TileSize));
@@ -80,15 +81,15 @@ namespace Test
 
         public bool IsWalkable(GameObject gObj) //COllision mit Wand[Rechts,Links]
         {
-            int x = (int)(gObj.Position.X - gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
-            int y = (int)(gObj.Position.Y - gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
+            int x = (int)(gObj.Position.X / TileSize - gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
+            int y = (int)(gObj.Position.Y / TileSize - gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
 
             int sx = (int)(gObj.Position.X / TileSize + gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
             int sy = (int)(gObj.Position.Y / TileSize + gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
 
             try
             {
-                return tiles[x, 150].Walkable && tiles[sx, 150].Walkable;
+                return tiles[x, 10].Walkable && tiles[sx, 10].Walkable;
             }
             catch (IndexOutOfRangeException)
             {
@@ -98,11 +99,11 @@ namespace Test
 
         public bool IsWalkablegrav(GameObject gObj) //COllision nur mit Untergrund
         {
-            int x = (int)((gObj.Position.X + gObj.MovingDirection.X / TileSize));
-            int y = (int)((gObj.Position.Y - gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y / TileSize - 3);
+            int x = (int)((gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize));
+            int y = (int)(((gObj.Position.Y - gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
 
             int sx = (int)(gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize);
-            int sy = (int)(gObj.Position.Y / TileSize + gObj.sprite.TextureRect.Height / 2 + gObj.MovingDirection.Y / TileSize -3);
+            int sy = (int)((gObj.Position.Y + gObj.sprite.TextureRect.Height / 2 + gObj.MovingDirection.Y) / TileSize );
             try
             {
                 return tiles[x, sy].Walkablegrav && tiles[sx, sy].Walkablegrav;

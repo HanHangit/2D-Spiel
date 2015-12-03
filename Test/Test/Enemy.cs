@@ -18,6 +18,7 @@ namespace Test
         {
             geister = new List<Geist>();
             geister.Add(new Geist());
+            geister.Add(new Geist(new Vector2f(300, 1200), new Vector2f(300, 1400)));
             zombies = new List<Zombie>();
             zombies.Add(new Zombie(new Vector2f(200, 200)));
             zombies.Add(new Zombie(new Vector2f(500, 200)));
@@ -34,18 +35,31 @@ namespace Test
         {
             //Alle Gegner Objekt KLassen werden gezeichnet.
             foreach (Geist t in geister)
+            {
+                
                 t.Draw(window);
+            }
             foreach (Zombie t in zombies)
+            {
+                
                 t.Draw(window);
+            }
         }
 
         public void Update(GameTime gTime)
         {
             //Alle Gegner Objekt Klassen kriegen update.
             foreach (Geist t in geister)
+            {
+                
                 t.Update(gTime);
+
+            }
             foreach (Zombie t in zombies)
+            {
+                
                 t.Update(gTime);
+            }
         }
         /*
         public Vector2f move(Vector2f punkt1, Vector2f punkt2, float geschwindigkeit)

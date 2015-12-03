@@ -11,8 +11,12 @@ namespace Test
 {
     class Geist : GameObject
     {
+        private int richtung = 1;
+        private int aktion;
+        private Vector2f pos1, pos2;
         public Geist()
         {
+            aktion = 0; //0 bedeutet verfolgen
             textur = new Texture("geist.png");
             sprite = new Sprite(textur);
             MovementSpeed = 0.6f;
@@ -20,9 +24,34 @@ namespace Test
             col = sprite.Color;
             a = true;
         }
+
+        public Geist(Vector2f punkt1, Vector2f punkt2)
+        {
+            Vector2f help;
+            if(punkt1.X > punkt2.X || punkt1.Y > punkt2.Y)
+            {
+                help = punkt1;
+                punkt1 = punkt2;
+                punkt2 = help;
+            }
+
+            pos1 = punkt1;
+            pos2 = punkt2;
+            aktion = 1; //1 bedeutet Bewegung zwischen zwei Punkten.
+            textur = new Texture("geist.png");
+            sprite = new Sprite(textur);
+            MovementSpeed = 0.6f;
+            sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            col = sprite.Color;
+            setPosition(punkt1);
+            a = true;
+        }
         public override void Update(GameTime gTime)
         {
-            verfolgen();
+            if (aktion == 0)
+                verfolgen();
+            else if (aktion == 1)
+                bewegung();
             animation(gTime);
             if (a)
                 activate();
@@ -47,6 +76,16 @@ namespace Test
         public void verfolgen()
         {
             MovingDirection = Program.player.Position - Position;
+            Move();
+        }
+
+        public void bewegung()
+        {
+            if (Position.X > pos2.X || Position.Y > pos2.Y)
+                richtung = -1;
+            else if (Position.X < pos1.X || Position.Y < pos1.Y)
+                richtung = 1;
+            MovingDirection = (pos2 - pos1) * richtung;
             Move();
         }
 

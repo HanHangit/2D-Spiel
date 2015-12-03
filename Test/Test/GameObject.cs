@@ -49,11 +49,11 @@ namespace Test
 
         protected bool collplayer()
         {
-
-            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width;
-            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height;
-            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width;
-            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height;
+            int k = 18;
+            float x = Program.player.Position.X - Program.player.sprite.TextureRect.Width + k;
+            float y = Program.player.Position.Y - Program.player.sprite.TextureRect.Height + k;
+            float sx = Program.player.Position.X + Program.player.sprite.TextureRect.Width - k;
+            float sy = Program.player.Position.Y + Program.player.sprite.TextureRect.Height - k;
 
             if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
             {

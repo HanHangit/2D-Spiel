@@ -12,19 +12,17 @@ namespace Test
 {
     class Powerups
     {
-        Speed[] speed;
-        Unsterblich[] invis;
+        List<Speed> speed;
+        List<Unsterblich> invis;
         public Powerups()
         {
-            speed = new Speed[3]; //Anzahl der Speed Objekte
-            invis = new Unsterblich[3];
-                speed[0] = new Speed(new Vector2f(600, 800)); //Speed wird erstellt und Position gesetzt.
-                speed[1] = new Speed(new Vector2f(1000, 700));
-                speed[2] = new Speed(new Vector2f(1200, 600));
-            invis[0] = new Unsterblich(new Vector2f(800, 900));
-            invis[1] = new Unsterblich(new Vector2f(1800, 900));
-            invis[2] = new Unsterblich(new Vector2f(2800, 800));
-
+            speed = new List<Speed>(); //Anzahl der Speed Objekte
+            invis = new List<Unsterblich>();
+            speed.Add(new Speed(new Vector2f(600, 800))); //Speed wird erstellt und Position gesetzt.
+            speed.Add(new Speed(new Vector2f(1000, 400)));
+            speed.Add(new Speed(new Vector2f(1500, 700)));
+            invis.Add(new Unsterblich(new Vector2f(800, 900)));
+            invis.Add(new Unsterblich(new Vector2f(1800, 900)));
 
         }
 

@@ -163,23 +163,32 @@ namespace Test
         public void setview(RenderWindow window)
         {
             Vector2f camPos = Position;
-            if (camPos.X < 400)
+            Vector2f map = Program.map.map;
+            //Console.WriteLine(map.Y);
+            //Console.WriteLine(map.X);
+            //Console.WriteLine(window.Size.X);
+            //Console.WriteLine(window.Size.Y);
+            Console.WriteLine(map.Y - window.Size.Y);
+            view.Size = new Vector2f(window.Size.X,window.Size.Y);
+            
+            if (camPos.X < window.Size.X / 2)
             {
-                camPos.X = 400;
+                camPos.X = window.Size.X / 2;
             }
-            else if (camPos.X > 2600)
+            else if (camPos.X > map.X - window.Size.X / 2)
             {
-                camPos.X = 2600;
+                camPos.X = map.X - window.Size.X / 2;
             }
 
-            if (camPos.Y < 300)
+            if (camPos.Y < window.Size.Y / 2)
             {
-                camPos.Y = 300;
+                camPos.Y = window.Size.Y / 2;
             }
-            else if (camPos.Y>700)
+            else if (camPos.Y > map.Y - window.Size.Y / 2)
             {
-                camPos.Y = 700;
+                camPos.Y = map.Y - window.Size.Y / 2;
             }
+            
             view.Center = camPos;
             window.SetView(view);
         }

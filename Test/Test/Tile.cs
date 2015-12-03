@@ -13,15 +13,11 @@ namespace Test
         
         public bool Walkable { get; private set; }
         public bool Walkablegrav { get; private set; }
-        public string walk;
-        public string walkgrav;
 
         public Tile(Color color, Vector2f position, bool walkablegrav,bool walkable, Vector2f size)
         {
             Walkable = walkable;
             Walkablegrav = walkablegrav;
-            walk = walkable.ToString();
-            walkgrav = walkablegrav.ToString();
         }
     }
 }
