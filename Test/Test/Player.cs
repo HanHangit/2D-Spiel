@@ -233,7 +233,7 @@ namespace Test
                         x = new int[] { 0, 67, 133, 199 };
                         y = new int[] { 0, 0, 0, 0 };
                         w = new int[] { 67, 67, 67, 67 };
-                        h = new int[] { 64, 64, 64, 64 };
+                        h = new int[] { 64, 61, 64, 64 };
                         animtime = 500;
                         animrepeat = true;
                     }
