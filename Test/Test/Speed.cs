@@ -15,8 +15,8 @@ namespace Test
         private TimeSpan dauer;
         public Speed(Vector2f position)
         {
-            textur = new Texture("Speed.png");
-            sprite = new Sprite(textur);
+            textlaufenrechts = new Texture("Speed.png");
+            sprite = new Sprite(textlaufenrechts);
             setposition(position);
             a = true;
             dauer = new TimeSpan(0, 0, 5);
@@ -64,7 +64,7 @@ namespace Test
         private void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            Console.WriteLine(special.Seconds);
+            //Console.WriteLine(special.Seconds);
             if (special.Ticks < 2)
             {
                 special = new TimeSpan(0);

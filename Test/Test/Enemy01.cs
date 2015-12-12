@@ -17,18 +17,18 @@ namespace Test
         public Enemy01()
         {
             geister = new List<Geist>();
-            geister.Add(new Geist());
+            //geister.Add(new Geist());
             geister.Add(new Geist(new Vector2f(300, 1200), new Vector2f(300, 1400)));
             zombies = new List<Zombie>();
-            zombies.Add(new Zombie(new Vector2f(200, 200)));
-            zombies.Add(new Zombie(new Vector2f(500, 200)));
-            zombies.Add(new Zombie(new Vector2f(800, 200)));
+            //zombies.Add(new Zombie(new Vector2f(200, 200)));
+            //zombies.Add(new Zombie(new Vector2f(500, 200)));
+            //zombies.Add(new Zombie(new Vector2f(800, 200)));
             zombies.Add(new Zombie(new Vector2f(1000, 200)));
             zombies.Add(new Zombie(new Vector2f(1200, 200)));
             zombies.Add(new Zombie(new Vector2f(1300, 200)));
             zombies.Add(new Zombie(new Vector2f(1378, 200)));
             zombies.Add(new Zombie(new Vector2f(1570, 200)));
-            zombies.Add(new Zombie(new Vector2f(400, 200)));
+            //zombies.Add(new Zombie(new Vector2f(400, 200)));
         }
 
         public void Draw(RenderWindow window)

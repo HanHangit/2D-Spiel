@@ -12,8 +12,12 @@ namespace Test
     {
         
         public Sprite sprite;
-        protected Texture textur; //Textur für nach rechts gehen
-        protected Texture textur1; //Textur für nach links gehen
+        protected Texture textlaufenrechts; //Textur für nach rechts gehen
+        protected Texture textlaufenlinks; //Textur für nach links gehen
+        protected Texture textjumprechts;//Sprungtextur
+        protected Texture textjumplinks;//Sprungtextur
+        protected Texture textidle; //Textur wenn CHarackter steht
+        protected Texture textfinish; //Textur wenn im Ziel angelangt
         protected String auswahl;
         public bool a;
         protected Color col;

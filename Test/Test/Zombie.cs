@@ -16,8 +16,8 @@ namespace Test
         {
             a = true;
             dauer = new TimeSpan(0, 0, 5);
-            textur = new Texture("zombie.png");
-            sprite = new Sprite(textur);
+            textlaufenrechts = new Texture("zombie.png");
+            sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.4f;
             MovingDirection = new Vector2f(1, 0);
             sprite.TextureRect = new IntRect(0, 0, 39, 68);
@@ -99,7 +99,7 @@ namespace Test
         protected void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            Console.WriteLine(special.Seconds);
+            //Console.WriteLine(special.Seconds);
             if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
             {
                 a = true;

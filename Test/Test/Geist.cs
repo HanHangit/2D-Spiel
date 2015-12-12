@@ -17,10 +17,10 @@ namespace Test
         public Geist()
         {
             aktion = 0; //0 bedeutet verfolgen
-            textur = new Texture("geist.png");
-            sprite = new Sprite(textur);
+            textlaufenrechts = new Texture("geist.png");
+            sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.6f;
-            sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            sprite.Origin = new Vector2f(textlaufenrechts.Size.X / 2, textlaufenrechts.Size.Y / 2);
             col = sprite.Color;
             a = true;
         }
@@ -38,10 +38,10 @@ namespace Test
             pos1 = punkt1;
             pos2 = punkt2;
             aktion = 1; //1 bedeutet Bewegung zwischen zwei Punkten.
-            textur = new Texture("geist.png");
-            sprite = new Sprite(textur);
+            textlaufenrechts = new Texture("geist.png");
+            sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.6f;
-            sprite.Origin = new Vector2f(textur.Size.X / 2, textur.Size.Y / 2);
+            sprite.Origin = new Vector2f(textlaufenrechts.Size.X / 2, textlaufenrechts.Size.Y / 2);
             col = sprite.Color;
             setPosition(punkt1);
             a = true;
@@ -118,7 +118,7 @@ namespace Test
         private void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            Console.WriteLine(special.Seconds);
+            //Console.WriteLine(special.Seconds);
             if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
             {
                 a = true;

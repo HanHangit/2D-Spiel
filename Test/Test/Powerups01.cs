@@ -14,15 +14,22 @@ namespace Test
     {
         List<Speed> speed;
         List<Unsterblich> invis;
+        List<Burger> burger;
+        List<Doublejump> doublejump;
         public Powerups01()
         {
             speed = new List<Speed>(); //Anzahl der Speed Objekte
             invis = new List<Unsterblich>();
-            speed.Add(new Speed(new Vector2f(600, 800))); //Speed wird erstellt und Position gesetzt.
-            speed.Add(new Speed(new Vector2f(1000, 400)));
-            speed.Add(new Speed(new Vector2f(1500, 700)));
+            burger = new List<Burger>();
+            doublejump = new List<Doublejump>();
+            speed.Add(new Speed(new Vector2f(600, 1400))); //Speed wird erstellt und Position gesetzt.
+            speed.Add(new Speed(new Vector2f(1000, 900)));
+            speed.Add(new Speed(new Vector2f(1500, 1200)));
             invis.Add(new Unsterblich(new Vector2f(800, 900)));
             invis.Add(new Unsterblich(new Vector2f(1800, 900)));
+            burger.Add(new Burger(new Vector2f(500, 1400)));
+            burger.Add(new Burger(new Vector2f(1000, 900)));
+            doublejump.Add(new Doublejump(new Vector2f(2500, 1000)));
 
         }
 
@@ -38,6 +45,16 @@ namespace Test
                 if (q.a || q.special.Ticks != 0)
                     q.Update(gTime);
             }
+            foreach(Burger t in burger)
+            {
+                if (t.a || t.special.Ticks != 0)
+                    t.Update(gTime);
+            }
+            foreach(Doublejump t in doublejump)
+            {
+                if (t.a || t.special.Ticks != 0)
+                    t.Update(gTime);
+            }
         }
 
         public void Draw(RenderWindow window)
@@ -48,6 +65,16 @@ namespace Test
                     t.Draw(window);
             }
             foreach (Unsterblich t in invis)
+            {
+                if (t.a) //Wenn nicht mehr aktiv -> Wird nicht mehr gezeichnet.
+                    t.Draw(window);
+            }
+            foreach (Burger t in burger)
+            {
+                if (t.a) //Wenn nicht mehr aktiv -> Wird nicht mehr gezeichnet.
+                    t.Draw(window);
+            }
+            foreach (Doublejump t in doublejump)
             {
                 if (t.a) //Wenn nicht mehr aktiv -> Wird nicht mehr gezeichnet.
                     t.Draw(window);

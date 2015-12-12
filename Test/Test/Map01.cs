@@ -33,7 +33,7 @@ namespace Test
         {
             //Objekte der Klassen werden initialisiert.
             map = new Map(new System.Drawing.Bitmap("Collision-Bitmap.bmp"));
-            player = new Player("Cookie", new Vector2f(800, 100));
+            player = new Player("Cookie2", new Vector2f(100, 1400));
             enemy = new Enemy01();
             text = new Texture("Collision-Bitmap.bmp");
             sprite = new Sprite(text);
@@ -59,7 +59,8 @@ namespace Test
                 return EGameState.TitleScreen;
 
             gTime.Update();
-            player.Update(gTime);
+            if(player.a)
+                player.Update(gTime);
             player.animation(gTime);
             enemy.Update(gTime);
             powerups.Update(gTime);
