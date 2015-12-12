@@ -33,7 +33,7 @@ namespace Test
         {
             //Objekte der Klassen werden initialisiert.
             map = new Map(new System.Drawing.Bitmap("Collision-Bitmap.bmp"));
-            player = new Player("Cookie2", new Vector2f(200, 1400));
+            player = new Player("Cookie", new Vector2f(200, 1400));
             enemy = new Enemy01();
             text = new Texture("Collision-Bitmap.bmp");
             sprite = new Sprite(text);
