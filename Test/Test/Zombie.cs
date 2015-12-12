@@ -14,9 +14,11 @@ namespace Test
         private TimeSpan dauer;
         public Zombie(Vector2f pos)
         {
+            //TODO: neuen Constructor: Erst wenn Spieler in der Nähe ist, wird der Zombie "aktiviert"
             a = true;
             dauer = new TimeSpan(0, 0, 5);
             textlaufenrechts = new Texture("zombie.png");
+            textlaufenlinks = new Texture("zombie2.png");
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.4f;
             MovingDirection = new Vector2f(1, 0);
@@ -41,17 +43,15 @@ namespace Test
             time += gTime.Ellapsed;
             if (time.Milliseconds >= 300) //Animationsgeschwindigkeit
             {
-                /*
                 if (isMovingright)
                 {
-                    sprite.Texture = textur;
+                    sprite.Texture = textlaufenrechts;
                     
                 }
                 else if (isMovingleft)
                 {
-                    sprite.Texture = textur1;
+                    sprite.Texture = textlaufenlinks;
                 }
-                */
                 time = new TimeSpan(0);
                 if (sprite.TextureRect.Left > 100)
                     sprite.TextureRect = new IntRect(0, 0, 39, 68);
@@ -81,11 +81,22 @@ namespace Test
             {
                 MovingDirection *= -1;
             }
-            
+            if (MovingDirection.X > 0)
+            {
+                isMovingright = true;
+                isMovingleft = false;
+            }
+            else
+            {
+                isMovingleft = true;
+                isMovingright = false;
+            }
             Move();
         }
         protected void activate()
         {
+            //TODO: Stirbt wenn berührt
+            //TODO: Player wird betäubt
             if (collplayer() && Map01.player.sterblich) //Collision
             {
                     Map01.player.baseMovementSpeed /= 2;

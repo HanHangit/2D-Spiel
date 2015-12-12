@@ -29,7 +29,7 @@ namespace Test
             else
                 Ellapsed = watch.Elapsed - Total;
             Total = watch.Elapsed;
-            //Console.WriteLine(Ellapsed.Milliseconds);
+            Console.WriteLine(Ellapsed.Milliseconds);
         }
     }
 }

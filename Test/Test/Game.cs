@@ -19,7 +19,7 @@ namespace Test
         {
             window = new RenderWindow(new VideoMode(800, 600), "LoL");
             window.Closed += (object sender, EventArgs e) => { (sender as Window).Close(); };
-            window.SetFramerateLimit(120);
+            window.SetFramerateLimit(200);
             gTime = new GameTime();
         }
 

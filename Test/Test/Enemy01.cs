@@ -11,7 +11,7 @@ namespace Test
 {
     class Enemy01
     {
-        
+        //TODO: Liste für weitere Monster
         List<Geist> geister; //Liste!!!!!!
         List<Zombie> zombies;
         public Enemy01()
