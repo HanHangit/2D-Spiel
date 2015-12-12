@@ -97,7 +97,7 @@ namespace Test
                         x = new int[] { 0, 59, 117, 176 };
                         y = new int[] { 0, 0, 0, 0 };
                         w = new int[] { 56, 56, 56, 56 };
-                        h = new int[] { 57, 57, 57, 57 };
+                        h = new int[] { 58, 58, 58, 58 };
                         animtime = 300;
                         animrepeat = true;
                     }
@@ -125,10 +125,10 @@ namespace Test
                     }
                     if (auswahl == "Cookie")
                     {
-                        x = new int[] { 0, 52, 104, 153 };
+                        x = new int[] { 0, 54, 114, 171 };
                         y = new int[] { 0, 0, 0, 0 };
-                        w = new int[] { 48, 48, 48, 48 };
-                        h = new int[] { 78, 78, 78, 78 };
+                        w = new int[] { 54, 60, 54, 60 };
+                        h = new int[] { 58, 58, 58, 58 };
                         animtime = 300;
                         animrepeat = true;
                     }
@@ -162,7 +162,7 @@ namespace Test
                         x = new int[] { 0, 59, 117, 176 };
                         y = new int[] { 0, 0, 0, 0 };
                         w = new int[] { 56, 56, 56, 56 };
-                        h = new int[] { 57, 57, 57, 57 };
+                        h = new int[] { 58, 58, 58, 58 };
                         animtime = 300;
                         animrepeat = true;
                     }
@@ -190,10 +190,10 @@ namespace Test
                     }
                     if (auswahl == "Cookie")
                     {
-                        x = new int[] { 0, 59, 117, 176 };
+                        x = new int[] { 0, 54, 114, 171 };
                         y = new int[] { 0, 0, 0, 0 };
-                        w = new int[] { 56, 56, 56, 56 };
-                        h = new int[] { 57, 57, 57, 57 };
+                        w = new int[] { 54, 60, 54, 60};
+                        h = new int[] { 58, 58, 58, 58 };
                         animtime = 300;
                         animrepeat = true;
                     }
@@ -224,7 +224,7 @@ namespace Test
                         x = new int[] { 0, 59, 117, 176 };
                         y = new int[] { 0, 0, 0, 0 };
                         w = new int[] { 56, 56, 56, 56 };
-                        h = new int[] { 57, 57, 57, 57 };
+                        h = new int[] { 58, 58, 58, 58 };
                         animtime = 300;
                         animrepeat = true;
                     }
@@ -265,7 +265,7 @@ namespace Test
                         ++i;
                     sprite.TextureRect = new IntRect(x[i], y[i], w[i], h[i]);
                 }
-                //System.Console.WriteLine(i);
+                System.Console.WriteLine(i);
                 //System.Console.WriteLine(sprite.TextureRect.Left.ToString());
                 //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
             }
