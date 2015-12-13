@@ -22,6 +22,9 @@ namespace Test
         public View view;
         public float bewegungumdrehen;
         private bool animrepeat;
+        private float maxheight;
+        private int jumpingHeight;
+        public bool isJumping;
         public Player(String bild, Vector2f startPosition)
         {
             //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
@@ -29,6 +32,7 @@ namespace Test
             basejumptrue = 1;
             jump = true;
             auswahl = bild;
+            jumpingHeight = 300;
             
             if (auswahl == "Cookie")
             {
@@ -56,7 +60,7 @@ namespace Test
                 textidle = new Texture("Cookie-animation/idle.png");
             }
             System.Console.WriteLine(auswahl);
-            baseMovementSpeed = 0.5f;
+            baseMovementSpeed = 0.6f;
             GravitationAbsolut = 0f;
             baseGravitationSpeed = 0.03f;
             baseGravitationAbsolut = -10f;
@@ -68,6 +72,8 @@ namespace Test
             bewegungumdrehen = 1;
             a = true;
             animrepeat = true;
+            maxheight = sprite.Position.Y;
+            isJumping = true;
         }
 
         public void animation(GameTime gTime)
@@ -75,7 +81,7 @@ namespace Test
             int[] x = null, y = null, w = null, h = null;
             int i = 0, animtime = 0;
             time += gTime.Ellapsed;
-            //TODO: Abfrage für Animation laden/starten wenn im Ziel
+            //TODO: Abfrage für Animation laden/starten wenn im Ziel bzw. am Start
             //TODO: Animation vervollständigen
             //TODO: Abfrage, wenn Player beschleunigt!?
             if (GravitationAbsolut != 0)
@@ -87,7 +93,7 @@ namespace Test
                     {
                         x = new int[] { 4, 52, 104, 153 }; //X-Koordinaten von denen ausgeschnitten werden 
                         y = new int[] { 0, 0, 0, 0 }; //Y-Koordinaten von denen ausgeschnitten werden soll
-                        w = new int[] { 48, 48, 48, 48 }; //Länder der Bilder
+                        w = new int[] { 48, 48, 48, 48 }; //Länge der Bilder
                         h = new int[] { 78, 78, 78, 78 }; //Höher der Bilder
                         animtime = 300; //Dauer der Animation
                         animrepeat = true; //Ob die Animation wiederholt werden soll
@@ -265,7 +271,7 @@ namespace Test
                         ++i;
                     sprite.TextureRect = new IntRect(x[i], y[i], w[i], h[i]);
                 }
-                System.Console.WriteLine(i);
+                //System.Console.WriteLine(i);
                 //System.Console.WriteLine(sprite.TextureRect.Left.ToString());
                 //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
             }
@@ -319,9 +325,14 @@ namespace Test
             //TODO: Optimieren mit gTime
             if (jump)
             {
-                GravitationAbsolut = baseGravitationAbsolut;
+                //GravitationAbsolut = baseGravitationAbsolut;
                 //GravitationAbsolut = -1f;
+                maxheight = sprite.Position.Y - jumpingHeight;
+                //Console.WriteLine(maxheight);
+                GravitationAbsolut = maxheight/300 ;
+                Console.WriteLine(maxheight);
                 jump = false;
+                isJumping = true;
                 --jumptrue;
             }
         }
@@ -370,22 +381,60 @@ namespace Test
 
         public void Gravitation(GameTime gTime)
         {
-            int x = 1;
-            if(GravitationAbsolut <= 10f)
-                GravitationAbsolut += GravitationSpeed;
+            //if(GravitationAbsolut <= 10f)
+            //    GravitationAbsolut += GravitationSpeed;
             MovementSpeed =  GravitationAbsolut;
-            MovingDirection = new Vector2f(0, x);
-            if (collmap() || GravitationAbsolut < 0)
+            MovingDirection = new Vector2f(0, 1);
+            float div = sprite.Position.Y - maxheight;
+            div = (div + 1) / 30;
+            if (div >= 10f)
+                div = 10f;
+            if (GravitationAbsolut == 0)
+                ++GravitationAbsolut;
+            //Console.WriteLine(GravitationAbsolut);
+            //Console.WriteLine(collmap());
+            Console.WriteLine(Math.Abs(div) + " " + collmap());
+            if (isJumping)
             {
-                Move();
-                //sprite.Position += new Vector2f(0, GravitationAbsolut);
+                sprite.Position -= new Vector2f(0, div);
+            }
+            else if(!isJumping && collmap())
+            {
+                sprite.Position += new Vector2f(0, div);
             }
             else
             {
                 jump = true;
                 jumptrue = basejumptrue;
                 GravitationAbsolut = 0f;
+                maxheight = sprite.Position.Y;
+                isJumping = false;
             }
+            if (Math.Abs(div) < 1f)
+                isJumping = false;
+            /*
+            float div = sprite.Position.Y - maxheight;
+
+            //touchedGround = !Program.map.CheckDownWards(this);
+
+            if(!isJumping && collmap())
+            {
+                sprite.Position += new Vector2f(0, (div + 1f) / 30);
+            }
+            else if (isJumping)
+            {
+                sprite.Position -= new Vector2f(0, (div + 1f) / 30);
+                if (Math.Abs(div) < 5f)
+                {
+                    isJumping = false;
+                }
+            }
+            else
+            {
+                jump = true;
+                jumptrue = basejumptrue;
+            }
+            */
         }
 
         public bool collmap()
