@@ -41,7 +41,6 @@ namespace Test
             }
             foreach (Zombie t in zombies)
             {
-                
                 t.Draw(window);
             }
         }
@@ -57,7 +56,6 @@ namespace Test
             }
             foreach (Zombie t in zombies)
             {
-                
                 t.Update(gTime);
             }
         }
