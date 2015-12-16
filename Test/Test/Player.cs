@@ -55,8 +55,8 @@ namespace Test
             {
                 textlaufenrechts = new Texture("Cookie-animation/laufenrechts.png");
                 textlaufenlinks = new Texture("Cookie-animation/laufenlinks.png");
-                textjumprechts = new Texture("Cookie-animation/hüpfenrechts.png");
-                textjumplinks = new Texture("Cookie-animation/hüpfenlinks.png");
+                textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
+                textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
             }
             System.Console.WriteLine(auswahl);
