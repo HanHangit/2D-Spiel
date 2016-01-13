@@ -140,9 +140,9 @@ namespace Test
                     }
                     if (auswahl == "Cookie2")
                     {
-                        x = new int[] { 0, 41, 80 };
+                        x = new int[] { 80, 41, 0 };
                         y = new int[] { 0, 0, 0 };
-                        w = new int[] { 41, 39, 72 };
+                        w = new int[] { 72, 39, 41 };
                         h = new int[] { 61, 61, 61 };
                         animtime = 300;
                         animrepeat = false;
