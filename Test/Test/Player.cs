@@ -37,11 +37,11 @@ namespace Test
             if (auswahl == "Cookie")
             {
                 //TODO: Ordner-Strukturen einrichten: Bilder/Animation in einen Ordner packen und von dort aufrufen
-                textlaufenrechts = new Texture("cookie.png"); //Textur nach rechts
-                textlaufenlinks = new Texture("cookie2.png"); //Textur nach links
-                textjumprechts = new Texture("cookie.png");
-                textjumplinks = new Texture("cookie2.png");
-                textidle = new Texture("cookie.png");
+                textlaufenrechts = new Texture("Cookie-animation/laufenrechts.png"); //Textur nach rechts
+                textlaufenlinks = new Texture("Cookie-animation/laufenlinks.png"); //Textur nach links
+                textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
+                textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
+                textidle = new Texture("Cookie-animation/idle.png");
             }
             if (auswahl == "Tofu")
             {
@@ -58,6 +58,7 @@ namespace Test
                 textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
                 textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
+
             }
             System.Console.WriteLine(auswahl);
             baseMovementSpeed = 0.6f;
@@ -84,6 +85,8 @@ namespace Test
             //TODO: Abfrage für Animation laden/starten wenn im Ziel bzw. am Start
             //TODO: Animation vervollständigen
             //TODO: Abfrage, wenn Player beschleunigt!?
+            //TODO: Abhängig von Sprung machen(bzw. Gravitation 0 & Richtungstaste abfangen)
+            //TODO: Funktion für isMovingRight schreiben und das umdrehen durch den Geist beachten
             if (GravitationAbsolut != 0)
             {
                 if (isMovingright)
@@ -117,35 +120,69 @@ namespace Test
                         animrepeat = false;
                     }
                 }
-                else //if(isMovingleft)
+                else
                 {
-                    sprite.Texture = textjumplinks;
-                    if (auswahl == "Tofu")
+                    if (isMovingleft)
                     {
-                        x = new int[] { 4, 52, 104, 153 };
-                        y = new int[] { 0, 0, 0, 0 };
-                        w = new int[] { 48, 48, 48, 48 };
-                        h = new int[] { 78, 78, 78, 78 };
-                        animtime = 300;
-                        animrepeat = true;
+                        sprite.Texture = textjumplinks;
+                        if (auswahl == "Tofu")
+                        {
+                            x = new int[] { 4, 52, 104, 153 };
+                            y = new int[] { 0, 0, 0, 0 };
+                            w = new int[] { 48, 48, 48, 48 };
+                            h = new int[] { 78, 78, 78, 78 };
+                            animtime = 300;
+                            animrepeat = true;
+                        }
+                        if (auswahl == "Cookie")
+                        {
+                            x = new int[] { 0, 54, 114, 171 };
+                            y = new int[] { 0, 0, 0, 0 };
+                            w = new int[] { 54, 60, 54, 60 };
+                            h = new int[] { 58, 58, 58, 58 };
+                            animtime = 300;
+                            animrepeat = true;
+                        }
+                        if (auswahl == "Cookie2")
+                        {
+                            x = new int[] { 111, 72, 0 };
+                            y = new int[] { 0, 0, 0 };
+                            w = new int[] { 72, 39, 41 };
+                            h = new int[] { 61, 61, 61 };
+                            animtime = 300;
+                            animrepeat = false;
+                        }
                     }
-                    if (auswahl == "Cookie")
+                    else
                     {
-                        x = new int[] { 0, 54, 114, 171 };
-                        y = new int[] { 0, 0, 0, 0 };
-                        w = new int[] { 54, 60, 54, 60 };
-                        h = new int[] { 58, 58, 58, 58 };
-                        animtime = 300;
-                        animrepeat = true;
-                    }
-                    if (auswahl == "Cookie2")
-                    {
-                        x = new int[] { 80, 41, 0 };
-                        y = new int[] { 0, 0, 0 };
-                        w = new int[] { 72, 39, 41 };
-                        h = new int[] { 61, 61, 61 };
-                        animtime = 300;
-                        animrepeat = false;
+                        sprite.Texture = textjumplinks;
+                        if (auswahl == "Tofu")
+                        {
+                            x = new int[] { 4, 52, 104, 153 };
+                            y = new int[] { 0, 0, 0, 0 };
+                            w = new int[] { 48, 48, 48, 48 };
+                            h = new int[] { 78, 78, 78, 78 };
+                            animtime = 300;
+                            animrepeat = true;
+                        }
+                        if (auswahl == "Cookie")
+                        {
+                            x = new int[] { 0, 54, 114, 171 };
+                            y = new int[] { 0, 0, 0, 0 };
+                            w = new int[] { 54, 60, 54, 60 };
+                            h = new int[] { 58, 58, 58, 58 };
+                            animtime = 300;
+                            animrepeat = true;
+                        }
+                        if (auswahl == "Cookie2")
+                        {
+                            x = new int[] { 0, 0, 0 };
+                            y = new int[] { 0, 0, 0 };
+                            w = new int[] { 72, 72, 72 };
+                            h = new int[] { 61, 61, 61 };
+                            animtime = 300;
+                            animrepeat = false;
+                        }
                     }
                 }
             }
@@ -393,7 +430,7 @@ namespace Test
                 ++GravitationAbsolut;
             //Console.WriteLine(GravitationAbsolut);
             //Console.WriteLine(collmap());
-            Console.WriteLine(Math.Abs(div) + " " + collmap());
+            Console.WriteLine("Position - maxheight: " + Math.Abs(div) + "\t Collision: " + collmap());
             if (isJumping)
             {
                 sprite.Position -= new Vector2f(0, div);
