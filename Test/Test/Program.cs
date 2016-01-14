@@ -16,9 +16,6 @@ namespace Test
         {
             Game g = new Game();
             g.Run();
-           
-
-
         }
     }
 }

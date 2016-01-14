@@ -64,7 +64,7 @@ namespace Test
             baseMovementSpeed = 0.6f;
             GravitationAbsolut = 0f;
             baseGravitationSpeed = 0.03f;
-            baseGravitationAbsolut = -10f;
+            baseGravitationAbsolut = -10f; 
             sprite = new Sprite(textlaufenrechts);
             sprite.Position = startPosition;
             sprite.Origin = new Vector2f (textlaufenrechts.Size.X / 4, textlaufenrechts.Size.Y / 2);
@@ -117,7 +117,7 @@ namespace Test
                         w = new int[] { 41, 39, 72 };
                         h = new int[] { 61, 61, 61 };
                         animtime = 300;
-                        animrepeat = false;
+                        animrepeat = true;
                     }
                 }
                 else
@@ -147,13 +147,13 @@ namespace Test
                         {
                             x = new int[] { 111, 72, 0 };
                             y = new int[] { 0, 0, 0 };
-                            w = new int[] { 72, 39, 41 };
+                            w = new int[] { 41, 39, 72 };
                             h = new int[] { 61, 61, 61 };
                             animtime = 300;
-                            animrepeat = false;
+                            animrepeat = true;
                         }
                     }
-                    else
+                    else // isIdle
                     {
                         sprite.Texture = textjumplinks;
                         if (auswahl == "Tofu")
@@ -181,7 +181,7 @@ namespace Test
                             w = new int[] { 72, 72, 72 };
                             h = new int[] { 61, 61, 61 };
                             animtime = 300;
-                            animrepeat = false;
+                            animrepeat = true;
                         }
                     }
                 }
@@ -295,7 +295,7 @@ namespace Test
                     {
                         ++i;
                     }
-                //System.Console.WriteLine(i + "||" + (x.Length - 1));
+                // System.Console.WriteLine(i + "||" + (x.Length - 1));
                 if (i == x.Length - 1 && animrepeat)
                 {
                     //sprite.TextureRect = new IntRect(x[x.Length - 1], y[y.Length - 1], w[w.Length - 1], h[h.Length - 1]);
@@ -312,6 +312,7 @@ namespace Test
                 //System.Console.WriteLine(sprite.TextureRect.Left.ToString());
                 //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
             }
+            Console.Write("Animationtime: " + time.Milliseconds + "; \t");
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
 
         }

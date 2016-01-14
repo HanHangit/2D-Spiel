@@ -22,7 +22,7 @@ namespace Test
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.4f;
             MovingDirection = new Vector2f(1, 0);
-            sprite.TextureRect = new IntRect(0, 0, 39, 68);
+            sprite.TextureRect = new IntRect(0, 0, 64, 64); // new IntRect(0, 0, 39, 68);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             setPosition(pos);
         }
@@ -32,6 +32,8 @@ namespace Test
             sprite.Position = pos;
         }
 
+        //TODO: Löschen wenn nicht mehr gebraucht
+        /*
         public void animation(GameTime gTime)
         {
             time += gTime.Ellapsed;
@@ -49,6 +51,7 @@ namespace Test
                 sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             }
         }
+        */
 
         public override void Update(GameTime gTime)
         {
