@@ -14,7 +14,7 @@ namespace Test
     {
         public Unsterblich(Vector2f position)
         {
-            textlaufenrechts = new Texture("invis.png");
+            textlaufenrechts = new Texture("vitamin.png");
             sprite = new Sprite(textlaufenrechts);
             setposition(position);
             a = true;
@@ -35,13 +35,13 @@ namespace Test
         public void animation(GameTime gTime)
         {
             time += gTime.Ellapsed;
-            if (time.Milliseconds >= 100)
+            if (time.Milliseconds >= 400)
             {
                 time = new TimeSpan(0);
                 if (sprite.TextureRect.Left > 50)
-                    sprite.TextureRect = new IntRect(10, 0, 30, 49);
+                    sprite.TextureRect = new IntRect( 7, 0, 66, 70);
                 else
-                    sprite.TextureRect = new IntRect(57, 0, 30, 49);
+                    sprite.TextureRect = new IntRect(74, 0, 66, 70);
                 sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             }
         }
