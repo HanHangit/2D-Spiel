@@ -15,7 +15,7 @@ namespace Test
         private TimeSpan dauer;
         public Speed(Vector2f position)
         {
-            textlaufenrechts = new Texture("Speed.png");
+            textlaufenrechts = new Texture("Energy.png");
             sprite = new Sprite(textlaufenrechts);
             setposition(position);
             a = true;
@@ -29,10 +29,10 @@ namespace Test
             if (time.Milliseconds >= 100)
             {
                 time = new TimeSpan(0);
-                if (sprite.TextureRect.Left > 5)
-                    sprite.TextureRect = new IntRect(0, 0, 57, 46);
+                if (sprite.TextureRect.Left > 12)
+                    sprite.TextureRect = new IntRect(12, 0, 30, 64);
                 else
-                    sprite.TextureRect = new IntRect(57, 0, 57, 46);
+                    sprite.TextureRect = new IntRect(62, 0, 30, 64);
                 //sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
             }
         }
