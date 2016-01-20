@@ -94,7 +94,7 @@ namespace Test
                     sprite.Texture = textjumprechts;
                     if (auswahl == "Tofu")
                     {
-                        x = new int[] { 4, 52, 104, 153 }; //X-Koordinaten von denen ausgeschnitten werden 
+                        x = new int[] { 4, 52, 104, 153 }; //X-Koordinaten von denen ausgeschnitten werden
                         y = new int[] { 0, 0, 0, 0 }; //Y-Koordinaten von denen ausgeschnitten werden soll
                         w = new int[] { 48, 48, 48, 48 }; //Länge der Bilder
                         h = new int[] { 78, 78, 78, 78 }; //Höher der Bilder
@@ -114,7 +114,7 @@ namespace Test
                     {
                         x = new int[] { 0, 41, 80 };
                         y = new int[] { 0, 0, 0 };
-                        w = new int[] { 41, 39, 35 };
+                        w = new int[] { 41, 39, 74 };
                         h = new int[] { 61, 61, 61 };
                         animtime = 300;
                         animrepeat = true;
