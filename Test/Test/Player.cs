@@ -114,7 +114,7 @@ namespace Test
                     {
                         x = new int[] { 0, 41, 80 };
                         y = new int[] { 0, 0, 0 };
-                        w = new int[] { 41, 39, 72 };
+                        w = new int[] { 41, 39, 35 };
                         h = new int[] { 61, 61, 61 };
                         animtime = 300;
                         animrepeat = true;
