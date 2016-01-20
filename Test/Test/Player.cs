@@ -482,29 +482,6 @@ namespace Test
             }
             if (Math.Abs(div) < 1f)
                 isJumping = false;
-            /*
-            float div = sprite.Position.Y - maxheight;
-
-            //touchedGround = !Program.map.CheckDownWards(this);
-
-            if(!isJumping && collmap())
-            {
-                sprite.Position += new Vector2f(0, (div + 1f) / 30);
-            }
-            else if (isJumping)
-            {
-                sprite.Position -= new Vector2f(0, (div + 1f) / 30);
-                if (Math.Abs(div) < 5f)
-                {
-                    isJumping = false;
-                }
-            }
-            else
-            {
-                jump = true;
-                jumptrue = basejumptrue;
-            }
-            */
         }
 
         public bool collmap()
