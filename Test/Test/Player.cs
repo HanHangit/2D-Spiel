@@ -55,6 +55,7 @@ namespace Test
                 textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
                 textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
+                textdead = new Texture("Cookie-animation/tot.png");
 
             }
             a = true;
@@ -370,7 +371,9 @@ namespace Test
         {
             deadtime = new TimeSpan(0, 0, 2);
             a = false;
-            sprite.Position = startpos;
+            sprite.Texture = textdead;
+            sprite.TextureRect = new IntRect(0,0,68,64);
+            sterblich = false;
         }
 
         void Sprung(GameTime gTime) 
@@ -428,8 +431,10 @@ namespace Test
             {
                 if(a == false)
                 {
+                    sprite.Position = startpos;
                     maxheight = sprite.Position.Y;
                     a = true;
+                    sterblich = true;
                 }
                 GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
                 MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
