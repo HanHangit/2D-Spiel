@@ -34,7 +34,8 @@ namespace Test
 
         //TODO: Löschen wenn nicht mehr gebraucht
         /*
-        public void animation(GameTime gTime)
+        public void 
+        (GameTime gTime)
         {
             time += gTime.Ellapsed;
             if (time.Milliseconds >= 100)
