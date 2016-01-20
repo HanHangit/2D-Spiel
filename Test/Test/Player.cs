@@ -26,16 +26,11 @@ namespace Test
         private int jumpingHeight;
         public bool isJumping;
         private Vector2f startpos;
+        private TimeSpan deadtime;
         public Player(String bild, Vector2f startPosition)
         {
-            //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
-            jumptrue = 1;
-            basejumptrue = 1;
-            jump = true;
             auswahl = bild;
-            jumpingHeight = 300;
-
-            
+            //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
             if (auswahl == "Cookie")
             {
                 //TODO: Ordner-Strukturen einrichten: Bilder/Animation in einen Ordner packen und von dort aufrufen
@@ -62,6 +57,11 @@ namespace Test
                 textidle = new Texture("Cookie-animation/idle.png");
 
             }
+            a = true;
+            jumptrue = 1;
+            basejumptrue = 1;
+            jump = true;
+            jumpingHeight = 300;
             startpos = startPosition;
             System.Console.WriteLine(auswahl);
             baseMovementSpeed = 0.6f;
@@ -368,6 +368,8 @@ namespace Test
 
         public void resetpos()
         {
+            deadtime = new TimeSpan(0, 0, 2);
+            a = false;
             sprite.Position = startpos;
         }
 
@@ -422,12 +424,24 @@ namespace Test
 
         public override void Update(GameTime gTime)
         {
-            GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
-            MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
-            KeyboardInput(gTime);
-            if(Map01.map.IsWalkable(this))
-                Move();
-            Gravitation(gTime);
+            if (deadtime.Seconds < 0)
+            {
+                if(a == false)
+                {
+                    maxheight = sprite.Position.Y;
+                    a = true;
+                }
+                GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
+                MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
+                KeyboardInput(gTime);
+                if (Map01.map.IsWalkable(this))
+                    Move();
+                Gravitation(gTime);
+            }
+            else
+            {
+                deadtime = deadtime.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
+            }
         }
 
         public void Gravitation(GameTime gTime)
