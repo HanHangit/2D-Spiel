@@ -155,7 +155,7 @@ namespace Test
                     }
                     else // isIdle
                     {
-                        sprite.Texture = textjumplinks;
+                        sprite.Texture = textidle;
                         if (auswahl == "Tofu")
                         {
                             x = new int[] { 4, 52, 104, 153 };
@@ -283,14 +283,15 @@ namespace Test
                 }
             }
 
-            //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
+            Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
+            Console.WriteLine(sprite.Texture);
             if (checkneueanim(sprite.TextureRect,x,y,w,h))
                 sprite.TextureRect = new IntRect(x[0], y[0], w[0], h[0]);
             else
             if (time.Milliseconds >= animtime)
                 {
                     time = new TimeSpan(0);
-                //System.Console.WriteLine(sprite.TextureRect.Left.ToString() + "||||" + x[i]);
+                System.Console.WriteLine(sprite.TextureRect.Left.ToString() + "||||" + x[i]);
                 while (sprite.TextureRect.Left != x[i])
                     {
                         ++i;
@@ -314,7 +315,11 @@ namespace Test
             }
             Console.Write("Animationtime: " + time.Milliseconds + "; \t");
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
-
+            Console.WriteLine(sprite.TextureRect);
+            Console.Write("");
+            Console.WriteLine(sprite.Texture.Equals(textjumprechts));
+            Console.WriteLine(isMovingright);
+            Console.Write("");
         }
 
         private static bool checkneueanim(IntRect text, int[] x, int[] y, int[] w, int[] h)
