@@ -17,8 +17,8 @@ namespace Test
             //TODO: neuen Constructor: Erst wenn Spieler in der Nähe ist, wird der Zombie "aktiviert"
             a = true;
             dauer = new TimeSpan(0, 0, 5);
-            textlaufenrechts = new Texture("zombie.png");
-            textlaufenlinks = new Texture("zombie2.png");
+            textlaufenrechts = new Texture("zombieB.png");
+            textlaufenlinks = new Texture("zombieB.png");
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.4f;
             MovingDirection = new Vector2f(1, 0);
@@ -53,14 +53,10 @@ namespace Test
                     sprite.Texture = textlaufenlinks;
                 }
                 time = new TimeSpan(0);
-                if (sprite.TextureRect.Left > 100)
-                    sprite.TextureRect = new IntRect(0, 0, 39, 68);
+                if (sprite.TextureRect.Left > 50)
+                    sprite.TextureRect = new IntRect(0, 0, 51, 61);
                 else if (sprite.TextureRect.Left < 5)
-                    sprite.TextureRect = new IntRect(39, 0, 39, 68);
-                else if (sprite.TextureRect.Left < 60)
-                    sprite.TextureRect = new IntRect(78, 0, 39, 68);
-                else
-                    sprite.TextureRect = new IntRect(116, 0, 39, 68);
+                    sprite.TextureRect = new IntRect(51, 0, 51, 61);
             }
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
         }
@@ -70,7 +66,7 @@ namespace Test
             sprite.Position = pos;
             while (Map01.map.IsWalkablegrav(this)) //Objekt wird solange nach unten bewegt bis ein schwarzer BOden erreicht ist.
             {
-                sprite.Position += new Vector2f(0, 0.05f);
+                sprite.Position += new Vector2f(0, 5f);
             }
         }
 
