@@ -25,6 +25,7 @@ namespace Test
         private float maxheight;
         private int jumpingHeight;
         public bool isJumping;
+        private Vector2f startpos;
         public Player(String bild, Vector2f startPosition)
         {
             //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
@@ -33,6 +34,7 @@ namespace Test
             jump = true;
             auswahl = bild;
             jumpingHeight = 300;
+
             
             if (auswahl == "Cookie")
             {
@@ -60,6 +62,7 @@ namespace Test
                 textidle = new Texture("Cookie-animation/idle.png");
 
             }
+            startpos = startPosition;
             System.Console.WriteLine(auswahl);
             baseMovementSpeed = 0.6f;
             GravitationAbsolut = 0f;
@@ -361,6 +364,11 @@ namespace Test
                 return false;
             else
                 return true;
+        }
+
+        public void resetpos()
+        {
+            sprite.Position = startpos;
         }
 
         void Sprung(GameTime gTime) 
