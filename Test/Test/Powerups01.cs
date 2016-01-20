@@ -22,7 +22,7 @@ namespace Test
             invis = new List<Unsterblich>();
             burger = new List<Burger>();
             doublejump = new List<Doublejump>();
-            speed.Add(new Speed(new Vector2f(600, 1400))); //Speed wird erstellt und Position gesetzt.
+            speed.Add(new Speed(new Vector2f(600, 1380))); //Speed wird erstellt und Position gesetzt.
             speed.Add(new Speed(new Vector2f(1000, 900)));
             speed.Add(new Speed(new Vector2f(1500, 1200)));
             invis.Add(new Unsterblich(new Vector2f(800, 900)));

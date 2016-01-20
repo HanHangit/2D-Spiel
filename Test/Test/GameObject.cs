@@ -18,6 +18,7 @@ namespace Test
         protected Texture textjumplinks;//Sprungtextur
         protected Texture textidle; //Textur wenn CHarackter steht
         protected Texture textfinish; //Textur wenn im Ziel angelangt
+        protected Texture textdead;
         protected String auswahl;
         public bool a;
         protected Color col;

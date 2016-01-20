@@ -59,9 +59,11 @@ namespace Test
                 return EGameState.TitleScreen;
 
             gTime.Update();
-            if(player.a)
-                player.Update(gTime);
-            player.animation(gTime);
+            player.Update(gTime);
+            if (player.a)
+            {
+                player.animation(gTime);
+            }
             enemy.Update(gTime);
             powerups.Update(gTime);
             return EGameState.Map1;

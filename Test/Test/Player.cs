@@ -25,15 +25,12 @@ namespace Test
         private float maxheight;
         private int jumpingHeight;
         public bool isJumping;
+        private Vector2f startpos;
+        private TimeSpan deadtime;
         public Player(String bild, Vector2f startPosition)
         {
-            //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
-            jumptrue = 1;
-            basejumptrue = 1;
-            jump = true;
             auswahl = bild;
-            jumpingHeight = 300;
-            
+            //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
             if (auswahl == "Cookie")
             {
                 //TODO: Ordner-Strukturen einrichten: Bilder/Animation in einen Ordner packen und von dort aufrufen
@@ -58,8 +55,15 @@ namespace Test
                 textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
                 textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
+                textdead = new Texture("Cookie-animation/tot.png");
 
             }
+            a = true;
+            jumptrue = 1;
+            basejumptrue = 1;
+            jump = true;
+            jumpingHeight = 300;
+            startpos = startPosition;
             System.Console.WriteLine(auswahl);
             baseMovementSpeed = 0.6f;
             GravitationAbsolut = 0f;
@@ -94,7 +98,7 @@ namespace Test
                     sprite.Texture = textjumprechts;
                     if (auswahl == "Tofu")
                     {
-                        x = new int[] { 4, 52, 104, 153 }; //X-Koordinaten von denen ausgeschnitten werden 
+                        x = new int[] { 4, 52, 104, 153 }; //X-Koordinaten von denen ausgeschnitten werden
                         y = new int[] { 0, 0, 0, 0 }; //Y-Koordinaten von denen ausgeschnitten werden soll
                         w = new int[] { 48, 48, 48, 48 }; //Länge der Bilder
                         h = new int[] { 78, 78, 78, 78 }; //Höher der Bilder
@@ -114,7 +118,7 @@ namespace Test
                     {
                         x = new int[] { 0, 41, 80 };
                         y = new int[] { 0, 0, 0 };
-                        w = new int[] { 41, 39, 72 };
+                        w = new int[] { 41, 39, 74 };
                         h = new int[] { 61, 61, 61 };
                         animtime = 300;
                         animrepeat = true;
@@ -363,6 +367,15 @@ namespace Test
                 return true;
         }
 
+        public void resetpos()
+        {
+            deadtime = new TimeSpan(0, 0, 2);
+            a = false;
+            sprite.Texture = textdead;
+            sprite.TextureRect = new IntRect(0,0,68,64);
+            sterblich = false;
+        }
+
         void Sprung(GameTime gTime) 
         {
             //TODO: Optimieren mit gTime
@@ -414,12 +427,26 @@ namespace Test
 
         public override void Update(GameTime gTime)
         {
-            GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
-            MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
-            KeyboardInput(gTime);
-            if(Map01.map.IsWalkable(this))
-                Move();
-            Gravitation(gTime);
+            if (deadtime.Seconds < 0)
+            {
+                if(a == false)
+                {
+                    sprite.Position = startpos;
+                    maxheight = sprite.Position.Y;
+                    a = true;
+                    sterblich = true;
+                }
+                GravitationSpeed = baseGravitationSpeed * gTime.Ellapsed.Milliseconds;
+                MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
+                KeyboardInput(gTime);
+                if (Map01.map.IsWalkable(this))
+                    Move();
+                Gravitation(gTime);
+            }
+            else
+            {
+                deadtime = deadtime.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
+            }
         }
 
         public void Gravitation(GameTime gTime)
@@ -455,29 +482,6 @@ namespace Test
             }
             if (Math.Abs(div) < 1f)
                 isJumping = false;
-            /*
-            float div = sprite.Position.Y - maxheight;
-
-            //touchedGround = !Program.map.CheckDownWards(this);
-
-            if(!isJumping && collmap())
-            {
-                sprite.Position += new Vector2f(0, (div + 1f) / 30);
-            }
-            else if (isJumping)
-            {
-                sprite.Position -= new Vector2f(0, (div + 1f) / 30);
-                if (Math.Abs(div) < 5f)
-                {
-                    isJumping = false;
-                }
-            }
-            else
-            {
-                jump = true;
-                jumptrue = basejumptrue;
-            }
-            */
         }
 
         public bool collmap()

@@ -99,11 +99,10 @@ namespace Test
             //TODO: Player wird betäubt
             if (collplayer() && Map01.player.sterblich) //Collision
             {
-                    Map01.player.baseMovementSpeed /= 2;
                     a = false; //Objekt wird deaktiviert
-                    special = new TimeSpan(0, 0, dauer.Seconds); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll
-                    //Map1.player.baseMovementSpeed *= -1;
+                Map01.player.resetpos();
                     sprite.Color = new Color(sprite.Color.R, sprite.Color.G, sprite.Color.B, 50); //Objekt wird zu 50% transparent gemacht
+                special = new TimeSpan(0, 0, 5);
             }
         }
 
@@ -115,8 +114,6 @@ namespace Test
             {
                 a = true;
                 special = new TimeSpan(0);
-                //Map1.player. *= -1;
-                Map01.player.baseMovementSpeed *= 2;
                 sprite.Color = col; //Farbe wird zurückgesetzt.
             }
         }
