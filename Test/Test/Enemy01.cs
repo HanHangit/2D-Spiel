@@ -17,7 +17,7 @@ namespace Test
         public Enemy01()
         {
             geister = new List<Geist>();
-            //geister.Add(new Geist());
+            geister.Add(new Geist());
             geister.Add(new Geist(new Vector2f(300, 1200), new Vector2f(300, 1400)));
             zombies = new List<Zombie>();
             //zombies.Add(new Zombie(new Vector2f(200, 200)));
@@ -28,6 +28,19 @@ namespace Test
             zombies.Add(new Zombie(new Vector2f(1300, 200)));
             zombies.Add(new Zombie(new Vector2f(1378, 200)));
             zombies.Add(new Zombie(new Vector2f(1570, 200)));
+            zombies.Add(new Zombie(new Vector2f(2000, 300)));
+            zombies.Add(new Zombie(new Vector2f(2300, 300)));
+            zombies.Add(new Zombie(new Vector2f(2500, 300)));
+            zombies.Add(new Zombie(new Vector2f(2900, 200)));
+            zombies.Add(new Zombie(new Vector2f(3000, 200)));
+            zombies.Add(new Zombie(new Vector2f(3500, 200)));
+            zombies.Add(new Zombie(new Vector2f(3600, 300)));
+            zombies.Add(new Zombie(new Vector2f(3700, 200)));
+            zombies.Add(new Zombie(new Vector2f(4000, 200)));
+            zombies.Add(new Zombie(new Vector2f(4100, 200)));
+
+            zombies.Add(new Zombie(new Vector2f(3400, 300)));
+            zombies.Add(new Zombie(new Vector2f(3200, 300)));
             //zombies.Add(new Zombie(new Vector2f(400, 200)));
         }
 
