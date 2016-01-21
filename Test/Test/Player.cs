@@ -492,7 +492,7 @@ namespace Test
                 jump = true;
                 jumptrue = basejumptrue;
                 GravitationAbsolut = 0f;
-                maxheight = sprite.Position.Y;
+                maxheight = sprite.Position.Y - 100;
                 isJumping = false;
             }
             if (Math.Abs(div) < 1f)

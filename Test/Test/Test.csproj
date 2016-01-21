@@ -90,6 +90,7 @@
     <Compile Include="GameState.cs" />
     <Compile Include="GameTime.cs" />
     <Compile Include="Geist.cs" />
+    <Compile Include="Hud.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Map01.cs" />
     <Compile Include="Player.cs" />
