@@ -27,6 +27,7 @@ namespace Test
         public bool isJumping;
         private Vector2f startpos;
         private TimeSpan deadtime;
+        public int score;
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
@@ -58,6 +59,7 @@ namespace Test
                 textdead = new Texture("Cookie-animation/tot.png");
 
             }
+            score = 0;
             a = true;
             jumptrue = 1;
             basejumptrue = 1;

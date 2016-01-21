@@ -104,6 +104,7 @@ namespace Test
 
             if (collplayer() && Map01.player.sterblich)
             {
+                Map01.player.score += 10; 
                 //TODO: bewegungumdrehen von Map unabhängig machen
                 a = false; //Objekt wird deaktiviert
                 special = new TimeSpan(0, 0, 5); //Zeit wie lange die Aktion(Verlangsamung...) dauern soll

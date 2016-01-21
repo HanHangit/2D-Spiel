@@ -14,9 +14,14 @@ namespace Test
         private View view;
         private String time;
         private String leben;
+        private String score;
+        private String position;
+        private Font font;
+        private Text text;
         public Hud()
         {
-
+            font = new Font("arial.ttf");
+            text.Font = font;
         }
         public void setView(View view)
         {
@@ -24,11 +29,19 @@ namespace Test
         }
         public void Update(GameTime gTime)
         {
-
+            time = gTime.Total.Minutes + ":" + gTime.Total.Seconds + ":" + gTime.Total.Milliseconds; 
+        }
+        public void Update(Vector2f pos)
+        {
+            position = "X: " + pos.X + "/r /n" + "Y: " + pos.Y;
+        }
+        public void Update(int scr)
+        {
+            score = "" + scr;
         }
         public void Draw(Window win)
         {
-
+            
         }
     }
 }
