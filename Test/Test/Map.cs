@@ -81,23 +81,29 @@ namespace Test
 
         public bool IsWalkable(GameObject gObj) //COllision mit Wand[Rechts,Links]
         {
-            int x = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize); 
-            int y = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize); 
+            int topLeftX = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize); 
+            int topLeftY = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize); 
 
 
-            int sx = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
-            int sy = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+            int topRightX = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
+            int topRightY = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
 
-            Console.WriteLine("x: " + x + "; y: " + y);
+            // Achtung: zur Berechnung der Position auf der y-Achse wird hier ein konstante von der y-Höhe abgezogen
+            int bottomLeftX = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
+            int bottomLeftY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) - 11 + gObj.MovingDirection.Y) / TileSize);
+
+            int bottomRightX = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
+            int bottomRightY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) - 11 + gObj.MovingDirection.Y) / TileSize);
+
+
+            Console.WriteLine("x: " + topLeftX + "; y: " + topLeftY);
             // Console.WriteLine("x-sx: " + (x - sx) + " y-sy: "+ (y-sy));
 
             try
             {
                 // Console.WriteLine("x: " + x + "; sx: " + sx);
-
-                // return Wert fixen!!! ... es funktioniert allerdings leider noch nicht richtig
-                // Problem war die Nutzung der falschen Variable(x war variabel und y fest)
-                return tiles[x, y].Walkable && tiles[sx, sy].Walkable;
+                return tiles[topLeftX, topLeftY].Walkable && tiles[topRightX, topRightY].Walkable
+                    && tiles[bottomLeftX, bottomLeftY].Walkable && tiles[bottomRightX, bottomRightY].Walkable;
             }
             catch (IndexOutOfRangeException)
             {
@@ -107,14 +113,20 @@ namespace Test
 
         public bool IsWalkablegrav(GameObject gObj) //COllision nur mit Untergrund
         {
-            int x = (int)((gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize));
-            int y = (int)(((gObj.Position.Y - gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+            int bottomLeftX = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + 11 + gObj.MovingDirection.X) / TileSize);
+            int bottomLeftY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
 
-            int sx = (int)(gObj.Position.X / TileSize + gObj.MovingDirection.X / TileSize);
-            int sy = (int)((gObj.Position.Y + gObj.sprite.TextureRect.Height / 2 + gObj.MovingDirection.Y) / TileSize );
+            int bottomRightX = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) - 11 + gObj.MovingDirection.X) / TileSize);
+            int bottomRightY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+
+            int bottomCenterX = (int)((gObj.Position.X + gObj.MovingDirection.X) / TileSize);
+            int bottomCenterY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize);
+
+
             try
             {
-                return tiles[x, sy].Walkablegrav && tiles[sx, sy].Walkablegrav;
+                return tiles[bottomLeftX, bottomLeftY].Walkablegrav && tiles[bottomRightX, bottomRightY].Walkablegrav
+                    && tiles[bottomCenterX, bottomCenterY].Walkable;
             }
             catch(IndexOutOfRangeException)
             {
