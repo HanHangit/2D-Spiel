@@ -71,7 +71,7 @@ namespace Test
             baseGravitationAbsolut = -10f; 
             sprite = new Sprite(textlaufenrechts);
             sprite.Position = startPosition;
-            sprite.Origin = new Vector2f (textlaufenrechts.Size.X / 4, textlaufenrechts.Size.Y / 2);
+            sprite.Origin = new Vector2f (textlaufenrechts.Size.X / 2, textlaufenrechts.Size.Y / 2);
             sprite.TextureRect = new IntRect(0, 0, 0, 0);
             view = new View(new Vector2f(0,0),new Vector2f(800,600));
             bewegungumdrehen = 1;
@@ -287,15 +287,15 @@ namespace Test
                 }
             }
 
-            Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
-            Console.WriteLine(sprite.Texture);
+            //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
+            //Console.WriteLine(sprite.Texture);
             if (checkneueanim(sprite.TextureRect,x,y,w,h))
                 sprite.TextureRect = new IntRect(x[0], y[0], w[0], h[0]);
             else
             if (time.Milliseconds >= animtime)
                 {
                     time = new TimeSpan(0);
-                System.Console.WriteLine(sprite.TextureRect.Left.ToString() + "||||" + x[i]);
+                // System.Console.WriteLine(sprite.TextureRect.Left.ToString() + "||||" + x[i]);
                 while (sprite.TextureRect.Left != x[i])
                     {
                         ++i;
@@ -319,11 +319,13 @@ namespace Test
             }
             Console.Write("Animationtime: " + time.Milliseconds + "; \t");
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
+            /*
             Console.WriteLine(sprite.TextureRect);
             Console.Write("");
             Console.WriteLine(sprite.Texture.Equals(textjumprechts));
             Console.WriteLine(isMovingright);
             Console.Write("");
+            */
         }
 
         private static bool checkneueanim(IntRect text, int[] x, int[] y, int[] w, int[] h)
@@ -401,16 +403,27 @@ namespace Test
                 Sprung(gTime);
             else if (jumptrue == 1)
                 jump = true;
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Left))
+            if(Keyboard.IsKeyPressed(Keyboard.Key.Left))
             {
                 MovingDirection = new Vector2f(-10, 0);
-                isMovingright = false;
-                isMovingleft = true;
-
             }
-            else if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Right))
             {
                 MovingDirection = new Vector2f(10, 0);
+            }
+
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Left) && Map01.map.IsWalkable(this))
+            {
+                MovingDirection = new Vector2f(-10, 0);
+                
+                isMovingright = false;
+                isMovingleft = true;
+            }
+
+            else if (Keyboard.IsKeyPressed(Keyboard.Key.Right) && Map01.map.IsWalkable(this))
+            {
+                MovingDirection = new Vector2f(10, 0);
+                
                 isMovingright = true;
                 isMovingleft = false;
             }
@@ -421,6 +434,8 @@ namespace Test
                 isMovingleft = false;
                 isMovingright = false;
             }
+
+            Console.WriteLine("left-rigth-walkable: " + Map01.map.IsWalkable(this));      
 
             MovingDirection *= bewegungumdrehen;
         }

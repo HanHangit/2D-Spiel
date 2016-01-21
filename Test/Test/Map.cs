@@ -33,7 +33,7 @@ namespace Test
                         if((i < 2 || i > mask.Width - 2 || j < 2 || j > mask.Height - 2))
                             tiles[i, j] = new Tile(SFML.Graphics.Color.Black, new Vector2f(i, j) * TileSize, false, false, new Vector2f(TileSize, TileSize));
                         else
-                            tiles[i, j] = new Tile(SFML.Graphics.Color.Black, new Vector2f(i, j) * TileSize, false, true, new Vector2f(TileSize, TileSize));
+                            tiles[i, j] = new Tile(SFML.Graphics.Color.Black, new Vector2f(i, j) * TileSize, false, false, new Vector2f(TileSize, TileSize));
                     }
                     else
                     {
@@ -61,7 +61,7 @@ namespace Test
                         }
                         else
                         {
-                            tiles[i, j] = "true";
+                            tiles[i, j] = "false";
                             tilesgrav[i, j] = "false";
                         }
                     }
@@ -81,15 +81,23 @@ namespace Test
 
         public bool IsWalkable(GameObject gObj) //COllision mit Wand[Rechts,Links]
         {
-            int x = (int)(gObj.Position.X / TileSize - gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
-            int y = (int)(gObj.Position.Y / TileSize - gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
+            int x = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize); 
+            int y = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize); 
 
-            int sx = (int)(gObj.Position.X / TileSize + gObj.sprite.TextureRect.Width / 2 / TileSize + gObj.MovingDirection.X / TileSize);
-            int sy = (int)(gObj.Position.Y / TileSize + gObj.sprite.TextureRect.Height / 2 / TileSize + gObj.MovingDirection.Y / TileSize );
+
+            int sx = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
+            int sy = (int)((gObj.Position.Y - (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+
+            Console.WriteLine("x: " + x + "; y: " + y);
+            // Console.WriteLine("x-sx: " + (x - sx) + " y-sy: "+ (y-sy));
 
             try
             {
-                return tiles[x, 10].Walkable && tiles[sx, 10].Walkable;
+                // Console.WriteLine("x: " + x + "; sx: " + sx);
+
+                // return Wert fixen!!! ... es funktioniert allerdings leider noch nicht richtig
+                // Problem war die Nutzung der falschen Variable(x war variabel und y fest)
+                return tiles[x, y].Walkable && tiles[sx, sy].Walkable;
             }
             catch (IndexOutOfRangeException)
             {
