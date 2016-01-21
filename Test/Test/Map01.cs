@@ -21,7 +21,7 @@ namespace Test
         static Sprite sprite;
         static Texture text;
         public static TimeSpan start;
-
+		public static List<CheckPoint> checkPointList = new List<CheckPoint> { };
         public void Draw(RenderWindow window)
         {
             player.setview(window);
