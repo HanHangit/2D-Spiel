@@ -15,6 +15,8 @@ namespace Test
         Tile[,] tiles;
         public float TileSize { get { return 50; } }
 
+        public List<CheckPoint> CheckPointList = new List<CheckPoint> {};
+
         public Vector2f map;
         static string white = System.Drawing.Color.FromArgb(255, 255, 255).Name;
         static string black = System.Drawing.Color.FromArgb(0, 0, 0).Name;
@@ -131,6 +133,16 @@ namespace Test
                 return false;
             }
         }
+
+        public CheckPoint getLastCheckpoint(List<CheckPoint> checkPointList)
+        {
+            CheckPoint lastCheckPoint = new CheckPoint(new Vector2f(0, 0));
+
+            
+
+            return lastCheckPoint;
+        }
+
         public void Draw(RenderWindow win)
         {
 
