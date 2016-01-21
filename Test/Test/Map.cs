@@ -95,8 +95,6 @@ namespace Test
             int bottomRightX = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) + gObj.MovingDirection.X) / TileSize);
             int bottomRightY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) - 11 + gObj.MovingDirection.Y) / TileSize);
 
-
-            Console.WriteLine("x: " + topLeftX + "; y: " + topLeftY);
             // Console.WriteLine("x-sx: " + (x - sx) + " y-sy: "+ (y-sy));
 
             try
