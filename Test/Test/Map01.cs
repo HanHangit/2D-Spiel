@@ -20,7 +20,8 @@ namespace Test
         public static Hud hud { get; private set; }
         static Sprite sprite;
         static Texture text;
-
+        List<CheckPoint> checkPointList = new List<CheckPoint> { };
+         
 
         public void Draw(RenderWindow window)
         {
