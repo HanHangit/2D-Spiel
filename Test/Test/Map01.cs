@@ -20,7 +20,7 @@ namespace Test
         public static Hud hud { get; private set; }
         static Sprite sprite;
         static Texture text;
-
+        public static TimeSpan start;
 
         public void Draw(RenderWindow window)
         {
