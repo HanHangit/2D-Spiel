@@ -19,6 +19,7 @@ namespace Test
         public static Powerups01 powerups { get; private set; }
         static Sprite sprite;
         static Texture text;
+
         public void Draw(RenderWindow window)
         {
             player.setview(window);
@@ -60,6 +61,7 @@ namespace Test
 
             gTime.Update();
             player.Update(gTime);
+            Console.WriteLine("Player.X: " + Map01.player.Position.X + ";   Player.Y: " + Map01.player.Position.Y);
             if (player.a)
             {
                 player.animation(gTime);
