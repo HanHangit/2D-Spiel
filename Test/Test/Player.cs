@@ -367,10 +367,13 @@ namespace Test
         public void resetpos()
         {
             deadtime = new TimeSpan(0, 0, 2);
+            startpos = Map.getLastCheckpoint(Map01.checkPointList).getPositionVector2f();
             a = false;
             sprite.Texture = textdead;
             sprite.TextureRect = new IntRect(0,0,68,64);
             sterblich = false;
+
+            Console.WriteLine("start.x: " + startpos.X + "; start.y: " + startpos.Y);
         }
 
         void Sprung(GameTime gTime) 

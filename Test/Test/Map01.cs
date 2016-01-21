@@ -20,6 +20,7 @@ namespace Test
         public static Hud hud { get; private set; }
         static Sprite sprite;
         static Texture text;
+        public static List<CheckPoint> checkPointList;
 
         public void Draw(RenderWindow window)
         {
@@ -47,7 +48,8 @@ namespace Test
             TimeSpan time = new TimeSpan();
             timer.Start();
             time = new TimeSpan(0, 0, 1);
-
+            checkPointList = CheckPoint.checkPointList01();
+            
         }
 
         public void LoadContent()

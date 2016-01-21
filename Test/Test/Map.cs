@@ -15,7 +15,7 @@ namespace Test
         Tile[,] tiles;
         public float TileSize { get { return 50; } }
 
-        public List<CheckPoint> CheckPointList = new List<CheckPoint> {};
+        // public List<CheckPoint> CheckPointList = new List<CheckPoint> {};
 
         public Vector2f map;
         static string white = System.Drawing.Color.FromArgb(255, 255, 255).Name;
@@ -134,11 +134,31 @@ namespace Test
             }
         }
 
-        public CheckPoint getLastCheckpoint(List<CheckPoint> checkPointList)
+        public static CheckPoint getLastCheckpoint(List<CheckPoint> checkPointList)
         {
-            CheckPoint lastCheckPoint = new CheckPoint(new Vector2f(0, 0));
+            CheckPoint lastCheckPoint = new CheckPoint(new Vector2f(200, 1400));
 
-            
+            if(checkPointList.Count == 0)
+            {
+                return lastCheckPoint;
+            }
+        
+            float smallestDistance = Map01.player.Position.X - checkPointList[0].getPostionX();
+            int indexOfLastCheckPoint = 0;
+
+            for (int i = 1; i < checkPointList.Count; i++)
+            {
+                //TODO: muss verallgemeinert werden --> Bezug auf Map.cs
+                float currentDistance = Map01.player.Position.X - checkPointList[i].getPostionX();
+                if (currentDistance <= smallestDistance && currentDistance >= 0)
+                {
+                    Console.WriteLine("yay");
+                    indexOfLastCheckPoint = i;
+                    smallestDistance = currentDistance;
+                }
+                Console.WriteLine(smallestDistance);
+            }
+            lastCheckPoint = checkPointList[indexOfLastCheckPoint];
 
             return lastCheckPoint;
         }
