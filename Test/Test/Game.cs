@@ -37,6 +37,7 @@ namespace Test
         {
             switch (curr)
             {
+
                 case EGameState.None:
                     window.Close();
                     break;
@@ -49,6 +50,7 @@ namespace Test
                     state = new Map01();
                     state.LoadContent();
                     state.Initialize();
+                    gTime.resettime();
                     break;
                 default:
                     break;

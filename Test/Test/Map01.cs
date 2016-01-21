@@ -20,6 +20,7 @@ namespace Test
         public static Hud hud { get; private set; }
         static Sprite sprite;
         static Texture text;
+        public static TimeSpan start;
 
         public void Draw(RenderWindow window)
         {
@@ -43,6 +44,7 @@ namespace Test
             sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups01();
             hud = new Hud();
+            start = new TimeSpan(0, 0, 3);
             Stopwatch timer = new Stopwatch();
             TimeSpan time = new TimeSpan();
             timer.Start();
@@ -63,7 +65,14 @@ namespace Test
                 return EGameState.TitleScreen;
 
             gTime.Update();
-            player.Update(gTime);
+            if (gTime.Total.Ticks > start.Ticks) //StartCountdown
+            {
+                player.Update(gTime);
+            }
+            else
+            {
+
+            }
             Console.WriteLine("Player.X: " + Map01.player.Position.X + ";   Player.Y: " + Map01.player.Position.Y);
             if (player.a)
             {

@@ -81,6 +81,8 @@ namespace Test
             animrepeat = true;
             maxheight = sprite.Position.Y;
             isJumping = true;
+            deadtime = new TimeSpan(0);
+            sterblich = true;
         }
 
         public void animation(GameTime gTime)
