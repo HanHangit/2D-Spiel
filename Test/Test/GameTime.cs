@@ -18,7 +18,12 @@ namespace Test
             watch = new Stopwatch();
             Total = new TimeSpan();
             Ellapsed = new TimeSpan();
+            watch.Start();
+        }
 
+        public void resettime()
+        {
+            watch.Reset();
             watch.Start();
         }
 

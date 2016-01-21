@@ -30,7 +30,10 @@ namespace Test
         }
         public void Update(TimeSpan total)
         {
-            time = total.Minutes + ":" + total.Seconds + ":" + total.Milliseconds; 
+            total = total.Subtract(Map01.start);
+            if (total.Ticks < 0)
+                total = total.Negate();
+            time = total.Minutes + ":" + total.Seconds.ToString("00.") + ":" + total.Milliseconds; 
         }
         public void Update(Vector2f pos)
         {
