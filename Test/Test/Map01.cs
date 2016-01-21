@@ -17,6 +17,7 @@ namespace Test
         public static Map collmap { get; private set; }
         public static Enemy01 enemy { get; private set; }
         public static Powerups01 powerups { get; private set; }
+        public static Hud hud { get; private set; }
         static Sprite sprite;
         static Texture text;
 
@@ -28,6 +29,7 @@ namespace Test
             player.Draw(window);
             enemy.Draw(window);
             powerups.Draw(window);
+            hud.Draw(window);
         }
 
         public void Initialize()
@@ -40,6 +42,7 @@ namespace Test
             sprite = new Sprite(text);
             sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups01();
+            hud = new Hud();
             Stopwatch timer = new Stopwatch();
             TimeSpan time = new TimeSpan();
             timer.Start();

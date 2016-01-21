@@ -27,6 +27,7 @@ namespace Test
         public bool isJumping;
         private Vector2f startpos;
         private TimeSpan deadtime;
+        public int score;
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
@@ -58,6 +59,7 @@ namespace Test
                 textdead = new Texture("Cookie-animation/tot.png");
 
             }
+            score = 0;
             a = true;
             jumptrue = 1;
             basejumptrue = 1;
@@ -431,6 +433,8 @@ namespace Test
 
         public override void Update(GameTime gTime)
         {
+            Map01.hud.Update(score);
+            Map01.hud.Update(Position);
             if (deadtime.Seconds < 0)
             {
                 if(a == false)
@@ -481,7 +485,7 @@ namespace Test
                 jump = true;
                 jumptrue = basejumptrue;
                 GravitationAbsolut = 0f;
-                maxheight = sprite.Position.Y - 100;
+                maxheight = sprite.Position.Y - 50;
                 isJumping = false;
             }
             if (Math.Abs(div) < 1f)
@@ -524,6 +528,7 @@ namespace Test
             
             view.Center = camPos;
             window.SetView(view);
+            Map01.hud.setView(view);
         }
     }
 }

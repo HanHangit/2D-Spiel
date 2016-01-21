@@ -14,20 +14,51 @@ namespace Test
         private View view;
         private String time;
         private String leben;
+        private String score;
+        private String position;
+        private Font font;
+        private Text text;
         public Hud()
         {
-
+            font = new Font("arial.ttf");
+            text = new Text("", font);
+            view = new View(new Vector2f(100, 100), new Vector2f(50, 50));
         }
         public void setView(View view)
         {
             this.view = view;
         }
-        public void Update(GameTime gTime)
+        public void Update(TimeSpan total)
         {
-
+            time = total.Minutes + ":" + total.Seconds + ":" + total.Milliseconds; 
         }
-        public void Draw(Window win)
+        public void Update(Vector2f pos)
         {
+            position = "X: " + (int)pos.X + "\n" + "Y: " + (int)pos.Y;
+        }
+        public void Update(int scr)
+        {
+            score = "" + scr;
+        }
+        public void Draw(RenderWindow win)
+        {
+            int k = 10;
+            text = new Text(time, font);
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X - view.Size.X / 2 + k, view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+
+            text = new Text(score, font);
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X, view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+
+            text = new Text(position, font);
+
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X + view.Size.X / 2 - k - text.GetLocalBounds().Width , view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+            Console.WriteLine(text.Position.ToString());
 
         }
     }

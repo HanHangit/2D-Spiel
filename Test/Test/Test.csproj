@@ -107,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="arial.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Test_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
