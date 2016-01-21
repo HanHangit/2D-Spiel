@@ -21,27 +21,45 @@ namespace Test
         public Hud()
         {
             font = new Font("arial.ttf");
-            text.Font = font;
+            text = new Text("", font);
+            view = new View(new Vector2f(100, 100), new Vector2f(50, 50));
         }
         public void setView(View view)
         {
             this.view = view;
         }
-        public void Update(GameTime gTime)
+        public void Update(TimeSpan total)
         {
-            time = gTime.Total.Minutes + ":" + gTime.Total.Seconds + ":" + gTime.Total.Milliseconds; 
+            time = total.Minutes + ":" + total.Seconds + ":" + total.Milliseconds; 
         }
         public void Update(Vector2f pos)
         {
-            position = "X: " + pos.X + "/r /n" + "Y: " + pos.Y;
+            position = "X: " + (int)pos.X + "\n" + "Y: " + (int)pos.Y;
         }
         public void Update(int scr)
         {
             score = "" + scr;
         }
-        public void Draw(Window win)
+        public void Draw(RenderWindow win)
         {
-            
+            int k = 10;
+            text = new Text(time, font);
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X - view.Size.X / 2 + k, view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+
+            text = new Text(score, font);
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X, view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+
+            text = new Text(position, font);
+
+            text.Color = new Color(Color.Red);
+            text.Position = new Vector2f(view.Center.X + view.Size.X / 2 - k - text.GetLocalBounds().Width , view.Center.Y - view.Size.Y / 2 + k);
+            win.Draw(text);
+            Console.WriteLine(text.Position.ToString());
+
         }
     }
 }
