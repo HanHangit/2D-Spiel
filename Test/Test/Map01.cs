@@ -44,7 +44,7 @@ namespace Test
             sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups01();
             hud = new Hud();
-            start = new TimeSpan(0, 0, 3);
+            start = new TimeSpan(0, 0, 5);
             Stopwatch timer = new Stopwatch();
             TimeSpan time = new TimeSpan();
             timer.Start();
