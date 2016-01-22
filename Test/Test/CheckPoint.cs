@@ -38,17 +38,5 @@ namespace Test
         {
             return this.Position;
         }
-
-        public static List<CheckPoint> checkPointList01()
-        {
-            List<CheckPoint> result = new List<CheckPoint> { };
-
-            result.Add(new CheckPoint(200, 1400));
-            result.Add(new CheckPoint(2000, 1400));
-            result.Add(new CheckPoint(4000, 1400));
-            result.Add(new CheckPoint(6000, 1400));
-
-            return result;
-        }
     }
 }

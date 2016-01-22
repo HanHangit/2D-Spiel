@@ -290,23 +290,18 @@ namespace Test
                 }
             }
 
-            //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
-            //Console.WriteLine(sprite.Texture);
             if (checkneueanim(sprite.TextureRect,x,y,w,h))
                 sprite.TextureRect = new IntRect(x[0], y[0], w[0], h[0]);
             else
             if (time.Milliseconds >= animtime)
                 {
                     time = new TimeSpan(0);
-                // System.Console.WriteLine(sprite.TextureRect.Left.ToString() + "||||" + x[i]);
                 while (sprite.TextureRect.Left != x[i])
                     {
                         ++i;
                     }
-                // System.Console.WriteLine(i + "||" + (x.Length - 1));
                 if (i == x.Length - 1 && animrepeat)
                 {
-                    //sprite.TextureRect = new IntRect(x[x.Length - 1], y[y.Length - 1], w[w.Length - 1], h[h.Length - 1]);
                     i = 0;
                     sprite.TextureRect = new IntRect(x[i], y[i], w[i], h[i]);
                 }
@@ -316,9 +311,6 @@ namespace Test
                         ++i;
                     sprite.TextureRect = new IntRect(x[i], y[i], w[i], h[i]);
                 }
-                //System.Console.WriteLine(i);
-                //System.Console.WriteLine(sprite.TextureRect.Left.ToString());
-                //Console.WriteLine(checkneueanim(sprite.TextureRect, x, y, w, h));
             }
             // Console.Write("Animationtime: " + time.Milliseconds + "; \t");
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);

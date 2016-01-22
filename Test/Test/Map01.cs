@@ -22,6 +22,7 @@ namespace Test
         static Texture text;
         public static TimeSpan start;
 		public static List<CheckPoint> checkPointList = new List<CheckPoint> { };
+        
         public void Draw(RenderWindow window)
         {
             player.setview(window);
@@ -39,6 +40,7 @@ namespace Test
             map = new Map(new System.Drawing.Bitmap("Collision-Bitmap.bmp"));
             player = new Player("Cookie2", new Vector2f(200, 1400));
             enemy = new Enemy01();
+            checkPointList = checkPointList01();
             text = new Texture("Collision-Bitmap.bmp");
             sprite = new Sprite(text);
             sprite.Scale = new Vector2f(50, 50);
@@ -49,7 +51,7 @@ namespace Test
             TimeSpan time = new TimeSpan();
             timer.Start();
             time = new TimeSpan(0, 0, 1);
-            checkPointList = CheckPoint.checkPointList01();
+            
             
         }
 
@@ -57,8 +59,17 @@ namespace Test
         {
 
         }
-    
-    
+
+        public static List<CheckPoint> checkPointList01()
+        {
+            List<CheckPoint> result = new List<CheckPoint> { };
+
+            result.Add(new CheckPoint(6320, 1000));
+            result.Add(new CheckPoint(13425, 750));
+
+
+            return result;
+        }
 
         public EGameState Update(GameTime gTime)
         {
@@ -74,7 +85,6 @@ namespace Test
             {
 
             }
-            Console.WriteLine("Player.X: " + Map01.player.Position.X + ";   Player.Y: " + Map01.player.Position.Y);
             if (player.a)
             {
                 player.animation(gTime);

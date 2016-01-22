@@ -120,8 +120,7 @@ namespace Test
         private void deactivate(GameTime gTime)
         {
             special = special.Subtract(new TimeSpan(gTime.Ellapsed.Ticks));
-            //Console.WriteLine(special.Seconds);
-            if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis
+            if (special.Ticks < 2) //"Knapp daneben" Zitat Matthis; Hö ?
             {
                 a = true;
                 special = new TimeSpan(0);

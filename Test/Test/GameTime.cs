@@ -35,7 +35,6 @@ namespace Test
                 Ellapsed = watch.Elapsed - Total;
             Total = watch.Elapsed;
             Map01.hud.Update(Total);
-            //Console.WriteLine(Ellapsed.Milliseconds);
         }
     }
 }

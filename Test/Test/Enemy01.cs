@@ -14,15 +14,17 @@ namespace Test
         //TODO: Liste für weitere Monster
         List<Geist> geister; //Liste!!!!!!
         List<Zombie> zombies;
+
         public Enemy01()
         {
             geister = new List<Geist>();
+            zombies = new List<Zombie>();
+
             geister.Add(new Geist());
             geister.Add(new Geist(new Vector2f(300, 1200), new Vector2f(300, 1400)));
-            zombies = new List<Zombie>();
-            //zombies.Add(new Zombie(new Vector2f(200, 200)));
-            //zombies.Add(new Zombie(new Vector2f(500, 200)));
-            //zombies.Add(new Zombie(new Vector2f(800, 200)));
+            geister.Add(new Geist(new Vector2f(6325, 600), new Vector2f(6325, 1070)));
+            geister.Add(new Geist(new Vector2f(6250, 1350), new Vector2f(5800, 1350)));
+            
             zombies.Add(new Zombie(new Vector2f(1000, 200)));
             zombies.Add(new Zombie(new Vector2f(1200, 200)));
             zombies.Add(new Zombie(new Vector2f(1300, 200)));
@@ -38,10 +40,21 @@ namespace Test
             zombies.Add(new Zombie(new Vector2f(3700, 200)));
             zombies.Add(new Zombie(new Vector2f(4000, 200)));
             zombies.Add(new Zombie(new Vector2f(4100, 200)));
-
             zombies.Add(new Zombie(new Vector2f(3400, 300)));
             zombies.Add(new Zombie(new Vector2f(3200, 300)));
-            //zombies.Add(new Zombie(new Vector2f(400, 200)));
+            zombies.Add(new Zombie(new Vector2f(4600, 1200)));
+            zombies.Add(new Zombie(new Vector2f(5300, 700)));
+            zombies.Add(new Zombie(new Vector2f(5700, 1200)));
+            zombies.Add(new Zombie(new Vector2f(7500, 1000)));
+            zombies.Add(new Zombie(new Vector2f(7800, 800)));
+            zombies.Add(new Zombie(new Vector2f(7950, 800)));
+            zombies.Add(new Zombie(new Vector2f(9500, 750)));
+            zombies.Add(new Zombie(new Vector2f(9000, 1200)));
+            zombies.Add(new Zombie(new Vector2f(10500, 1200)));
+            zombies.Add(new Zombie(new Vector2f(13700, 600)));
+            zombies.Add(new Zombie(new Vector2f(14000, 1200)));
+
+
         }
 
         public void Draw(RenderWindow window)
