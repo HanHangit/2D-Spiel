@@ -77,7 +77,6 @@ namespace Test
             sprite.TextureRect = new IntRect(0, 0, 0, 0);
             view = new View(new Vector2f(0,0),new Vector2f(800,600));
             bewegungumdrehen = 1;
-            a = true;
             animrepeat = true;
             maxheight = sprite.Position.Y;
             isJumping = true;

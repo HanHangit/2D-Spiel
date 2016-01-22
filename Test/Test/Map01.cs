@@ -44,7 +44,7 @@ namespace Test
             sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups01();
             hud = new Hud();
-            start = new TimeSpan(0, 0, 5);
+            start = new TimeSpan(0, 0, 3);
             Stopwatch timer = new Stopwatch();
             TimeSpan time = new TimeSpan();
             timer.Start();
@@ -66,7 +66,7 @@ namespace Test
                 return EGameState.TitleScreen;
 
             gTime.Update();
-            if (gTime.Total.Ticks > start.Ticks) //StartCountdown
+            if (gTime.Total.Seconds >= start.Seconds - 1) //StartCountdown
             {
                 player.Update(gTime);
             }
