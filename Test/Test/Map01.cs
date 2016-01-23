@@ -37,11 +37,11 @@ namespace Test
         public void Initialize()
         {
             //Objekte der Klassen werden initialisiert.
-            map = new Map(new System.Drawing.Bitmap("Collision-Bitmap.bmp"));
+            map = new Map(new System.Drawing.Bitmap("Collision-Maps/Collision-Bitmap.bmp"));
             player = new Player("Cookie2", new Vector2f(200, 1400));
             enemy = new Enemy01();
             checkPointList = checkPointList01();
-            text = new Texture("Collision-Bitmap.bmp");
+            text = new Texture("Collision-Maps/Collision-Bitmap.bmp");
             sprite = new Sprite(text);
             sprite.Scale = new Vector2f(50, 50);
             powerups = new Powerups01();
@@ -58,17 +58,6 @@ namespace Test
         public void LoadContent()
         {
 
-        }
-
-        public static List<CheckPoint> checkPointList01()
-        {
-            List<CheckPoint> result = new List<CheckPoint> { };
-
-            result.Add(new CheckPoint(6320, 1000));
-            result.Add(new CheckPoint(13425, 750));
-
-
-            return result;
         }
 
         public EGameState Update(GameTime gTime)
@@ -92,6 +81,17 @@ namespace Test
             enemy.Update(gTime);
             powerups.Update(gTime);
             return EGameState.Map1;
+        }
+
+        public static List<CheckPoint> checkPointList01()
+        {
+            List<CheckPoint> result = new List<CheckPoint> { };
+
+            result.Add(new CheckPoint(200, 1400));
+            result.Add(new CheckPoint(6320, 1000));
+            result.Add(new CheckPoint(13425, 750));
+
+            return result;
         }
     }
 }

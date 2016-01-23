@@ -116,7 +116,7 @@
     <Content Include="Burger.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Bitmap.bmp">
+    <Content Include="Collision-Maps\Collision-Bitmap.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Cookie-animation\huepfenlinks.png">
@@ -152,19 +152,19 @@
     <Content Include="cookie2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Block.png">
+    <Content Include="Collision-Maps\Collision-Block.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Map.bmp">
+    <Content Include="Collision-Maps\Collision-Map.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Map.png">
+    <Content Include="Collision-Maps\Collision-Map.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Map2.bmp">
+    <Content Include="Collision-Maps\Collision-Map2.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Map2.png">
+    <Content Include="Collision-Maps\Collision-Map2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Cookie.gif">
@@ -203,13 +203,13 @@
     <Content Include="openal32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Bitmap.png">
+    <Content Include="Collision-Maps\Collision-Bitmap.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Speed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Collision-Map1.bmp">
+    <Content Include="Collision-Maps\Collision-Map1.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DoubleJump.png">
