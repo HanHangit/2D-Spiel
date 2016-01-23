@@ -65,7 +65,7 @@ namespace Test
                 return EGameState.TitleScreen;
 
             gTime.Update();
-            if (gTime.Total.Seconds >= start.Seconds - 1) //StartCountdown
+            if (gTime.Total.Seconds >= start.Seconds - 1 || gTime.Total.Minutes > 0) //StartCountdown
             {
                 player.Update(gTime);
             }
