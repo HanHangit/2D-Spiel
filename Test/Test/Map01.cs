@@ -52,7 +52,6 @@ namespace Test
             timer.Start();
             time = new TimeSpan(0, 0, 1);
             
-            
         }
 
         public void LoadContent()
@@ -90,6 +89,7 @@ namespace Test
             result.Add(new CheckPoint(200, 1400));
             result.Add(new CheckPoint(6320, 1000));
             result.Add(new CheckPoint(13425, 750));
+            result.Add(new CheckPoint(24800, 750));
 
             return result;
         }

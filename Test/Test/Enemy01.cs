@@ -24,6 +24,11 @@ namespace Test
             geister.Add(new Geist(new Vector2f(300, 1200), new Vector2f(300, 1400)));
             geister.Add(new Geist(new Vector2f(6325, 600), new Vector2f(6325, 1070)));
             geister.Add(new Geist(new Vector2f(6250, 1350), new Vector2f(5800, 1350)));
+            geister.Add(new Geist(new Vector2f(6875, 480), new Vector2f(7650, 480)));
+            geister.Add(new Geist(new Vector2f(11500, 250), new Vector2f(11500, 450)));
+            geister.Add(new Geist(new Vector2f(20250, 500), new Vector2f(20250, 800)));
+            geister.Add(new Geist(new Vector2f(22500, 1000), new Vector2f(22800, 1000)));
+            geister.Add(new Geist(new Vector2f(29600, 1000), new Vector2f(1000, 600)));
             
             zombies.Add(new Zombie(new Vector2f(1000, 200)));
             zombies.Add(new Zombie(new Vector2f(1200, 200)));
@@ -53,7 +58,20 @@ namespace Test
             zombies.Add(new Zombie(new Vector2f(10500, 1200)));
             zombies.Add(new Zombie(new Vector2f(13700, 600)));
             zombies.Add(new Zombie(new Vector2f(14000, 1200)));
-
+            zombies.Add(new Zombie(new Vector2f(14800, 800)));
+            zombies.Add(new Zombie(new Vector2f(15600, 400)));
+            zombies.Add(new Zombie(new Vector2f(16400, 850)));
+            zombies.Add(new Zombie(new Vector2f(17400, 600)));
+            zombies.Add(new Zombie(new Vector2f(21500, 500)));
+            zombies.Add(new Zombie(new Vector2f(22300, 600)));
+            zombies.Add(new Zombie(new Vector2f(29800, 600)));
+            zombies.Add(new Zombie(new Vector2f(31500, 1200)));
+            zombies.Add(new Zombie(new Vector2f(31000, 1200)));
+            zombies.Add(new Zombie(new Vector2f(30550, 1200)));
+            zombies.Add(new Zombie(new Vector2f(29800, 1200)));
+            zombies.Add(new Zombie(new Vector2f(32000, 1200)));
+            zombies.Add(new Zombie(new Vector2f(33000, 1200)));
+            zombies.Add(new Zombie(new Vector2f(33400, 1200)));
 
         }
 
