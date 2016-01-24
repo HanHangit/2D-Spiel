@@ -28,6 +28,7 @@ namespace Test
         private Vector2f startpos;
         private TimeSpan deadtime;
         public int score;
+
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
@@ -365,8 +366,6 @@ namespace Test
             sprite.Texture = textdead;
             sprite.TextureRect = new IntRect(0,0,68,64);
             sterblich = false;
-
-            Console.WriteLine("start.x: " + startpos.X + "; start.y: " + startpos.Y);
         }
 
         void Sprung(GameTime gTime) 
