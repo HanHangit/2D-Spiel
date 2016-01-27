@@ -218,13 +218,13 @@
     <Content Include="DoubleJump.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tofu.gif">
+    <Content Include="Tofu-animation\tofu.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tofu.png">
+    <Content Include="Tofu-animation\tofu.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="tofu2.png">
+    <Content Include="Tofu-animation\tofu2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="vitamin.png">
