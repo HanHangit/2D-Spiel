@@ -28,10 +28,12 @@ namespace Test
         private Vector2f startpos;
         private TimeSpan deadtime;
         public int score;
+        private int korrektur;
 
         public Player(String bild, Vector2f startPosition)
         {
             auswahl = bild;
+            korrektur = 0;
             //TODO: Kann sich erst bewegen nach Ende eines Timers(Start), Animation dazu
             if (auswahl == "Cookie")
             {
@@ -492,6 +494,7 @@ namespace Test
             //Console.WriteLine("Position - maxheight: " + Math.Abs(div) + "\t Collision: " + collmap());
             if (isJumping)
             {
+                korrektur = 2;
                 sprite.Position -= new Vector2f(0, div) * gTime.Ellapsed.Milliseconds / 5;
             }
             else if(!isJumping && collmap())
@@ -500,6 +503,7 @@ namespace Test
             }
             else
             {
+                MovingDirection = new Vector2f(0, 0);
                 jump = true;
                 jumptrue = basejumptrue;
                 GravitationAbsolut = 0f;
