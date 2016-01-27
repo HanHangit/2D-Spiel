@@ -80,6 +80,10 @@ namespace Test
             {
                 player.animation(gTime);
             }
+            else
+            {
+                player.deadanim(gTime);
+            }
             enemy.Update(gTime);
             powerups.Update(gTime);
             pH.Update(gTime);
