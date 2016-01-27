@@ -107,17 +107,18 @@ namespace Test
                 return false;
             }
         }
-
+        // Achtung: hier ist eine Konstante als Puffer für die Gravitation eingebaut
+        // dies muss bei eventuellen Änderungen angepasst werden 
         public bool IsWalkablegrav(GameObject gObj) //COllision nur mit Untergrund
         {
             int bottomLeftX = (int)((gObj.Position.X - (gObj.sprite.TextureRect.Width / 2) + 11 + gObj.MovingDirection.X) / TileSize);
-            int bottomLeftY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+            int bottomLeftY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y + 0.5) / TileSize );
 
             int bottomRightX = (int)((gObj.Position.X + (gObj.sprite.TextureRect.Width / 2) - 11 + gObj.MovingDirection.X) / TileSize);
-            int bottomRightY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize );
+            int bottomRightY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y + 0.5) / TileSize );
 
             int bottomCenterX = (int)((gObj.Position.X + gObj.MovingDirection.X) / TileSize);
-            int bottomCenterY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y) / TileSize);
+            int bottomCenterY = (int)((gObj.Position.Y + (gObj.sprite.TextureRect.Height / 2) + gObj.MovingDirection.Y + 0.5) / TileSize);
 
 
             try

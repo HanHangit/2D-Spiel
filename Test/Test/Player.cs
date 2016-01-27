@@ -481,7 +481,6 @@ namespace Test
             //if(GravitationAbsolut <= 10f)
             //    GravitationAbsolut += GravitationSpeed;
             MovementSpeed =  GravitationAbsolut;
-            MovingDirection = new Vector2f(0, 1);
             float div = sprite.Position.Y - maxheight;
             div = (div + 1) / 30;
             if (div >= 10f)
@@ -507,6 +506,7 @@ namespace Test
                 maxheight = sprite.Position.Y - 50;
                 isJumping = false;
             }
+            MovingDirection = new Vector2f(0, div) * gTime.Ellapsed.Milliseconds / 5;
             if (Math.Abs(div) < 1f)
                 isJumping = false;
         }
