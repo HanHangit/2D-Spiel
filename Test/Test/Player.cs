@@ -40,6 +40,7 @@ namespace Test
                 textjumprechts = new Texture("Cookie-animation/huepfenrechts.png");
                 textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
+                textdead = new Texture("Cookie-animation/tot.png");
             }
             if (auswahl == "Tofu")
             {
@@ -48,6 +49,7 @@ namespace Test
                 textjumprechts = new Texture("tofu.png");
                 textjumplinks = new Texture("tofu2.png");
                 textidle = new Texture("tofu.png");
+                textdead = new Texture("Cookie-animation/tot.png");
             }
             if (auswahl == "Cookie2")
             {
@@ -57,7 +59,7 @@ namespace Test
                 textjumplinks = new Texture("Cookie-animation/huepfenlinks.png");
                 textidle = new Texture("Cookie-animation/idle.png");
                 textdead = new Texture("Cookie-animation/tot.png");
-
+                textdead = new Texture("Cookie-animation/tot.png");
             }
             score = 0;
             a = true;
@@ -316,6 +318,19 @@ namespace Test
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
         }
 
+        public void deadanim(GameTime  gtime)
+        {
+
+            if (deadtime.TotalMilliseconds > 1700)
+                sprite.TextureRect = new IntRect(0, 0, 68, 64);
+            else if (deadtime.TotalMilliseconds > 1400)
+                sprite.TextureRect = new IntRect(68, 0, 68, 64);
+            else if (deadtime.TotalMilliseconds > 1100)
+                sprite.TextureRect = new IntRect(132, 0, 68, 64);
+            else
+                sprite.TextureRect = new IntRect(202, 0, 68, 64);
+        }
+
         private static bool checkneueanim(IntRect text, int[] x, int[] y, int[] w, int[] h)
         {
             int k = 0;
@@ -365,6 +380,7 @@ namespace Test
             sprite.Texture = textdead;
             sprite.TextureRect = new IntRect(0,0,68,64);
             sterblich = false;
+            time = new TimeSpan(0);
 
             Console.WriteLine("start.x: " + startpos.X + "; start.y: " + startpos.Y);
         }
