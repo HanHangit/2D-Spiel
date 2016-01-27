@@ -25,17 +25,17 @@ namespace Test
             speed.Add(new Speed(new Vector2f(600, 1380))); //Speed wird erstellt und Position gesetzt.
             speed.Add(new Speed(new Vector2f(1000, 900)));
             speed.Add(new Speed(new Vector2f(1500, 1200)));
-            speed.Add(new Speed(new Vector2f(10750, 350)));
-            speed.Add(new Speed(new Vector2f(18500, 750)));
-            speed.Add(new Speed(new Vector2f(22000, 850)));
-            speed.Add(new Speed(new Vector2f(26300, 700)));
+            speed.Add(new Speed(new Vector2f(10750, 330)));
+            speed.Add(new Speed(new Vector2f(18500, 720)));
+            speed.Add(new Speed(new Vector2f(22000, 820)));
+            speed.Add(new Speed(new Vector2f(26300, 670)));
 
-            invincable.Add(new Unsterblich(new Vector2f(800, 900)));
-            invincable.Add(new Unsterblich(new Vector2f(1800, 900)));
-            invincable.Add(new Unsterblich(new Vector2f(7600, 500)));
-            invincable.Add(new Unsterblich(new Vector2f(16000, 750)));
-            invincable.Add(new Unsterblich(new Vector2f(20500, 400)));
-            invincable.Add(new Unsterblich(new Vector2f(24200, 600)));
+            invincable.Add(new Unsterblich(new Vector2f(800, 870)));
+            invincable.Add(new Unsterblich(new Vector2f(1800, 870)));
+            invincable.Add(new Unsterblich(new Vector2f(7600, 580)));
+            invincable.Add(new Unsterblich(new Vector2f(16000, 720)));
+            invincable.Add(new Unsterblich(new Vector2f(20500, 380)));
+            invincable.Add(new Unsterblich(new Vector2f(24200, 550)));
 
             burger.Add(new Burger(new Vector2f(500, 1400)));
             burger.Add(new Burger(new Vector2f(1000, 900)));
