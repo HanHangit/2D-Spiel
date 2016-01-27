@@ -62,7 +62,7 @@ namespace Test
 
             if (x < Position.X && Position.X < sx && y < Position.Y && Position.Y < sy) //Collision
             {
-                    return true;
+                return true;
 
             }
             return false;

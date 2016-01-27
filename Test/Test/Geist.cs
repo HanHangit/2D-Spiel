@@ -20,6 +20,7 @@ namespace Test
             textlaufenrechts = new Texture("geistbier.png");
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.6f;
+            baseMovementSpeed = 0.1f; //Geschwindigkeit bitte hier ändern
             sprite.Origin = new Vector2f(textlaufenrechts.Size.X / 2, textlaufenrechts.Size.Y / 2);
             col = sprite.Color;
             a = true;
@@ -41,6 +42,7 @@ namespace Test
             textlaufenrechts = new Texture("geistbier.png");
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.6f;
+            baseMovementSpeed = 0.1f;
             sprite.Origin = new Vector2f(textlaufenrechts.Size.X / 2, textlaufenrechts.Size.Y / 2);
             col = sprite.Color;
             setPosition(punkt1);
@@ -48,6 +50,7 @@ namespace Test
         }
         public override void Update(GameTime gTime)
         {
+            MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
             if (aktion == 0)
                 verfolgen();
             if (aktion == 1)

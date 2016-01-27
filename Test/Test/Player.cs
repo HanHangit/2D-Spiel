@@ -365,8 +365,8 @@ namespace Test
             sprite.Texture = textdead;
             sprite.TextureRect = new IntRect(0,0,68,64);
             sterblich = false;
-
-            Console.WriteLine("start.x: " + startpos.X + "; start.y: " + startpos.Y);
+            Map01.pH.SpawnCollParticles(100,Position);
+            //Console.WriteLine("start.x: " + startpos.X + "; start.y: " + startpos.Y);
         }
 
         void Sprung(GameTime gTime) 
@@ -425,6 +425,13 @@ namespace Test
             {
                 MovingDirection = new Vector2f(0, 0);
             }
+            Vector2f check = MovingDirection * -1;
+            if(!(MovingDirection.Equals(new Vector2f(0,0)) || check.Equals(new Vector2f(0,0))) && GravitationAbsolut == 0) //Partikel werden nur erstellt wenn er den Boden berührt
+            {
+                Vector2f start = new Vector2f(sprite.Position.X,sprite.Position.Y + 15);
+                Map01.pH.SpawnMoveParticles(500, 30, gTime, start, MovingDirection, 2);
+            }
+            
         }
 
         public override void Update(GameTime gTime)
@@ -467,14 +474,14 @@ namespace Test
                 ++GravitationAbsolut;
             //Console.WriteLine(GravitationAbsolut);
             //Console.WriteLine(collmap());
-            Console.WriteLine("Position - maxheight: " + Math.Abs(div) + "\t Collision: " + collmap());
+            //Console.WriteLine("Position - maxheight: " + Math.Abs(div) + "\t Collision: " + collmap());
             if (isJumping)
             {
-                sprite.Position -= new Vector2f(0, div);
+                sprite.Position -= new Vector2f(0, div) * gTime.Ellapsed.Milliseconds / 5;
             }
             else if(!isJumping && collmap())
             {
-                sprite.Position += new Vector2f(0, div);
+                sprite.Position += new Vector2f(0, div) * gTime.Ellapsed.Milliseconds / 5;
             }
             else
             {

@@ -94,6 +94,9 @@
     <Compile Include="Hud.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Map01.cs" />
+    <Compile Include="Particlecoll.cs" />
+    <Compile Include="Particlemove.cs" />
+    <Compile Include="ParticleHandler.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Powerups01.cs" />
     <Compile Include="Program.cs" />
@@ -141,6 +144,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Cookie-animation\tot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Staub.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="vitamin.png">

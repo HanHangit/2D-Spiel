@@ -21,6 +21,7 @@ namespace Test
             textlaufenlinks = new Texture("zombieB.png");
             sprite = new Sprite(textlaufenrechts);
             MovementSpeed = 0.4f;
+            baseMovementSpeed = 0.1f; //Geschwindigkeit des Gegners Bitte Hier Ändern!
             MovingDirection = new Vector2f(1, 0);
             sprite.TextureRect = new IntRect(0, 0, 39, 68);
             sprite.Origin = new Vector2f(sprite.TextureRect.Width / 2, sprite.TextureRect.Height / 2);
@@ -30,6 +31,7 @@ namespace Test
 
         public override void Update(GameTime gTime)
         {
+            MovementSpeed = baseMovementSpeed * gTime.Ellapsed.Milliseconds;
             animation(gTime);
             moving();
             if (a)  
@@ -72,7 +74,6 @@ namespace Test
 
         private void moving()
         {
-
             if (Map01.map.IsWalkablegrav(this) || !Map01.map.IsWalkable(this))
             {
                 MovingDirection *= -1;

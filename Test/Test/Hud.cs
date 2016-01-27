@@ -67,7 +67,7 @@ namespace Test
             text.Color = new Color(Color.Red);
             text.Position = new Vector2f(view.Center.X + view.Size.X / 2 - k - text.GetLocalBounds().Width , view.Center.Y - view.Size.Y / 2 + k);
             win.Draw(text);
-            Console.WriteLine(text.Position.ToString());
+           // Console.WriteLine(text.Position.ToString());
         }
     }
 }

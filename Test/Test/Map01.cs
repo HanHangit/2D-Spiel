@@ -18,6 +18,7 @@ namespace Test
         public static Enemy01 enemy { get; private set; }
         public static Powerups01 powerups { get; private set; }
         public static Hud hud { get; private set; }
+        public static ParticleHandler pH { get; private set; }
         static Sprite sprite;
         static Texture text;
         public static TimeSpan start;
@@ -32,6 +33,7 @@ namespace Test
             enemy.Draw(window);
             powerups.Draw(window);
             hud.Draw(window);
+            pH.Draw(window);
         }
 
         public void Initialize()
@@ -51,6 +53,7 @@ namespace Test
             TimeSpan time = new TimeSpan();
             timer.Start();
             time = new TimeSpan(0, 0, 1);
+            pH = new ParticleHandler();
             
         }
 
@@ -79,6 +82,7 @@ namespace Test
             }
             enemy.Update(gTime);
             powerups.Update(gTime);
+            pH.Update(gTime);
             return EGameState.Map1;
         }
 
